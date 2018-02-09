@@ -1,0 +1,235 @@
+
+\section{Adams algebras}
+
+\subsection{Axioms for Adams algebras}
+
+We have studied unary and binary operations on the set of multiplicative functions, and want to express our findings in a concise form. In order to do so, we first present axioms for two new algebraic structures, called an \emph{Adams $R$-algebra} and a \emph{double Adams $R$-algebra} (here $R$ is a commutative ring that does not necessarily have a multiplicative identity). We also state a form of Wilkerson's theorem, which gives sufficient conditions for an Adams algebra to be a lambda-ring.
+
+The reason for stating these basic definitions very carefully is that there are some subtleties related to the difference between unital commutative rings and not-necessarily-unital commutative rings.
+
+%In order to get to applications as quickly as possible, we postpone to section ?? the lengthy discussion of various subtle points regarding the relationship between Adams $R$-algebras and lambda-rings. This discussion is interesting, but not really relevant for any of our applications to multiplicative functions.
+
+
+
+\begin{definition}
+A \defhl{ring} is a set $R$ equipped with two binary operations called addition ($+$) and multiplication ($\times$), such that 
+\begin{itemize}
+\item $(R, +)$ is an abelian group
+\item The operation $\times$ is associative
+\item The operation $\times$ is distributive over $+$
+\end{itemize}
+If the multiplication is commutative, we say that $R$ is a \defhl{commutative ring}.
+
+A $\defhl{ring homomorphism}$ from a ring $R$ to a ring $S$ is a function which commutes with addition and with multiplication.
+
+If a ring $R$ has a multiplicative identity, we say that $R$ is a \defhl{unital ring}.
+
+If $R$ and $S$ are both unital rings, we say that a ring homomorphism from $R$ to $S$ is a \defhl{unital ring homomorphism} if it preserves the multiplicative identity.
+
+\end{definition}
+
+
+
+\begin{definition}
+Let $R$ be a commutative ring (not necessarily unital). An $R$-\defhl{module} is an abelian group $(M, +)$ equipped with a function $(r, x) \mapsto r\cdot x$ from $R \times M$ to $M$ such that
+\begin{itemize}
+\item $r \cdot (x+y) = r \cdot x + r \cdot y$
+\item $(r \times s) \cdot x = r \cdot (s \cdot x)$
+\item $ (r+s) \cdot x = r \cdot x + s \cdot x$
+\end{itemize}
+for all elements $r$ and $s$ in $R$ and all elements $x$ and $y$ in $M$.
+
+A homomorphism from an $R$-module $M_1$ to another $R$-module $M_2$ is a function $\phi : M_1 \to M_2$ such that 
+\begin{itemize}
+\item $\phi(x+y) = \phi(x) + \phi(y)$
+\item $\phi(r \cdot x) = r \cdot \phi(x)$
+\end{itemize}
+for all elements $r$ in $R$ and all elements $x$ and $y$ in $M_1$.
+
+\end{definition}
+
+
+\begin{definition}
+Let $R$ be a commutative ring. An \defhl{$R$-algebra} is a commutative ring $L$ which is also an $R$-module, such that the multiplication in $L$ is $R$-bilinear:
+\begin{itemize}
+\item $ r\cdot(x \times y) = x \times (r \cdot y) = (r \cdot x) \times y  $
+\end{itemize}
+A \defhl{homomorphism of $R$-algebras} is a function $\phi: L_1 \to L_2$ that is both a ring homomorphism and an $R$-module homomorphism. In other words, it satisfies the three axioms:
+$$ \phi(x+y) = \phi(x) + \phi(y) \qquad \phi(x \times y) = \phi(x) \times \phi(y)  \qquad \phi(r \cdot x) = r  \cdot \phi(x)$$
+for all $r \in R$ and all $x, y \in L_1$.
+
+\end{definition}
+
+\begin{remark}
+Note that because we don't require rings to have a multiplicative identity, an $R$-algebra structure on $L$ is \emph{not} the same thing as a homomorphism of rings from $R$ to $L$. 
+\end{remark}
+
+
+\begin{remark}
+The \defhl{zero ring} is the ring that contains only the element $0$. Note that when $R$ is the zero ring, then an $R$-algebra is just the same thing as a commutative ring, and a homomorphism of $R$-algebras is the same thing as a homomorphism of commutative rings.
+\end{remark}
+
+%\emph{New plan: Note that the expansion algebra has Adams operations which are non-unital and in general non-respectful of the structure map! But they are homomorphisms of non-unital rings. }
+
+\begin{definition}
+Let $R$ be a commutative ring. An \defhl{Adams $R$-algebra} consists of two pieces of data:
+\begin{itemize}
+\item An $R$-algebra $L$, and
+\item For each positive integer $m$, an $R$-algebra homomorphism $\ad{m}$ from $L$ to itself.
+\end{itemize}
+These are required to satisfy the following two axioms:
+
+\begin{itemize}
+\item[A1] The map $\ad{1}$ is the identity map.
+\item[A2] For all $m$ and $n$, we have $\ad{m} \circ \ad{n} = \ad{mn}$.
+\end{itemize}
+\end{definition}
+
+The operations $\ad{m}$ are referred to as \defhl{Adams operations}. By an \defhl{Adams algebra}, we mean an Adams $R$-algebra where $R$ is unspecified or clear from the context.
+
+\begin{definition}
+A \defhl{homomorphism of Adams $R$-algebras} is a map $L_1 \to L_2$ that is an $R$-algebra homomorphism and in addition commutes with $\ad{m}$ for each positive integer $m$.
+\end{definition}
+
+We now want to clear up one possible source of confusion. Saying that a homomorphism of commutative rings is unital can only be reasonably interpreted in one way (and this is the definition we have given above). However, saying that an Adams $R$-algebra is unital can be interpreted in at least two different ways. Therefore we shall \emph{avoid} using the word ``unital" when speaking of Adams $R$-algebras, and we instead fix terminology by defining two ``unitality properties" that a given Adams algebra may or may not have.
+
+\begin{itemize}
+\item[U1] We say that an Adams $R$-algebra \defhl{has a multiplicative identity} if the underlying ring $L$ has a multiplicative identity.
+\item[U2] We say that an Adams $R$-algebra \defhl{has unital Adams operations} if $L$ has a multiplicative identity and for each $m \geq 1$, the homomorphism $\ad{m}$ is unital.
+%the equation $\ad{m}(1) = 1$ is satisfied (i.e. all Adams operations are unital ring homomorphisms).
+
+%NOTE: We have deleted all statements which involve structure maps, because the hat operations (i.e. the expansion operators) do not commute with the structure map, so even though the structure map exists, it does not provide a good language for speaking about the algebra structure.
+
+%\item[U3] We say that an Adams $R$-algebra \defhl{has strongly unital Adams operations} if $R$ and $L$ each has a multiplicative identity, and each Adams operations  the map from $R$ to $L$ defined by $r \mapsto r \cdot 1_L$ 
+
+%the structure map is a unital homomorphism of commutative rings.
+\end{itemize}
+%\begin{remark}
+%Note that $U3$ implies $U2$, and $U2$ implies $U1$.
+%\end{remark}
+\begin{remark}
+For the reader familiar with the notion of a psi-ring, we remark that if we choose $R$ to be the zero ring, and Adams $R$-algebra satisfying axiom $U2$ is the same thing as a psi-ring.
+\end{remark}
+
+
+An Adams algebra may in addition satisfy some of the following properties:
+
+\begin{itemize}
+\item[W1] The additive group underlying $L$ is torsion-free. (This means that for every non-zero element $x \in L$, all finite sums of the form $x+x+ \ldots +x$ (with two or more terms) are also non-zero).
+%\item[W2] The ring $L$ is unital (i.e. it has a multiplicative identity 1).
+%\item[W3] For each $m \geq 1$, the Adams operation $\ad{m}$ is unital (i.e. it satisfies $\ad{m}(1) = 1$).
+\item[W2] For each prime number $p$, the Wilkerson congruence
+$$  \ad{p}(x) \equiv x^p \pmod p  $$
+is satisfied for all $x$ in $L$. (This use of the congruence symbol $\equiv$ signifies that for each prime number $p$ and for all elements $x \in L$, the difference $\ad{p}(x) -  x^p$ lies in the ideal generated by $p$ in the ring $L$.)
+\end{itemize}
+
+Our next task is to say something about the notion of a lambda-ring (i.e. what Grothendieck called a \emph{special} lambda-ring). The definition of a lambda-ring is well-known, complicated and irrelevant for our applications, and we therefore refer the interested reader to Appendix ??. In section ?? we will be discussing lambda operations, symmetric power operations and gamma operations on multiplicative functions, and the reader who has not seen lambda-rings before might want to consult Appendix ?? either now or when reading Section ??. Here and now, we only want to state a \emph{sufficient} criterion for an Adams $R$-algebra to be a lambda-ring.
+
+\begin{theorem}[Reformulation of Wilkerson's theorem]
+Let $L$ be an Adams $R$-algebra. Assume that $L$ satisfies properties $U1$, $U2$, $W1$ and $W2$. Forgetting the $R$-action and viewing $L$ simply as a commutative ring together with a sequence of ring endomorphisms, $L$ is then a lambda-ring. Furthermore, every torsion-free lambda-ring arises in this way. 
+\end{theorem}
+\begin{proof}
+This is an immediate reformulation of Wilkerson's theorem, see Yau \cite[Theorem ??]{Yau}.
+\end{proof}
+\begin{remark}
+Note that the above statement says that an individual Adams $R$-algebra satisfying certain properties is a lambda-ring (after we forget the $R$-action). We are \emph{not} claiming anything about an equivalence of categories.
+\end{remark}
+
+%\begin{remark}
+%\emph{This is an old remark. We could try to reformulate it, delete all references to structure maps, and say something sensible about an equivalence of categories.} Add remark here and above that if working only with objects, we may pass to psi-rings or lambda-rings assuming only $U1$. But in order to have a functor, we need $U2$ as well. Probably!!!! Note also that in our version of Wilkerson's theorem, we should perhaps say that we forget the $R$-action and \emph{then} get a lambda-ring.
+
+%Give reference to Yau. Comment on $U2$ here?? Note that in a $\Z$-algebra, the structure map may send $1$ to any element (including 0) of the algebra. Gaaahh.
+
+%Consider the category of Adams $\Z$-algebras satisfying conditions $U1$, $U2$, $W1$ and $W2$.
+%\end{remark}
+
+\begin{remark}
+We shall in this article encounter many Adams algebra structures on various sets of multiplicative functions. These Adams algebras will all satisfy properties $U1$ and $W1$, but only some of them will satisfy $U2$ and $W2$.
+\end{remark}
+
+%\begin{example}
+%Let $\mathcal{C}$ be the set of continuous functions from $\R$ to $\R$. Then $\C$ is an $\R$-algebra with all operations defined pointwise. Define the Adams operations $\ad{m}$ on $\mathcal{C}$ be precomposing with the function $x \mapsto x^m$. Then \ldots MUST CHECK DETAILS HERE IF WE USE THIS EXAMPLE
+%\end{example}
+
+\begin{example}
+Let $L$ be any lambda-ring, for example (1) the complex representation ring of a finite group, or (2) the complex $K$-theory group $K(X)$ of a (compact, Hausdorff?) topological space $X$. Then $L$ is an Adams $\mathbb{Z}$-algebra, satisfying properties $U1$, $U2$ and $W2$ but \emph{not necessarily} $W1$. Furthermore, if $k$ is a field, then the tensor product $L \otimes_{\mathbb{Z}} k$ is always an Adams $k$-algebra. If $k$ has characteristic 0, this tensor product satisfies $U1$, $U2$, $W1$ and $W2$, while if $k$ has positive characteristic it satisfies $U1$ and $U2$, but never $W1$ and not necessarily $W2$. In particular, in the latter case the tensor product is an Adams $k$-algebra but not a lambda-ring.
+\end{example}
+
+\begin{example}
+Let $\phi: L_1 \to L_2$ be a lambda-ring homomorphism, for example (1) the restriction map between representation rings induced by a homomorphism of finite groups, or (2) the map induced on complex K-theory by a continuous map of topological spaces, or (3) the augmentation map of any augmented lambda-ring. Then the kernel of $\phi$ is \emph{not} a lambda-ring, but it \emph{is} an Adams $R$-algebra (with $R$ the zero ring). 
+\end{example}
+
+\begin{example}
+Let $L$ be any Adams $R$-algebra, and let $Y$ be any set. Then the set $L^Y$ of functions from $Y$ to $L$ is an Adams $R$-algebra, with all operations defined pointwise. 
+\end{example}
+
+\begin{exercise}
+Let $G$ be a commutative semigroup without identity element, and let $R$ be a ring. Consider the semigroup algebra $R[G]$. Is it true that this algebra carries a canonical Adams algebra structure?
+\end{exercise}
+
+\begin{remark}
+All of the above examples can and should be generalized. Some key-words here would be (1) Grothendieck rings of symmetric monoidal abelian categories, (2) Various flavours of algebraic K-theory, and (3) General limits and homotopy limits (and colimits). Developing precise and rigourous statements in these directions would be a very worthwhile enterprise, but because the lambda-ring literature is such a mess, it is a subtle and time-consuming task to carefully verify all details. Possible applications may include cohomology operations on cohomology theories represented by non-unital ring spectra, such as the homotopy fiber of a map between two algebraic K-theory spectra. In fact, the prospect of such applications is the main motivation for not including properties $U1$ and $W1$ in the axioms for an Adams $R$-algebra.
+\end{remark}
+
+\begin{definition}
+A \defhl{double Adams $R$-algebra} is an $R$-algebra $L$ together with \emph{two} families of ring homomorphisms $\ad{m}$ and $\hatad{m}$ such that
+\begin{itemize}
+\item[D1] $L$ equipped with the operations $\ad{m}$ is an Adams $R$-algebra.
+\item[D2] $L$ equipped with the operations $\hatad{m}$ is an Adams $R$-algebra.
+\item[D3] For each $m \geq 1$, the operation $\hatad{m}$ is the right inverse to $\ad{m}$, i.e. we have 
+$$     \ad{m} ( \hatad{m}  (x)) = x $$
+for all $x \in L$.  
+\end{itemize} 
+\end{definition}
+
+\begin{definition}
+A \defhl{homomorphism of double Adams $R$-algebras} is a map that is an $R$-algebra homomorphism and in addition commutes with all Adams operations $\ad{m}$ and $\hatad{m}$
+\end{definition}
+
+
+It might be interesting to study the Adams operations on some of the lambda-rings arising in representation theory and $K$-theory, and determine whether they admit right inverses satisfying the axioms for a double Adams $R$-algebra (for suitable rings $R$). 
+
+\subsection{The compression-expansion algebra}
+
+Let us now turn to a simple but very important example of a double Adams $R$-algebra.
+
+\begin{definition}
+Let $R$ be a commutative ring, and recall that $R^{\N}$ denotes the set of functions from the positive integers to $R$. Any such function can be thought of as a sequence $a_1, a_2, a_3, \ldots$ of elements in $R$. We define the  \defhl{compression-expansion algebra over $R$} to be the set $R^{\N}$ together with its natural ring structure (in which the operations are defined pointwise) and two families of unary operators $C_m$ and $E_m$ defined as follows.
+\begin{itemize}
+\item For any positive integer $m$, the operator $C_m$ sends the sequence $a_1, a_2, a_3, \ldots$ to the sequence $a_{m}, a_{2m}, a_{3m}, \ldots$. We refer to $C_m$ as the $m$'th \defhl{compression operator}.
+\item For any positive integer $m$, the operator $E_m$ sends the sequence $a_1, a_2, a_3, \ldots$ to the sequence $0, 0, \ldots, 0, a_1, 0, 0, \ldots, 0, a_2, 0, \ldots$. This last sequence contains zeroes everywhere except at position $m$, $2m$, $3m$, and so on, where we have placed the numbers $a_1$, $a_2$, $a_3$ etc. We refer to $E_m$ as the $m$'th \defhl{expansion operator}.
+\end{itemize}
+\end{definition}
+
+The next key lemma says that the compression-expansion algebra is always a double Adams $R$-algebra. We formulate the lemma for a unital ring $R$, but note that part (a) is still true even if $R$ is non-unital. 
+
+\begin{lemma}[Compression-expansion lemma] \label{lemma:CE}
+Let $R$ be a unital commutative ring, and let $L = R^{\N}$ be the compression-expansion algebra over $R$. We set $\ad{m} = C_m$ and $\hatad{m} = E_m$.
+\begin{itemize}
+\item[a)] $L$ is a double Adams $R$-algebra. 
+\item[b)] The Adams $R$-algebra structure involving the operations $\ad{m}$ satisfies properties $U1$ and $U2$.
+%satisfies properties $U1$, $U2$ and $U3$. If $R$ is torsion-free, then property $W1$ is satisfied. If $R$ is a $\Q$-algebra, then property $W2$ is satisfied.
+\item[c)] The Adams $R$-algebra structure involving the operations $\hatad{m}$ satisfies properties $U1$, but not property $U2$.
+\item[d)] If $R$ is torsion-free, then property $W1$ is true for $L$.
+\item[e)] If $R$ is a $\Q$-algebra, then property $W2$ is also true in each of the two Adams algebra structures.
+\end{itemize}
+\end{lemma}
+
+
+\begin{proof}
+%\begin{itemize}
+Part (a): It is clear that $L$ is an $R$-algebra, and that $L$ is a double Adams $R$-algebra follows from a straightforward verification of axiom $A1$ and axiom $A2$ for each of the two types of Adams operation. Note that this verification does not rely on $R$ having a multiplicative identity. 
+
+Parts (b) and (c): The multiplicative identity in $L$ is the sequence $(1, 1, 1, \ldots)$, so property $U1$ holds. It is also clear that each compression operator is unital, while this is \emph{not} true for an expansion operator (unless $m = 1$).
+
+Part (d): Clear.
+
+Part (e): If $R$ is a $\Q$-algebra, then so is $L$, and in any $\Q$-algebra, the ideal generated by the element $p$ (or in fact any other non-zero element in the image of the structure map) is the entire ring $L$, so every possible congruence mod $p$ is true. In particular, property $W2$ holds for each of the two types Adams $R$-algebra structures.
+
+%since in this case the sequence $(1, 1, 1, \ldots)$ is sent a sequence of the form $(1, 0, \ldots)$. 
+%\end{itemize}
+\end{proof}
+
+\begin{remark}
+Part (e) of the lemma may look like a somewhat stupid statement. The point here is that later, in order to prove that some structure $L$ is a lambda-ring, we will use the strategy of (1) embedding it in or relating it to some compression-expansion algebra over a $\mathbb{Q}$-algebra $R$, and (2) prove that it is closed under addition, multiplication and all Adams operations. In this way, we can prove that $L$ is a lambda-ring, without directly verifying property W2 for $L$, which would otherwise be the natural thing to try.
+\end{remark}

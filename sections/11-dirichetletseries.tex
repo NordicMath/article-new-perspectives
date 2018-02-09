@@ -1,0 +1,138 @@
+
+\section{Remarks on Dirichlet series and L-functions}
+
+\subsection{Relation to lambda-ring operations}
+
+\emph{We might consider moving some of the material to the first main section, some to the second main section (on Tannakian symbols), some of it to applications to identities, and some of it to future work. For now we just collect everything in this temporary section.}
+
+Let $f$ and $g$ be multiplicative functions with Dirichlet series $D_f(s)$ and $D_g(s)$ respectively. The following statements are simple reformulations of basic definitions and a few well-known facts about Dirichlet series. We collect them here for convenience and future reference.
+\begin{itemize}
+\item \todo{how about 1 <-> riemann}
+\item The function $f \oplus g$ has Dirichlet series $D_f(s) D_g(s)$.
+\item The function $\ominus f$ has Dirichlet series $1/D_f(s)$. In other words, the function $\ominus f$ is the multiplicative function that Iwaniec-Kowalski (page 17??) calls the \emph{M{\"o}bius function associated to} $f$.
+\item The function $f \otimes id_{k}$ has Dirichlet series $D_f(s-k)$. In other words, multiplying a multiplicative function by $n^k$ induces a shift in the corresponding Dirichlet series.\todo{not sure if this is proven..., maybe only for id k}
+\item The function $\hatboxadam{k}(f)$ has Dirichlet series $D(ks)$. \emph{Is this the right Adams op?}
+\item The function $?$ has Dirichlet series $D(s/k)$. (\emph{Is there such an Adams operation? My guess is not.})
+\todo{This would correspond to ad box hat 1/k. corollary of prev.`?}
+%\item The function $?$ 
+\item Write $\bar{g}$ for the complex conjugate of $g$ (i.e. $\bar{g} : = \bar{g(n)} $). If $f$ and $g$ come from automorphic L-functions, then $f \otimes \bar{g}$ corresponds to the Rankin-Selberg convolution of these two L-functions. \emph{Find reference.} In particular, for real-valued functions, the tensor product is an extension of the Rankin-Selberg convolution from automorphic L-functions to general multiplicative functions.
+\item Add explanation of exterior power L-functions and symmetric power L-functions.
+\item Add explanation of twisting an L-function by a character.
+\item Add explanation of the central character of an L-function.
+\item The other operations (list them here) do not have any obvious interpretations in terms of the associated Dirichlet series as far as we can see.
+\end{itemize}
+\todo{can we say anything about Bell derivative?}
+
+\begin{remark}
+In analytic number theory we often take the logarithmic derivative (with respect to the variable $s$) of a Dirichlet series (add reference to buzz words, such as explicit formulas - check what to use). But taking the logarithmic derivative of a Dirichlet series with Euler product yields a new Dirichlet series which does \emph{not} admit an Euler product, so we cannot translate this operation into an operation on multiplicative functions. There are probably interesting things to say here though, related to Tao's language of \emph{derived} multiplicative functions, but this will only be possible after developing our lambda-algebra framework further as to include multiplicative functions with values in rings which are not integral domains. ADD HERE REF TO APOSTOL DEFINITION IN UNDERGRAD BOOK.
+\end{remark}
+
+\todo{Anythin about the subring I and Ane wrote about in EUCYS?}
+\emph{Do we need to define spectral radius here? We may already have made some definitions in the section on invariants earlier.}
+
+\begin{definition}
+Spectral radius of a complex Tannakian symbol.
+\end{definition}
+
+\begin{definition}
+Define $p$-adic spectral radius $\rho_p$.
+\end{definition}
+
+\begin{remark}
+It is surprising that almost all multiplicative functions in nature have a well-defined $p$-adic spectral radius. This is interesting not least because of possible applications to metrics. Note that $\rho_p$ may respect some of the lambda-ring operations in non-trivial ways. It would be interesting to think about what natural classes of multiplicative functions one can define based on conditions on the p-adic spectral radius.
+\end{remark}
+
+\begin{definition}
+Define abscissa of convergence of a Dirichlet series:
+$$   s_a = \inf \{ s \ : \ \sum_{n=1}^{\infty} \frac{f(n)}{n^s} \ \textrm{converges absolutely}  \}  $$
+\end{definition}
+
+Explain what we believe is true here. This might not be an equality, but only an inequality, compare the eta function to the Riemann zeta as done in the book of Mustata. There is some work to be done in understanding the role of "eigenvalues" downstairs in this story, but I think it it easy if we only aim for an inequality.
+
+
+Finish by remark here regarding a better understanding of L-functions and their global invariants (as opposed to local). For example, few relations may mean freeness of associated graded algebra. Family of L-functions is just a geometric series (in one of the Sarnak-Luo examples at least).
+
+Add definition of weight operators $h^i$ on multiplicative functions.
+
+Add definition of slope operator and remark on arithmetic mirror symmetry.
+
+
+\subsection{The relation between Tannakian symbols and Dirichlet series}
+
+
+In this section, we provide a dictionary between Tannakian symbols and Dirichlet series which are expressible in terms of the Riemann zeta function. In itself, nothing of this is deep or new, but the observations wecollect here will serve two important purposes. First of all, the dictionary is a very convenient tool for easy computations of Dirichlet series (or, if the Dirichlet series is known, easy computation of the Tannakian symbol). Secondly, this dictionary will play an important role in the process of understanding the structure of the lambda-rings appearing in section ??. 
+
+\begin{definition}
+We define a \emph{zeta quotient} to be any finite product of factors of the form $\zeta(ks-r)$ (with $k \in \N$ and $r \in \mathbb{R}$, or a quotient of two such finite products. 
+\end{definition}
+
+
+\begin{example}
+Add a few examples here.
+\end{example}
+%\begin{remark}
+%We could have replaced the expression $\zeta(ks-r)$ by $\zeta(ks+r)$ here, without altering the definition of zeta quotient.
+%\end{remark}
+
+\begin{proposition}
+Let $k$ be a positive integer, and let $r$ be a real number. Define the multiplicative function $f$ as the function with Dirichlet series $\zeta(ks-r)$. Then the Tannakian symbol of $f$ at the prime $p$ is  
+$$  \{  p^{r/k}, \omega p^{r/k} , \ldots , \omega^{k-1} p^{r/k} \}   / \varnothing $$
+where $\omega$ is a primitive $k$'th root of unity.
+\end{proposition} 
+
+\begin{proof}
+Substituting $ks-r$ in place of $s$ in the Euler product of $\zeta(s)$ gives
+$$ \zeta(ks-r) = \prod_p \frac{1}{1-p^{-(ks-r)}} = \prod_p \frac{1}{1-p^r \cdot (p^{-s})^k}     $$
+and hence the Bell series at the prime $p$ is
+$$ \frac{1}{1-p^r t^k}  $$
+and the reciprocal roots of the denominator here are precisely $p^{r/k}, \omega p^{r/k} , \ldots , \omega^{k-1} p^{r/k} $, where $\omega$ is a primitive $k$'th root of unity.
+\end{proof}
+
+\begin{corollary}
+As special cases of the previous proposition, we give some examples. In the table below, each Tannakian symbol corresponds to the Dirichlet series given in the right hand column. \emph{Add all examples relevant for easy translation in both directions.}
+\begin{center}
+\begin{tabular}{ | c ||  c  |  }
+\hline
+ Tannakian symbol & Dirichlet series \\ 
+\hline
+\hline
+
+
+ \scalebox{1.5}{$\frac{\varnothing}{\varnothing}$} &  1 \\ 
+\hline
+
+? &   $\zeta(s-r)$ \\ 
+\hline
+
+? &   $\zeta(ks)$ \\ 
+\hline
+
+ \scalebox{1.5}{$\frac{\{p^r, -p^r \}}{ \varnothing }$} &   ? \\ 
+\hline
+
+
+
+\end{tabular}
+\end{center}
+
+
+\end{corollary}
+
+
+\begin{example}
+Compute an interesting Tannakian symbol from a Dirichlet series. \emph{Take an example for Tomer's paper or his recommended reading.}
+\end{example}
+
+\begin{example}
+Compute an interesting Dirichlet series from a Tannakian symbol.
+\end{example}
+
+
+\begin{remark}
+So far in this section we have only considered Dirichlet series which are very simple in the sense that they are zeta quotients. The discussion here can be generalized to Dirichlet series of more general multiplicative functions. Mathar (page 2, formula 1.6) uses a piece of convenient vector notation for the Euler factors of the Dirichlet series associated to a multiplicative function. It would be interesting to spell out the precise recipe for translating between his notation and our Tannakian symbols. This might possibly be related to the Euler transform of an integer sequence and/or the Artin-Hasse map.
+\end{remark}
+
+\begin{remark}
+There are many interesting questions about Dirichlet series that we have not mentioned here. Perhaps one can use Tannakian symbols to simplify some computations, such as \ldots include asymptotic formulas.
+\end{remark}
+

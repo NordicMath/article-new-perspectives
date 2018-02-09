@@ -1,0 +1,312 @@
+
+\section{Adams algebra structures on multiplicative functions}
+
+\subsection{Two commutative ring structures}
+
+Our next step is the definition of four binary operations on $Mult(\mathbb{C})$, the main novelty being the definition of \emph{tensor product} of two multiplicative functions. But first we discuss briefly how this relates to what a student normally encounters in a first course on number theory.
+
+In a standard number theory textbook, the presentation often starts with the set $\C^{\N}$ of \emph{all} arithmetical functions. On this bigger set, one can define the obvious operations of (1) natural sum and (2) natural product, as well as a slightly less obvious operation called (3) Dirichlet convolution. Each of the last two distributes over natural sum, and from this fact we get two distinct commutative ring structures on $\C^{\N}$ (with the same addition operation). The most interesting ring structure is the one with Dirichlet convolution as multiplication, and a number theory textbook will often discuss this ring, together with many examples of identities between different arithmetical functions, mostly involving Dirichlet convolution.
+
+However, once we restrict attention to the smaller set $Mult(\C)$, the natural sum operation is no longer relevant, because the natural sum of two multiplicative functions is never multiplicative. The other two operations do restrict to $Mult(\C)$, but none of them is distributive over the other in general. 
+
+All this means that the innocent number theory student is left with the impression that there are no interesting ring structures on the set $Mult(\mathbb{C})$ involving the operations of natural product and Dirichlet convolution. We shall see that this is a misunderstanding; in fact these two operations naturally belong to two \emph{distinct} commutative ring structures on $Mult(\mathbb{C})$. And quite remarkably, these two distinct ring structures in fact turn out to be isomorphic.
+
+\begin{remark}
+For complete clarity, let us just state before continuing that by the \defhl{natural sum} of two arithmetical functions $f$ and $g$ we mean the function which sends $n$ to the value $f(n)+g(n)$. Note that whenever $f$ and $g$ are multiplicative, their natural sum sends the number 1 to the number 2, which means it cannot ever be multiplicative.
+\end{remark}
+
+\begin{definition}
+Let $f$ and $g$ be two multiplicative functions. The \defhl{Dirichlet convolution} $f \oplus g$ of $f$ and $g$ is defined by the formula
+$$ (f \oplus g)(n) =  \sum_{d \vert n} f(d) g(n/d)  $$
+where the sum on the right hand side is taken over all positive divisors $d$ of $n$. 
+\end{definition}
+In many books, the Dirichlet convolution of $f$ and $g$ is denoted by $f * g$. The reason for introducing non-standard notation is that we want to think of this as an additive rather than as a multiplicative operation. Dirichlet convolution is also the operation on multiplicative functions which corresponds to \emph{direct sum} of motives, Galois representations, or automorphic forms.
+
+%\begin{definition}  % USE THIS VERSION IF DIRICHLET CONVOLUTIONS WAS DEFINED IN SECTION 2 ALREADY
+%Let $f$ and $g$ be two multiplicative functions. We repeat the definition of the \defhl{Dirichlet convolution} of $f$ and $g$ (denoted as before by $f \oplus g$ instead of the more traditional $f * g$); it is defined by the formula
+%$$ (f \oplus g)(n) =  \sum_{d \vert n} f(d) g(n/d)  $$
+%where the sum on the right hand side is taken over all positive divisors $d$ of $n$. 
+%Next sentence included in definition when it was given for the first time.
+%The reason for introducing non-standard notation is that we want to think of Dirichlet convolution as an additive rather than as a multiplicative operation.
+%\end{definition}
+
+\begin{definition}
+Let $n$ be positive integer and let $d$ be a positive divisor of $n$. We say that $d$ is a \defhl{unitary} divisor of $n$ if $gcd(d, n/d) = 1$, i.e. if $d$ and $n/d$ have no common prime factors. We use the notation $d \Vert n$ to mean that $d$ is a unitary divisor of $n$. 
+\end{definition}
+
+\begin{definition}
+Let $f$ and $g$ be two multiplicative functions. We define the \defhl{unitary convolution} of $f$ and $g$ to be the function
+$$ (f \boxplus g)(n) =  \sum_{d \Vert n} f(d) g(n/d)  $$
+where the sum is over all unitary divisors of $n$. 
+%Let $f$ and $g$ be two multiplicative functions. We define the \defhl{unitary convolution} of $f$ and $g$ to be the function
+%$$ (f \boxplus g)(n) =  \sum_{\substack{d \vert n\\
+%(d, n/d) = 1 }}
+%f(d) g(n/d)  $$
+%Here we sum over all \emph{unitary} divisors of $n$. A divisor $d$ of $n$ is called unitary if it is coprime to $n/d$. (Recall that $(a, b)$ is shorthand for the the greatest common divisor of $a$ and $b$.)  
+\end{definition}
+
+\begin{definition}
+Let $f$ and $g$ be two multiplicative functions. We define the \defhl{natural product} of $f$ and $g$ to be the function
+$$ (f \boxtimes g)(n) = f(n) \cdot g(n)   $$
+\end{definition}
+%We also define another product of multiplicative functions, namely $\cdot$, usually referred to as just product. This is the pointwise functional product of the multiplicative functions, meaning $(f \cdot g)(n) = f(n) \cdot g(n)$. This operation too only gives creates multiplicative functions, and is commutative and associative. This one has the constant function (mapping everything to $1$), written $\varepsilon_1$, as identity. 
+The motivation for the next operation is that it models what happens to the associated multiplicative functions when we take \emph{tensor products} of motives, Galois representations, or automorphic representations.
+
+\begin{definition}
+Let $f$ and $g$ be two multiplicative functions. We define the \defhl{tensor product} $f \otimes g$ of $f$ and $g$ to be the unique multiplicative function with the property that for every prime power $q$, we have
+$$ (f \otimes g)'(q) = f'(q) \cdot g'(q)    $$
+\end{definition}
+
+\begin{remark}
+The first three definitions clearly make sense for general (not necessarily multiplicative) arithmetical functions, but since we use the Bell derivative in the last definition, the definition as stated does not make sense for general arithmetical functions. We do not know whether there exists a reasonable extension of the tensor product to all arithmetical functions.
+\end{remark}
+
+\begin{proposition}
+If $f$ and $g$ are multiplicative functions, then the four functions $f \oplus g$, $f \boxplus g$, $f \boxtimes g$ and $f \otimes g$ are also multiplicative. 
+\end{proposition}
+
+\begin{proof}
+For the Dirichlet convolution and the unitary convolution this is well-known, see for example (add reference with page numbers). For the other two operations, this is obvious from the definitions.
+\end{proof}
+
+We are now almost ready for our first main theorem, about commutative ring structures on $Mult(\mathbb{C})$, and for clarity we repeat the definitions the two functions playing the role of additive and multiplicative identity.
+
+\begin{definition}
+We define the function $\mathbf{1}$ by the formula $\mathbf{1}(n) = 1$ for all natural numbers $n$. We define the function $\mathbf{0}$ by the formula $\mathbf{0}(n) = 0$ for all natural numbers $n \geq 2$, and $\mathbf{0}(1) = 1$.
+\end{definition}
+
+
+
+\begin{theorem}
+\begin{itemize}
+\item[(a)] The set $Mult(\mathbb{C})$ is a unital commutative ring if we define addition to be Dirichlet convolution $\oplus$ and multiplication to be the tensor product $\otimes$. The additive identity of this ring structure is the function $\mathbf{0}$ and the multiplicative identity is the function $\mathbf{1}$. 
+\item[(b)] The set $Mult(\mathbb{C})$ is a unital commutative ring if we define addition to be unitary convolution $\boxplus$ and multiplication to be the pointwise product $\boxtimes$. The additive identity of this ring structure is the function $\mathbf{0}$ and the multiplicative identity is the function $\mathbf{1}$.
+\item[(c)] The two rings defined in part (a) and part (b) are isomorphic, and an explicit isomorphism from the first to the second is given by the Bell derivative. 
+\end{itemize}
+\end{theorem}
+\begin{proof}
+Part (b) is well-known, see for example (ref???). The entire theorem is a weaker version (and an immediate consequence) of Theorem ?? which is proved below.
+\end{proof}
+
+We now introduce notation for subtraction in these two ring structures:
+
+\begin{definition}
+We write $\ominus f$ for the inverse of $f$ with respect to the operation $\oplus$. We shall also write $g \ominus f$ as shorthand for $g \oplus (\ominus f)$. The same definition is made for $\boxminus f$ and $g \boxminus f$ with respect to the operation $\boxplus$.
+\end{definition}
+
+\begin{remark}
+The function $\ominus f$ is called \emph{the M{\"o}bius function associated to $f$} in the textbook of Iwaniec and Kowalski (where it is denoted by $\mu_f$, see p. 17???).
+\end{remark}
+
+\begin{definition}
+Let $n$ be a natural number. If $f$ is a multiplicative function, we write $f^{\otimes n}$ for the tensor product 
+$$   f \otimes f \otimes \ldots \otimes f  $$
+(with $n$ factors). We also write $f^{\boxtimes n}$ for the natural product
+$$   f \boxtimes f \boxtimes \ldots \boxtimes f  $$
+Note that the notation $f^n$ is ambiguous and therefore never used.
+\end{definition}
+
+
+
+\subsection{Two actions by scalars}
+
+In this section we introduce two actions $\mathbb{C} \times Mult(\mathbb{C}) \to Mult(\mathbb{C})$ which make the rings of the previous section into $\mathbb{C}$-algebras.
+
+\begin{definition}
+Let $n$ be a natural number. If $f$ is a multiplicative function, we write $n \odot f $ for the repeated Dirichlet convolution 
+$$   f \oplus f \oplus \ldots \oplus f  $$
+(with $n$ terms). We also write $n \boxdot f$ for the repeated unitary convolution
+$$   f \boxplus f \boxplus \ldots \boxplus f  $$
+Note that the notation $n \cdot f$ is ambiguous and therefore never used.
+\end{definition}
+
+The above definition clearly makes sense for any natural number $n$, but we can in fact extend the definition to the case where $n$ is any complex number. We switch notation to $z$ in place of $n$. Recall the multiplicative functions $\Theta_z$ and $\tau_z$ (see Section ?? or Appendix ??).
+
+
+\begin{definition}
+Let $z$ be a complex number and let $f$ be a multiplicative function. We define a multiplicative function $z \odot f$ by the formula
+$$  z \odot f = \tau_z \otimes f $$
+We also define the multiplicative function $z \boxdot f$ by
+$$ z \boxdot f = \Theta_z \boxtimes f  $$
+\end{definition}
+The next proposition shows that these scalar actions yield $\C$-algebra structures (with unital structure maps) on the rings of Theorem ??. 
+\begin{proposition}
+The map $z \mapsto \tau_z$ is a unital ring homomorphism from $\C$ to $Mult(\C)$ with respect to the operations $\oplus$ and $\otimes$.
+
+The map $z \mapsto \Theta_z$ is a unital ring homomorphism from $\C$ to $Mult(\C)$ with respect to the operations $\boxplus$ and $\boxtimes$.
+\end{proposition}
+\begin{proof}
+\emph{Straightforward, but formulate a few lines anyway.}
+\end{proof}
+
+\begin{remark}
+We make a number of minor observations.
+\begin{itemize}
+\item When $n$ is a natural number, the function $n \odot f$ is given by repeated Dirichlet convolution of $f$ with itself ($n$ times). Therefore we can think of $\frac{1}{2} \odot f$ as repeated Dirichlet convolution of $f$ with itself half a time, and we can similarly make sense of ``repeated Dirichlet convolution of $f$ with itself $i$ times", etc. 
+\item We do not have any general formula for the function values of $z \odot f$ (although if $f$ and $z$ are given, we can easily compute any specific function value). 
+\item The function values of $z \boxdot f$ are given by
+$$   (z \boxdot f)(n)  = z^{\omega(n)} \cdot f(n) $$ 
+This is just a rephrasing of the definition.    
+\item The operation $z \boxdot $ has the effect of multiplying every entry in the Bell table by $z$.
+\item The operation $z \odot$ has the effect of raising each Bell series to the $z$'th power, in the sense that the Bell series of $z \odot f$ at a prime $p$ is precisely
+$$    \exp (z \cdot \log f_p(t))   $$
+where $\exp$ and $\log$ are the usual operators on formal power series.
+\end{itemize}
+
+\end{remark}
+
+\subsection{Adams operations}
+
+The goal of this section is to introduce four families of unary operations on $Mult(\mathbb{C})$.
+
+%\emph{Note: We could if we wanted define the words circle sum (as a synonym to Dirichlet convolution), circle product, box sum and box product. But they would only add confusion I think, since they mean exactly the same thing as Dirichlet convolution, tensor product, etc. Therefore I have commented out these definitions below. Ok??? We could perhaps introduce the more all-encompassing words "Circle structure" and "Box structure"}
+
+
+%\begin{definition}
+%The commutative ring appearing in part (a) of the above theorem will be called the \defhl{circle ring}, and its two binary operations will be called the \defhl{circle operations}. The commutative ring appearing in part (b) will be called the \defhl{box ring}, and its operations \defhl{box operations}. \emph{Unsure if this definition is really necessary.}
+%\end{definition}
+
+%\begin{definition}
+%Box sum (as unitary convolution)
+%\end{definition}
+
+%\begin{definition}
+%Box product (as pointwise product)
+%\end{definition}
+
+
+
+\begin{definition}
+Let $f$ be a multiplicative function, and let $k$ be a positive integer. We define a new function $P_k(f)$ by precomposing with the $k$'th power function, i.e. by the formula
+$$ P_k(f)(n) = f(n^k)   $$
+\end{definition}
+
+\begin{remark}
+If $f$ and $g$ are multiplicative functions, it is \emph{not} the case in general that the composition $f \circ g$ is multiplicative. Mathar calls a multiplicative function $g$ \defhl{persistently multiplicative} if $g(m)$ and $g(n)$ are coprime whenever $m$ and $n$ are coprime. It is easy to show that if $f$ is multiplicative and $g$ is persistently multiplicative, then $f \circ g$ is also multiplicative. See section 2.2 (p. 5) of Mathar for more details.
+\end{remark}
+
+\begin{definition}
+Following McCarthy \cite{} in terminology and notation, we define the $k$'th convolute $\Omega_k(f) $ of a multiplicative function $f$ by the formula 
+$$ \Omega_k(f)(n) = \twopartdef { f(\sqrt[k]{n}) } {n \textrm{ is a $k$'th power} } {0} {\textrm{otherwise}}$$
+\end{definition}
+
+\begin{proposition}
+If $f$ is a multiplicative function, then $P_k(f)$ and $\Omega_k(f)$ are also multiplicative.
+\end{proposition}
+
+\begin{proof}
+This follows almost immediately from the definitions.
+\end{proof}
+
+\begin{definition}
+For any positive integer $k$, we define the unary operation $\boxadam{k}$ on $Mult(\C)$ by $\boxadam{k}(f) = P_k(f)$.
+\end{definition}
+
+\begin{definition}
+For any positive integer $k$, we define the unary operation $\hatboxadam{k}$ on $Mult(\C)$ by $\hatboxadam{k}(f) = \Omega_k(f)$.
+\end{definition}
+
+
+The motivation for introducing the next family of Adams operations is twofold. First, these operations generalize the norm operator and the higher norm operators on multiplicative functions which were studied by Redmond and Sivaramakrishnan in the 80's (?) \cite{}. Secondly, they describe the effect of \emph{Weil restriction} on the Hasse-Weil zeta function of a variety over a finite field. Precise comparison theorems will be given below.
+
+%\emph{Here I have moved the original definitions (which used the Newton relations) to the section on postponed proofs (they are also commented out there), and replaced them with short definitions using only the derivative.}
+
+\begin{definition}
+Let $f$ be a multiplicative function and let $k$ be a positive integer. We define $\adam{k}(f)$ as the unique multiplicative function whose Bell derivative equals $P_k(f')$. In other words, the operation $\adam{k}$ acts by first taking the Bell derivative, then applying the operator $P_k$, and then taking the Bell antiderivative.
+
+\end{definition}
+
+The fourth and final family of Adams operations will be interesting primarily because it describes the effect of \emph{base change} on the Hasse-Weil zeta function of a variety over a finite field.
+
+\begin{definition}
+Let $f$ be a multiplicative function and let $k$ be a positive integer. We define $\hatadam{k}(f)$ as the unique multiplicative function whose Bell derivative equals $\Omega_k(f')$. In other words, the operation $\hatadam{k}$ acts by first taking the derivative, then applying the operator $\Omega_k$, and then taking the antiderivative.
+
+\end{definition}
+
+Recall that Appendix ?? contains a convenient overview of all the various Adams operations and their properties.
+%\begin{remark}
+%For a long time in this project, we worked with different (but equivalent) definitions of the last two families of Adams operations, based on certain explicit recurrence relations for the Bell coefficients. These recurrence relations will still be used in some of the proofs of Section ??, and we hope that a comparison with these relations will serve as additional justification for introducing the derivative in the way we have done.
+%\end{remark}
+
+
+\subsection{Main theorem on Adams algebra structures}
+
+Now we are ready for one of the main theorems of this paper.
+
+
+\begin{theorem}
+\begin{itemize}
+\item[(a)] The set $Mult(\mathbb{C})$ equipped with the operations $\oplus$, $\otimes$, $\adam{k}$ and $\hatadam{k}$ is a double Adams $\C$-algebra, in which $\hatadam{k}$ is the right inverse to $\adam{k}$. The additive identity of the underlying ring structure is the function $\mathbf{0}$, and the function $\mathbf{1}$ is a multiplicative identity. 
+\item[(b)] The set $Mult(\mathbb{C})$ equipped with the operations $\boxplus$, $\boxtimes$, $\boxadam{k}$ and $\hatboxadam{k}$ is a double Adams $\C$-algebra, in which $\hatboxadam{k}$ is the right inverse to $\boxadam{k}$. The additive identity of the underlying ring structure is the function $\mathbf{0}$, and the function $\mathbf{1}$ is a multiplicative identity. 
+\item[(c)] The two structures defined in part (a) and part (b) are isomorphic (as double Adams $\C$-algebras), and an explicit isomorphism from the first to the second is given by the Bell derivative. 
+\item[(d)] The Adams algebra involving the operations $\adam{k}$ satisfy properties $U1$, $U2$, $W1$ and $W2$. The same is true for the Adams algebra involving the operations $\boxadam{k}$. Therefore, each of these Adams algebras is also a lambda-ring.
+\item[(e)] The Adams algebra involving the operations $\hatadam{k}$ satisfy properties $U1$, $W1$ and $W2$, but \emph{not} property $U2$. The same is true for the Adams algebra involving the operations $\hatboxadam{k}$. (Recall that property $U2$ says that the Adams operations are unital ring homomorphisms)
+\end{itemize}
+\end{theorem}
+\begin{proof}
+First part:
+
+Let $L$ be the compression-expansion algebra over $\C$, and let $L^{\mathbb{P}}$ be the set of all functions from the primes to $L$. There is an map from $L^{\mathbb{P}}$ to $Mult(\mathbb{C})$ which is defined by taking a function from $\mathbb{P}$ to $L$ and producing a Bell table from it in the obvious way. It is tedious but straightforward to verify that this map is an isomorphism of double Adams algebras, provided the set $Mult(\mathbb{C})$ is equipped with the box operations. 
+
+Second part:
+
+The Bell derivative is also an isomorphism of double Adams algebras as stated in the theorem; again, this is a tedious verification. 
+
+\todo{Spell out the steps of the verification in reasonable detail.}
+
+\end{proof}
+
+
+
+
+\begin{definition}
+The set $Mult(\C)$ together with the double Adams algebra operations of part (a) in the previous theorem will be referred to as the \defhl{circle structure}. Similarly, the double Adams algebra in part (b) will be called the \defhl{box structure}. The set $Mult(\C)$ equipped only with the operations $\oplus$, $\otimes$ and $\adam{k}$ is a lambda-ring, and it will be referred to as the \defhl{standard lambda-ring structure} on multiplicative functions.
+ \end{definition}
+
+
+\begin{remark}
+The Bell derivative is a homomorphism \emph{from} the circle structure \emph{to} the box structure. In order to remember the direction here, there is a far-fetched analogy that may perhaps be of some limited help. Note that going from a circle to a box introduces (on a purely visual level) ``spikes'' (or rather ``corners'') on the symbol. In the parallel world of \emph{time series}, applying the (discrete) derivative typically introduces spikes in the plot of discretely sampled values. 
+
+Similarly, the antiderivative has a ``smoothing'' effect, in the first case on the box symbol $\square$ and in the second case on the graph of discretely sampled values. 
+
+%\emph{Add image here of a smoothie with an integral sign???}
+
+\end{remark}
+
+
+
+\subsection{A meta-mathematical claim}
+
+We have introduced four binary operations and four unary operations on multiplicative functions, and we have proved that these operations can be organised into two double Adams $\C$-algebras, connected via an isomorphism given by the Bell derivative. There are numerous other operations on multiplicative functions, but the claim we want to make is that
+\begin{quote}
+\textbf{All interesting unary and binary operations on multiplicative functions can be expressed in terms of the four binary operations $\oplus$, $\otimes$, $\boxplus$ and $\boxtimes$, together with the four types of Adams operations $\adam{k}$, $\hatadam{k}$, $\boxadam{k}$ and $\hatboxadam{k}$.}
+\end{quote}
+
+
+Clearly, this is not a mathematical statement, but a meta-mathematical one. To illustrate the claim, we give a list of examples of operations from the number theory literature and their relation to the eight fundamental Adams algebra operations. 
+
+All of these statements will be stated again (with full definitions and proofs!), in Section \ref{sec:Complementary}, after we have introduced the language of Tannakian symbols.
+
+In this list of examples, $f$ and $g$ always denote two arbitrary multiplicative functions.
+\begin{itemize}
+\item The Bell derivative of $f$ can be expressed as
+$$   f' = (f \boxtimes \tau) \ominus  f  $$  
+where $\tau$ is the sum-of-divisors function.
+\item The M{\"o}bius transform of $f$ can be expressed as $f \oplus \one$.
+\item The inverse M{\"o}bius transform of $f$ can be expressed as $f \ominus \one$.
+\item The LCM convolution of $f$ and $g$ is equal to 
+$$ (f \oplus \one) \boxtimes (g \oplus \one) \ominus \one    $$
+\item The Schemmel transform of $f$ can be expressed as $\mu \boxtimes f \oplus \one$, where $\mu$ is the M{\"o}bius $\mu$ function.
+\item The $k$-twisted convolution of $f$ with $g$ is equal to 
+$$    \hatboxadam{k}(f) \oplus g   $$
+\item The GCD transform of $f$ is equal to $f \oplus \varphi$, where $\varphi$ is the Euler function.
+\item The norm operator $N$ (of Redmond and Sivaramakrishnan) can be identified with $\adam{2}$.
+\item The higher norm operator $N^k$ (for $k$ a positive integer) can be identified with $\adam{2^k}$.
+\end{itemize}
+
+Recall precomposition etc? And spell out main points of algebraic geometry operations?
+
+In addition to these examples of an elementary number-theoretic nature, we will encounter various relations to operations on schemes, motives, L-functions, as well as an interesting relation to the so-called Busche-Ramanujan identities. 
+
+Towards the end of the paper, we will discuss some examples of operations which can \emph{not} be expressed using our eight Adams algebra operations. The reader will have to judge for him or herself whether these operations are interesting. For example, some of them (of the form ``swapping the 3rd and the 10th row in the Bell table'') are related to certain obscure sequences in the OEIS, but in our view these operations are still un-interesting, in the sense that they seem to have no relation to questions arising naturally in any branch of number theory, algebraic geometry or combinatorics. 
+

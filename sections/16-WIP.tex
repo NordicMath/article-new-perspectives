@@ -1,0 +1,243 @@
+
+\section{Survey of work in progress}
+
+Before concluding the paper, we briefly review some material that could perhaps have been included in this paper, but is not yet fully developed.  \emph{Reformulate paragraph}
+
+\subsection{Have we covered all interesting operations?}
+
+Recall first claim. Discuss based on this. 
+
+Define swap operations and note that this defines an action of the infinte symmetric group.
+
+When embarking on this project, it was our ambition to systematically analyze \emph{all} operations on multiplicative functions appearing in the number theory literature, and put them into a coherent algebraic framework. This goal turned out to be too ambitious, and we therefore decided to limit ourselves in the present work to a complete treatment of operations which ``have the same effect at all primes'', in a sense which we will soon make precise.
+
+What about other operations? Our intention is to come back to these operations in future work; many of these operations can indeed be treated by generalizing the methods presented here. See section ??? of the Endnotes for more details (and a list???) on these other operations. 
+
+Given this background, the goal of this section is to catalogue all the prime-agnostic operations we have encountered in the literature, and explain how they can all be expressed in terms of the lambda-ring operations introduced above.
+
+\emph{Finish the definitions below AFTER we have listed all the operations in this section and in the Endnotes.}
+
+\begin{definition}
+Let $U$ be a unary operation on multiplicative functions, i.e. a function from $Mult(\mathbb{C})$ to $Mult(\mathbb{C})$. We say that $U$ is \defhl{prime-agnostic} if \ldots \emph{Idea: Commutes with all swap operations. Alternative: Preserves some class of ``uniform'' functions.}
+\end{definition}
+
+\begin{definition}
+Let $*$ be a binary operation on multiplicative functions. We say that $*$ is \defhl{prime-agnostic} if \ldots 
+\end{definition}
+
+We should also define a function to be Bell-regular if there exists an integer $N$ such that any Bell coefficient $b_k$ depends only on the first $Nk$ Bell coefficients of the input (at the same row). The number $N$ could be given a name.
+
+
+Discrete difference and sum operations on Bell rows? Truncation on Bell rows. In general, anything one can do with sequences, like interchanging the 5'th and the 12'th element.
+
+There might be $n$-ary operations for some $n>2$. We know of two potentially interesting 3-ary operations, namely the hidden (?) Lie bracket behind the prelude example, and the operation in the recent article (Shonhiwa??).  
+
+
+Somewhere (in this subsection or elsewhere, we should probably mention bimultiplicative functions). 
+
+Question: Can we add "kernel operations", meaning summation operations analogous to integral transforms with a two-variable kernel? Search also for the word B-product, used for example by Bhattacharjee in quite recent work.
+
+Generalized norms. These are operations obtained by replacing the Liouville function by another multiplicative function $g$. Could call this unary operation the $g$-norm, or we could view the entire thing as a binary operation.
+
+\begin{propdef}
+k'th Bell deletion operation. Need better name!
+%Given a positive integer $k$, we can define a transform by the formula
+%$$  h(n) = f(kn)/f(k)   $$
+%This transform is defined for all functions $f$ such that $f(k) \neq 0$. Can we extend it to all $f$? 
+%On Bell coefficients, this transform has the following effect. For primes $p$ coprime to $k$, we get $h(p^e) = f(p^e)$. Suppose $p$ is a prime that occurs in the factorization of $k$ exactly $m$ times. Then the new Bell coefficients at the row $p$ are given by
+%$$  \frac{f(p^m)}{f(p^m)} , \frac{f(p^{m+1})}{f(p^m)}, \frac{f(p^{m+2})}{f(p^m)}, \frac{f(p^{m+4})}{f(p^m)}, \ldots    $$
+%In particular, this transform affects the symbol at finitely many primes only. Check the details here and write it up.
+\end{propdef}
+
+\begin{propdef}
+k'th Bell truncation. Dual k'th Bell truncation.
+%We could define the k'th Bell truncation as the operation given by truncating the Bell series at the position $p^k$. This would be box product with Bell series $[1, 1,1, \ldots, 1, 1, 0, 0, \ldots]$. We could also define dual Bell truncation by taking inverse followed by Bell truncation followed by inverse again. Here I mean additive inverse, i.e. Cauchy inverse of Bell series.
+\end{propdef}
+
+
+Other versions of composition? Postcomposing - I have written that this is not interesting. Could look at precomposition with other persistently multiplicative functions.
+
+\subsubsection{Other so-called avatars}
+
+\begin{itemize}
+
+\item Lambert series
+\item Local Jacobi transform (extra avatar??)
+\item What about supertrace of gamma operations and symmetric power operations?
+\item Explain the infinite family of pairs of lambda-ring structures.
+\end{itemize}
+
+
+
+
+\subsection{Can we really prove all identities?}
+
+Recall our second claim. Discuss based on this.
+
+Could add a challenge to a Math AI - read the entire literature, list all known identities, try to prove them using Tannakian symbols.
+
+Discuss Kolmogorov complexity and approaches to enumerating all identities. Possible use of local AND global metric, where by global metric we mean results ensuring identies hold if they hold for a finite number of primes.
+
+\subsubsection{Some more identities between multiplicative functions}
+
+Identities arising from chain/product/quotient rule? 
+
+There are identities (which have not been discussed at all in this paper) that express function values of one multiplicative function in terms of \emph{infinite} series involving other multiplicative functions. An example involving the Liouville function $\lambda$ and the second Dedekind function $\psi_2$ is
+$$   \psi_2(n) = \frac{15 n^2}{\pi^2} \sum_{\substack{j \geq 1\\
+(j, n) = 1 }} \frac{\lambda(j)}{j^2}$$
+
+where the sum is over all positive integer values of $j$ which are coprime to $n$. We do not known whether these identities can be easily proved using Tannakian symbols. See Chapter 5 of McCarthy for many other similar examples (and proofs).
+
+\subsubsection{Identities that may not be provable using Tannakian symbols}
+
+Add Narkiewicz (duh) and sigma identities from modular forms. Find references for the latter including the combinatorial proof that should exist on arxiv somewhere.
+
+
+Asymptotic formulas for 
+
+$$\frac{1}{x}   \sum_{n \leq x} f(n) $$
+
+Examples: For $\sigma(n)$, the Tannakian symbol is 1, p over emptyset, and the formula is
+$$ \frac{\pi^2 x}{12}   $$
+while for the derivative we get symbol 1, p over plus and minus sqrt(p), with formula
+$$ \frac{\pi^2 x}{ 12 \zeta(3)}     $$
+For the Euler function we have p over 1, with formula
+$$ \frac{3x}{\pi^2}   $$
+and for what I think is the derivative, we get
+$$  \frac{Ax}{2}   $$
+where
+$$ A = \prod_p (1 - \frac{1}{p^2+p})  $$
+See reference sheet for archive, from McC chapter 6.
+
+There are more examples of asymptotic formulas in this article of Toth: \url{http://ttk.pte.hu/matek/ltoth/Toth_Pillai2_1996.pdf}
+
+
+Maybe there is a relation between asymptotic formulas and the pole order discussion the Tao's derived blog post.
+
+
+Note also the weird comment of Mats Granvik on Tao's derived blog post, and his link to MSE. These are explicit formulas for function values which involve infinitely many terms.
+
+
+
+
+
+
+
+\subsection{Multiplicative functions that are not complex-valued}
+
+Only subrings of $\mathbb{C}$ considered as targets. Could generalize, explain what would change. Possible applications to p-adic modular forms, random variables, parametrized zeta types, ...
+
+
+Derived? multiplicative functions; see Terence Tao blog.
+
+\url{https://terrytao.wordpress.com/2014/09/24/derived-multiplicative-functions/}
+
+
+
+In Definition \ref{def:multiplicative} we could have replaced $\mathbb{C}$ by any commutative ring $R$, and we write $Mult(R)$ for the resulting set of all $R$-valued multiplicative functions. Discuss functoriality of this construction. Discuss also Galois actions; do our operations commute for example with complex conjugation? 
+
+Note that we might also use a semiring here, for example multiplicative functions with values in positive integers. Stability in this case???
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Metrics and other similar structures}
+
+In addition to the Bell topology, there are numerous other metrics and topologies, some of which are defined on the entire set $Mult(\C)$, and some of which can only be defined on appropriate subsets. The aim of this paper is to present a comprehensive study of \emph{algebraic} structures only, but we hope to return to some of the topological structures in future work. For now, we only compile a list of those topological structures which are already in the literature and some others which might be of interest.
+
+
+
+We have focussed in this paper on the \emph{algebraic} structure of the set $Mult(\C)$. However, there is also another story to tell, and this is the story of metrics and other related structures, like various inner products (which we believe lead to interesting Hilbert space structures on $Mult(\C)$)) and topologies (some of which do not necessarily come from a metric). Some of these structures may not be defined on all of $Mult(\C)$, but only on some subset.
+
+Among the structures of this kind which are already in the literature, the most important ones seem to be:
+\begin{itemize}
+\item The Selberg inner product on L-functions
+\item The Granville-Sound metric on ???
+\end{itemize}
+
+Should we mention gamma filtration here, or in the section on symmetric operations?
+
+
+Hey! This might apply to new products distributing over Narkiewicz convoliutions!? One of the original ideas behind the tensor product was that the natural product distributes ovein order to make it distributive over Dirichlet convolution in all cases, without changing it in the cases where at least one factor is completely multiplicative.
+
+
+
+
+\subsection{SageMath code}
+
+Say briefly what we are doing and that this is not cleaned up yet.
+
+\todo{mention haskell and maybe java as well?}
+
+
+\subsection{Zeta functions of stacks}
+
+Explain here the idea of solving algebraic equations in our lambda-rings, and tell a story about how this would lead to multiplicative functions that do not have everywhere rational Bell series, even if we started out only with these.
+
+Explain the idea of algebraic and holonomic series.
+
+Algebraic conditions using addition and multiplication?
+
+Lambda-algebraic conditions using some symmetric operations?
+
+Differential equations using the Bell derivative?
+
+Relate this to algebraic stacks, with examples like classifying stacks and perhaps the Deuring mass formula.
+
+Give the two simplest possible examples, namely the Mochizuki elliptic curve example, with an algebraic equation, and the classifying stack of the multiplicative group. Can we find an example of a differential equation related to the zeta function of some stack???
+
+Let be an affine elliptic curve (wrong terminology); for concreteness we may take $E$ to be the affine scheme defined by the equation $y^2 = x^3 + x^2 - x$. For any ring $R$, the set of points $E(R)$ carries an involution $\iota$ sending a point $A$ to its inverse $-A$ (the inverse is taken with respect to the the group law on the projective closure of $E$). The quotient $S = E/ \iota$ is a stack; it appears for example in the article of Mochizuki (give reference here). Let $f$ be the multiplicative function associated to $E$, and let $y$ be the multiplicative function associated to $S$. The following facts follow straight from the definitions:
+\begin{enumerate}
+\item $f$ is motivic, and hence rational.
+\item $y$ is \emph{not} rational.
+\item We have $y \oplus y = f$. 
+\end{enumerate}
+
+Let $B \mathbb{G}_m$ be the classifying stack of the multiplicative group (reference to definition), and write $z$ for the associated multiplicative function. Write $g$ for the multiplicative function associated to the group scheme $\mathbb{G}_m$. Again, it follows straight from the definitions that:
+\begin{enumerate}
+\item $g$ is motivic, and hence rational.
+\item $z$ is \emph{not} rational.
+\item We have $g \otimes z = \mathbb{1}$. 
+\end{enumerate}
+
+
+
+\subsection*{Stuff to move elsewhere}
+
+\emph{Move this material to relevant places in the main body.}
+
+Talk Mobius inversion first.
+
+\begin{example}
+Let $f$ is the Dirichlet convolution of the completely multiplicative functions $g_1, g_2, \ldots, g_k$, and let $h$ be the Dirichlet inverse of $f$; in other words:
+$$  h = \ominus \bigoplus_{i=1}^k g_i  $$
+Then the Bell coefficients of $h$ are given by the master equation
+$$  h(p^e) = (-1)^k \prod_i g_i(p)  $$
+\emph{Note to self: Must check this, looks fishy. See McCarthy Exercise 1.62}
+
+\end{example}
+
+\begin{remark}
+A natural question is whether there is an explicit formula for the norm operators at other primes. By looking at many examples, we are guessing (but check if this holds for arguments $n$ which are not prime powers!) that the formula 
+$$ \sum_{d \vert n^k} f(\frac{n^k}{d}) \lambda_k(d) f(d)  $$
+holds in the special case where $k=3$ and $f$ is specially multiplicative. For more general situations, we have not found any similar formula so far. \todo{hehehe}
+\end{remark}
+
+
+
+\newpage
+
+
+
+
+
+
+%\item Local Tannakian symbol. Global Tannakian symbol. Finitely indexed Tannakian symbol.
+

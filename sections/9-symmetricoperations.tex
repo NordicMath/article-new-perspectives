@@ -1,0 +1,215 @@
+
+\section{Remarks on other symmetric operations}
+
+Reference: Zibrowius (see link in email from Marcus). 
+
+Finally we mention that any lambda-ring comes equipped not only with a sequence of Adams operations, but also with a sequence of lambda operations (also called exterior power operations), a sequence of gamma operations, and a sequence of symmetric power operations. Each of these is a sequence of unary operations indexed by the natural numbers, but only the Adams operations are ring homomorphisms. From our four lambda-ring structures we therefore get not just the 4 families of Adams operations, but in addition 12 other infinite families of natural operations on $Mult(\mathbb{C})$. A detailed study of all these families is also postponed to future work, but let us explain the simplest example of a lambda-operation, in order to make the point that these operations may also be interesting.
+
+Add here: Busche-Ramanujan and Hecke multiplicity. Add also the determinant function and explain that it gives the central character of an L-function.
+
+Can we add here a relation to symmetric powers of varieties?
+
+
+\subsection{Lambda-rings}
+
+We want to review the basic theory of lambda-rings, and in particular we want to explain the four most common types of symmetric operations on a lambda-ring. These are (1) lambda-operations, (2) Adams operations, (3) gamma operations and (4) symmetric power operations. Our main goals are:
+\begin{enumerate}
+\item Clarify some details regarding the relation between lambda-rings and Adams algebras.
+\item Discuss some applications of symmetric operations to multiplicative functions.
+\item Discuss
+\end{enumerate}
+We follow Yau and Zibrowius.
+
+
+
+
+Question: The lambda and gamma operations are linear combinations of Adams operations, or something like this. Can we obtain new identities which have more than one term on each side of the equality sign, by using some of these operations?
+
+
+Note: In order to define lambda-operations in terms of given Adams operations, the commutative ring must be unital, but the Adams operations do not have to be unital. In general, if $Ad$ is a non-unital Adams operations, then $Ad(1)$ is an idempotent, and multiplying by $Ad(1)$ is the identity on the image of $Ad$. 
+
+Give a few relevant examples, and some explicit formulas on Tannakian symbols.
+
+\begin{example}
+This example is derived from Exercise 1.63 in McCarthy. Let $g_1$, $g_2$, $h_1$ and $h_2$ be completely multiplicative functions, so that $s_1 = g_1 \oplus h_1$ and $s_2 = g_2 \oplus h_2$ are specially multiplicative.
+
+Set
+$$  u = \Omega_2 \big(  h_1 \boxtimes g_1 \boxtimes h_2 \boxtimes g_2   \big)  $$
+Then the identity 
+$$   s_1 \otimes s_2 = s_1 \boxtimes s_2 \oplus u  $$
+holds. \emph{Verify and find applications. Note that the $u$ is an Adams operation applied to what is probably a lambda operation $\lambda_4$ applied to $s_1 \oplus s_2$, so maybe we could move this or also mention it in the Endnotes on lambda operations.}
+
+A general question here is whether one can describe the difference between box and tensor product.
+
+\end{example}
+
+
+There are two types of well-known algebraic structures which are closely related to our Adams $R$-algebras. The first is a  \defhl{psi-ring}, which is precisely the same thing as an Adams $\Z$-algebra satisfying properties $U1$, $U2$ and $U3$. The second is a \defhl{lambda-ring}. The general definition of the word lambda-ring is well-known, complicated and not important for our applications, and we therefore postpone it to section ??, where we also discuss lambda operations, symmetric power operations and gamma operations. For now, we only state a \emph{sufficient} criterion for an Adams $R$-algebra to be a lambda-ring.
+
+\emph{IT IS STILL NOT CLEAR WHAT REQUIREMENTS TO PUT ON THE STRUCTURE MAP HERE! DO WE NEED TO REQUIRE U3? I believe that $U3$ is not necessary (on the level of objects) but it is necessary if we want an equivalence of categories.}
+
+
+\subsection*{Material for the later section on symmetric operations. Move!}
+
+\emph{This subsection is still a mess. Clean up.}
+
+\begin{remark}
+Note that any torsion-free lambda-ring is automatically a lambda-algebra over $\mathbb{Z}$.
+\end{remark}
+
+\begin{remark}
+It might be interesting to work in the category of non-unital lambda-algebras. An advantage would be that the category is better behaved, for example will a kernel of a lambda-algebra homomorphism still be a lambda-algebra. A disadvantage is that we could no longer define lambda operations, but would only have Adams operations. A possible application of this is to situations where we have a map of K-theory spectra, and we want to to study the cohomology theory represented by the homotopy fiber of the map.
+\end{remark}
+
+Here we intend to add basic background knowledge which can be found in many references on lambda-rings. Take material from Unge Forskere report and/or from CICM article!
+
+The theory of lambda-rings is an enrichment of the theory of commutative rings. Lambda-rings were introduced by Grothendieck in the late 50s and have found important applications in many areas, including representation theory, homotopy theory, K-theory, and in Borger's lambda-algebraic geometry, one of many approaches to ``geometry over the field with one element". Informally, a lambda-ring can be described as a commutative ring equipped with ``all possible symmetric operations", or as a commutative ring equipped with ``a commuting family of lifts of Frobenii". The formal definition is that a lambda-ring is a commutative ring equipped with an infinite sequence $\lambda_1$, $\lambda_2$, $\lambda_3$, \ldots of functions (not ring endomorphisms!) from $R$ to $R$ satisfying certain rather complicated axioms. However, if the ring $R$ is torsion-free (and all rings appearing in this paper will have this property) then there is a simpler definition, using another sequence of unary operations called Adams operations, which are ring endomorphisms. We use the simpler approach in this paper and refer the interested reader to ?? or ?? for the more general definition (add Yau and Espeseth-Vik). 
+
+
+
+Must include: Define lambda-ring, define psi-ring, state Wilkerson's Theorem, state version 2 of a lambda-ring, explain the universal lambda-ring over $R$, \ldots
+
+\begin{example}
+Four lambda-ring structures on strict power series. Explain that (I think this is true?) they are all isomorphic as lambda-rings, and that the two obvious involutions respect only either addition or multiplication. I think one involution is additive and the other multiplicative. See our large diagram, and perhaps stuff from Yau and Grinberg. If possible, say which papers/books use which choice of unit, and say what we will use and perhaps why. Hazewinkel uses (1+T), Lenstra's note uses $(1-T)^{-1}$, etc
+\end{example}
+
+
+
+
+\begin{definition}
+\item Strict power series.
+\end{definition}
+
+Define operations on strict power series (and notation for each operation where needed):
+\begin{itemize}
+\item Modified sum. Notation: $SUM^{*}$?? Or $+_{str}$?
+\item Hadamard product: $HAD$?? or $\times_{Had}$?
+\item Cauchy product $CAU$?? 
+\item "Lambda product"?
+\item k-compression
+\item k-expansion
+\end{itemize}
+
+
+
+\begin{example}
+Binomial rings.
+\end{example}
+
+\begin{example}
+The Grothendieck ring of a ?? symmetric monoidal abelian category? For example a Tannakian category. But do we need the category to be linear over a ring/field of characteristic zero?
+\end{example}
+
+\begin{example}
+Witt vectors of various flavours.
+\end{example}
+
+\begin{example}
+K-theory of various flavours.
+\end{example}
+
+\begin{example}
+Other applications from Yau? What about Grinberg - does he mention more? And arXiv/MathSciNet searches?
+\end{example}
+
+
+
+
+\begin{lemma}
+If a $\psi$-ring $R$ has a structure map from $\Q$, then $R$ is lambda-ring with Adams operations defined by $\psi^k$.
+\end{lemma}
+
+
+A lambda-ring is a commutative ring $R$ equipped with an infinite sequence of unary operations $\lambda^k: R \to R$ satisfying certain axioms. 
+
+
+
+
+Review briefly rational power series?
+
+Question: Should we mention algebraic and D-finite power series? It would be nice to prove stability theorems for these if possible, with a view to future applications.
+
+\begin{remark}
+Let $R$ be any commutative ring with 1. As explained in any reference on lambda-rings, the set $1 + t R[[t]]$ of formal power series with constant term 1 can be equipped with a lambda-ring structure, called the \emph{universal lambda-ring over $R$}. What is not always explained however, is that this can be done in \emph{four different (but isomorphic) ways}, each choice corresponding to a choice of multiplicative identity from the list
+$$ 1+t, 1-t, (1+t)^{-1}, (1-t)^{-1} $$
+There is no canonical choice, but the most common approach (used for example in the book of Yau, in the notes of Grinberg, and in the book of Knutson) seems to be the first one. There are two points we want to get across here. (1) In this article, the universal lambda-ring structure always uses $(1-t)^{-1}$ as unit. The \emph{reason} is that $(1-t)^{-1}$ is the Bell series associated to the Riemann zeta function. The \emph{consequences} are that the reader who wishes to make connections to the literature must be careful. As an example, the connection to the theory of Witt vectors involves the Artin-Hasse exponential isomorphism, and the form of this isomorphism depends on the choice of unit of the univeral lambda-ring.
+\end{remark}
+
+
+
+\subsection{Old chaotic notes on introduction to lambda-algebras}
+
+
+\begin{remark}
+Here we have decided to use the symbol $Ad^k$ for the Adams operations rather than the more traditional $\psi^k$. The reason is that in our applications, these operations will be acting on multiplicative functions, which are usually denoted by Greek letters. In particular, we want to avoid confusion with the Dedekind $\psi$ functions and the Klee $\Psi$-functions. There is \emph{no direct relation} between our Adams operations and any notion of adjoint representations or adjoint linear operators.
+\end{remark}
+
+\begin{definition}
+A commutative ring $\mathcal{L}$ is \defhl{torsion-free} if for every non-zero element $x \in \mathcal{L}$, all finite sums of the form $x+x+ \ldots +x$ (with two or more terms) are also non-zero.
+\end{definition}
+
+\begin{definition}
+Psi-algebra over $R$. Commutative $R$-algebra with system of operations satisfying:
+\begin{itemize}
+\item $\psi^1 = id$
+\item Additivity
+\item Multiplicativity
+\item Composition
+\item $R$-linearity
+\end{itemize}
+A unital psi-algebra is a psi-algebra which in addition has a 1 and which satisfies unitality of each Adams.
+\end{definition}
+
+
+\begin{definition}
+Let $\mathcal{L}$ be a psi-algebra and let $p$ be a prime. We say that $\mathcal{L}$ satisfies the Wilkerson congruence at the prime $p$ if
+$$   xxx   $$
+\end{definition}
+
+\begin{definition}
+Lambda-algebra over $R$:
+\begin{itemize}
+\item Psi-algebra over $R$
+\item Torsion-free
+\item Wilkerson congruences satisfied at all primes
+
+\end{itemize}
+\end{definition}
+
+ 
+
+\begin{definition}
+Double lambda-algebra. Two sequences $Ad^k$ and $\widehat{Ad}^k$ which each gives a lambda-algebra structure, and such that $Ad^k \circ \widehat{Ad}^k = id$.
+\end{definition}
+
+We now want to descibe the most important example of a double lambda-algebra, but first we need a few definitions related to formal power series.
+
+
+
+\begin{proposition}
+\emph{May be reformulated in terms of either sequences, or in terms of functions from $\N$ to $R$.}
+Let $R$ be a commutative ring (of characteristic zero? or a binomial ring? or a $\Q$-algebra? or a field?), and write $S$ for the set $1+t R[[t]]$ of strict formal power series over $R$. Write $r$ for a general element of $R$, and write $u = 1+a_1 t + a_2 t^2 + a_3 t^3 + \ldots$ and $v = 1+b_1 t + b_2 t^2 + b_3 t^3 + \ldots$ for two general elements of $S$. Define operations on $S$ as follows:
+\begin{itemize}
+\item Addition: $u+v = 1+ (a_1 + b_1) t + (a_2 + b_2) t^2 + \ldots $
+\item Multiplication: $u \times v = 1+ (a_1 b_1) t + (a_2  b_2) t^2 + \ldots$
+\item Multiplication by a scalar: $r \cdot u = 1+ (r a_1 ) t + (r a_2 ) t^2 + \ldots$
+\item Left Adams operations: $Ad^k(u) = 1 + a_k t + a_{2k} t^2 + a_{3k} t^3 + \ldots$
+\item Right Adams operations: $\hat{Ad}^k(u) = u (t^k) = 1+a_1 t^k + a_2 t^{2k} + \ldots$
+\end{itemize}
+With these definitions, the set $S$ is a double lambda-algebra over $R$.
+\end{proposition}
+
+\begin{proof}
+Verification of all axioms. Say something about the nontrivial ones and Wilkerson's theorem.
+\end{proof}
+
+\emph{Test in SAGE whether Wilkerson seem to hold even for non-Q-algebras. A guess is that the answer is yes for unital Adams operations, but not necessarily otherwise. After testing, add remark/explanation on the role of the Wilkerson congruence either here on the a later section.}
+
+\begin{definition}
+We define the \defhl{compression-expansion algebra over $R$} to be the double lambda-algebra of the previous proposition.
+\end{definition}
+ 
+
+
+
+\emph{Add image here illustrating what is left and what is right.}
