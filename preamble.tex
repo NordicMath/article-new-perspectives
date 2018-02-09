@@ -1,0 +1,150 @@
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\usepackage{relsize}
+%\usepackage{adjustbox}
+\usepackage[makeroom]{cancel}
+
+\usepackage{xifthen}
+
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+
+% Nytt stuff for tikzcd
+\usepackage{tikz,ulem}
+\usepackage{adjustbox}
+\usetikzlibrary{arrows}
+
+
+%\usepackage{showkeys}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{conjecture}{Conjecture}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{problem}{Problem}[section]
+
+\newtheorem{application}{Application}[section]
+
+\newtheorem{construction}{Construction}[section]
+
+%\theoremstyle{plain}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{propdef}[theorem]{Proposition-Definition}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+
+%Multiplicative functions
+\newcommand{\id}[1]{id^{#1}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\zero}{\mathbf{0}}
+
+%Operations on multiplicative functions
+\newcommand{\ad}[1]{\text{Ad}^{#1}}
+\newcommand{\hatad}[1]{\widehat{\text{Ad}}^{#1}}
+
+\newcommand{\lam}[1]{\text{Lam}^{#1}_\bigcirc}
+\newcommand{\lamp}[2]{\text{Lam}^{#1}_\bigcirc\left(#2\right)}
+\newcommand{\adam}[1]{\text{Ad}^{#1}_{\bigcirc}}
+\newcommand{\adamp}[2]{\text{Ad}^{#1}_\bigcirc\left(#2\right)}
+%\newcommand{\Split}[2]{\text{Split}^{#1}\left(#2\right)}
+\newcommand{\hatadam}[1]{\widehat{\text{Ad}}^{#1}_{\bigcirc}}
+\newcommand{\hatadamp}[2]{\widehat{\text{Ad}}^{#1}_{\bigcirc}\left(#2\right)}
+
+
+\newcommand{\boxlam}[1]{\text{Lam}^{#1}_\square}
+\newcommand{\boxlamp}[2]{\text{Lam}^{#1}_\square\left(#2\right)}
+\newcommand{\boxadam}[1]{\text{Ad}^{#1}_{\square}}
+\newcommand{\boxadamp}[2]{\text{Ad}^{#1}_{\square}\left(#2\right)}
+\newcommand{\hatboxadam}[1]{\widehat{\text{Ad}}^{#1}_{\square}}
+\newcommand{\hatboxadamp}[2]{\widehat{\text{Ad}}^{#1}_{\square}\left(#2\right)}
+
+\newcommand{\ktwist}[1]{\hspace{1pt} \ltimes_{#1} \hspace{1pt} }
+
+%Operations on Tannakian symbols
+\newcommand{\roots}[1]{{#1}\text{-roots}}
+\newcommand{\powers}[1]{{#1}\text{-powers}}
+%\newcommand{\kdiv}[1]{{#1}\text{-div}}
+
+\newcommand{\tdim}{\mathrm{tdim}}
+\newcommand{\vdim}{\mathrm{vdim}}
+\newcommand{\edim}{\mathrm{edim}}
+\newcommand{\odim}{\mathrm{odim}}
+\newcommand{\aug}{\mathrm{aug}}
+
+\newcommand{\sdim}{\mathrm{sdim}}
+
+\newcommand{\tr}{\mathrm{tr}}
+%Note: "det" is already defined in LaTeX, so this is not allowed.
+
+
+
+
+
+%\newcommand{\Mod}[1]{\ (\text{mod}\ #1)}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\PP}{\mathbb{PP}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Fp}{\mathbb{F}_p}
+\newcommand{\Fq}{\mathbb{F}_q}
+
+\newcommand{\TS}{\mathbf{TS}}
+\newcommand{\TSP}{\mathbf{TS}^{\mathbb{P}}}
+
+
+\newcommand{\Spec}{\mathrm{Spec}}
+
+\newcommand{\BD}{\mathbf{D}}
+
+\newcommand{\defhl}[1]{\textbf{#1}}
+
+
+
+\newcommand{\twopartdef}[4]
+{
+	\left\{
+		\begin{array}{ll}
+			#1 & \mbox{if } #2 \\
+			#3 & \mbox{} #4
+		\end{array}
+	\right.
+}
+
+\newcommand{\threepartdef}[6]
+{
+	\left\{
+		\begin{array}{lll}
+			#1 & \mbox{if } #2 \\
+			#3 & \mbox{if } #4 \\
+			#5 & \mbox{} #6
+		\end{array}
+	\right.
+}
+
+
+\newcommand{\Mod}[1]{\ (\text{mod}\ #1)}
+
+\title{New perspectives on multiplicative functions: Lambda-rings and Tannakian symbols}
+
+\author{Ane Espeseth \ \ \ \ \ Andreas Holmstrom \ \ \ \ \ Torstein Vik}
+
+\date{\today}
