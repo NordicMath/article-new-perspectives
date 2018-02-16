@@ -1,0 +1,328 @@
+
+\section{Survey of classes of multiplicative functions}
+
+One of the goals of this article is the create a language for navigating the zoo of multiplicative functions. In this section, we want to give a survey of different classes of multiplicative functions, introduce systematic notation for these classes, and prove a few results about stability of some classes under various operations.
+
+We consider six major types of classes of functions that one might want to study.
+
+\begin{enumerate}
+\item Restrictions on the function values of a function.
+\item Conditions related to the origin of the function.
+\item General restrictions on the types of Bell series allowed, for example rationality, or conditions expressing the uniformity of Bell series across different primes.
+\item Restrictions on the super-dimension or the spectral radius of a rational multiplicative function.
+\item Classes of functions obtained by applying some general procedure (such as closure or completion) to another class of functions.
+\item Classes which are the image of some other class under some unary operation.
+\end{enumerate}
+We suggest using the following schema for notation:
+\begin{center}
+ \scalebox{1.5}{$(6) Mult^{(2)}_{(3)}(1)^{(5)}_{(4)}$}   
+\end{center}
+where each integer from 1 to 6 indicates a position at which we might place notation for one of the conditions above. 
+
+In the next list we explain what we mean by giving the most important concrete examples. An arrow $\hookrightarrow$ simply denotes an inclusion of sets.
+
+\begin{enumerate}
+\item For any subset $R$ of $\C$ (usually a subring), we have the class
+$$Mult(R)$$ 
+of functions $f$ such that $f(p^e) \in R$ for every prime power $p^e$. 
+\item If $\mathcal{C}$ is a class of objects giving rise to multiplicative functions, we write $Mult^{\mathcal{C}}(\C)$ for the class of multiplicative functions arising from an object in $\mathcal{C}$. For example, we may write $Mult^{aut}(\C)$, $Mult^{Gal}(\C)$, $Mult^{\Z-sch}(\C)$, $Mult^{\mathbb{F}_q-var}(\C)$, $Mult^{mot}(\C)$ and $Mult^{stack}(\C)$ for the classes of multiplicative functions coming from automorphic representations, from Galois representations, from Hasse-Weil zeta functions of schemes of finite type over $Spec(\Z)$, from Hasse-Weil zeta functions of varieties over $\mathbb{F}_q$, from motives, and from stacks. 
+\item We have classes 
+$$Mult_{rat}(\C) \hookrightarrow Mult_{alg}(\C) \hookrightarrow Mult_{hol}(\C) \hookrightarrow Mult(\C) $$ 
+of multiplicative functions whose Bell series are all rational, algebraic, and holonomic, respectively. Also, if we write $S$ for any finite set of primes, and we let $\mathcal{F} \subset \C^{\mathbb{P}}$ be any monoidal class of functions, we have the classes 
+$$ Mult_{\mathcal{F}, S}(\C) \hookrightarrow Mult_{\mathcal{F}, alm}(\C) \hookrightarrow Mult_{\mathcal{F}}(\C)  \hookrightarrow Mult_{rat}(\C)   $$
+of functions which are $\mathcal{F}$-uniform away from the set $S$, almost $\mathcal{F}$-uniform, and (everywhere) $\mathcal{F}$-uniform, respectively.
+%$Mult_{\mathcal{F}}(\C)$ of $\mathcal{F}$-uniform functions. Variants include the classes $Mult_{\mathcal{F}, alm}(\C)$ of almost $\mathcal{F}$-uniform functions, and (for $S$ any set of prime numbers) the class $Mult_{\mathcal{F}, S}(\C)$ of functions which are $\mathcal{F}$-uniform away from the set $S$.
+\item For any pair $(m, n)$ of non-negative integers, the classes
+$$ Mult(\C)_{(m, n)} \hookrightarrow Mult(\C)_{\leq (m, n)}  \hookrightarrow Mult_{rat}(\C)$$
+of multiplicative functions of superdimension everywhere at most $(m, n)$ and everywhere equal to $(m, n)$ respectively. Special cases include the set $Mult(\C)_{\leq (1, 0)}$ of completely multiplicative functions, the set $Mult(\C)_{\leq (2, 0)}$ of specially multiplicative functions, and the set $Mult(\C)_{\leq (1, 1)}$ of totients. These classes also have variants 
+$$Mult(\C)_{(m, n), alm} \hookrightarrow Mult(\C)_{ \leq (m, n), alm}$$.
+of functions satisfying the given super-dimension almost everywhere.
+
+\item In addition, we may apply operations such as group action invariants, completion with respect to some topology, or closure under some algebraic operations, by adding notation on the top right corner of the symbol for a function class. For example, we could write $Mult(\Z)^{int,circ}$ for the integral closure of $Mult(\Z)$ inside $Mult(\C)$ with respect to the ring structure given by $\oplus$ and $\otimes$.
+
+\item Finally, if $\mathbf{A}$ is a unary operator and $M$ is a class of multiplicative function, we may speak of the image $\mathbf{A} M$ of $M$ under $\mathbf{A}$ inside $Mult(\C)$. For example, the class $\BD^{-1} Mult(\Z)$ consists of all Bell antiderivatives of elements of $Mult(\Z)$.  
+
+\end{enumerate}
+
+The above types of restrictions are mostly independent and hence can be combined, so that we can for example speak of the class $Mult^{mot}(\Q^{ab})_{\leq(2, 0)}$ of multiplicative functions which are of motivic origin, takes values in the maximal abelian extension $\mathbb{Q}^{ab}$ of $\Q$, and is rational of super-dimension everywhere at most $(2, 0)$.
+
+
+\todo{neat! (thought I should say something nice as well)}
+
+\subsection{Functions with values in a specific subset}
+
+\begin{definition}
+Let $R$ be any subset of $\C$. Let $Mult(R)$ be the subset of $Mult(\C)$ consisting of those multiplicative functions whose Bell table contains only number in $R$.
+\end{definition}
+
+\begin{remark}
+We shall prove stability theorems for the set $Mult(R)$ only in the case where $R$ is a subring of $\C$ containing 1. However, some of these results can be generalized to more general situations, for example the case $Mult(\N)$ of multiplicative functions taking values in the semi-ring $\N$, or the case $Mult(2 \Z)$ of functions taking values in the non-unital ring of even numbers.
+\end{remark}
+
+\emph{Reformulate intro and change notation for $Mult'(R)$.}
+
+In this subsection, we consider subrings $R$ of the complex numbers $\C$, and we formulate stability theorems for the sets $Mult(R)$ and also for the potentially larger sets $Mult'(R)$. For ease of reading, we shall in fact write $Q$ for any subring of $\C$ that contains the rational numbers $\Q$, and we write $Z$ for any subring of $\C$ that does \emph{not} contain $\Q$. 
+
+Our results show that if $Q$ contains $\Q$, then $Mult(Q)$ equals $Mult'(Q)$, and this set inherits all the algebraic structure we have introduced so far. For a subring $Z$ that do \emph{not} contain $\Q$, the two sets are different, and the situation is sligthly more complicated.
+
+
+
+\begin{theorem}
+Let $Q$ be a subring of $\C$ which contains $\Q$. 
+\begin{enumerate}
+\item The set $Mult(Q)$ is stable under the four binary operations $\oplus$, $\otimes$, $\boxplus$ and $\boxtimes$.
+\item The set $Mult(Q)$ is stable under all four types of Adams operations. 
+\item The set $Mult(Q)$ is stable under both kinds of scalar actions by elements of $Q$.
+\item The set $Mult(Q)$ is stable under the derivative and also under the antiderivative.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+This should follow from the next two theorems together with the following lemma. 
+\end{proof}
+
+\begin{lemma}
+Let $R$ be any subring of $\C$. 
+\begin{enumerate}
+\item The set $Mult(R)$ is contained in the set $Mult'(R)$.
+\item The set $Mult(R)$ equals the set $Mult'(R)$ if and only if $R$ contains $\Q$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Use the Newton identities.
+\end{proof}
+
+\begin{lemma}
+If $f$ belongs to $Mult(R)$, the the Dirichlet inverse $\ominus f$ also belongs to $Mult(R)$. 
+\end{lemma}
+
+
+
+
+\begin{theorem}
+Let $Z$ be a subring of $\C$ which does \emph{not} contain $\Q$.
+\begin{enumerate}
+\item The set $Mult(Z)$ is stable under the four binary operations $\oplus$, $\otimes$, $\boxplus$ and $\boxtimes$.
+\item The set $Mult(Z)$ is stable under the Adams operations $\boxadam{k}$, $\hatboxadam{k}$ and $\adam{k}$, but \emph{not} under $\hatadam{k}$ for $k \geq 2$. 
+\item The set $Mult(Z)$ is \ldots state results for the two scalar actions.
+\item The set $Mult(Z)$ is stable under the derivative, but not under the antiderivative.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For the binary operations $\oplus$, $\boxplus$ and $\boxtimes$, this is obvious. For the tensor product, \emph{Torstein will add a proof here using universal polynomials}. 
+
+For the Adams operations $\boxadam{k}$ and $\hatboxadam{k}$, this is clear. 
+
+For $\adam{k}$, assume first that $f$ is a rational multiplicative function such that for every prime, the Tannakian symbol is of the form $ \varnothing / \{ \beta_1, \ldots, \beta_n  \}$. To say that $f$ belongs to $Mult(R)$ means precisely that all elementary symmetric polynomials in $\{ \beta_1, \ldots, \beta_n  \}$ belong to $R$. But $\adam{k}$ acts on the Tannakian symbol of $f$ by replacing each element $\beta_i$ with $\beta_i^k$. The Bell coefficients of $\adam{k}(f)$ are elementary symmetric polynomials in $\{ \beta_1^k, \ldots, \beta_n^k  \}$, and these can be expressed in terms of the inital elementary symmetric polynomials (by a polynomials expression with integer coefficients), which shows that the Bell coefficients of $\adam{k}(f)$ also belong to $R$. 
+Now the result follows for a general rational multiplicative function by stability of $Mult(R)$ under Dirichlet convolution and Dirichlet inverses. For a general (not necessarily rational) function, the result follows from the rational case by the fact that $\adam{k}$ is a continuous operator.
+
+Finally, for the Adams operation $\hatadam{k}$, we find a counterexample. Let $f = \mathbf{1}$ be the constant multiplicative function with Bell series
+$$  1 / (1-t) $$
+at some prime $p$. Then a direct computation shows that $\hatadam{k}(f)$ has a Bell series in which the $k$'th coefficient equals $1/k$. After looking at many examples, it seems like $\hatadam{k}(f)$ always lies in $Mult(R [\frac{1}{k}])$, and we conjecture that $\hatadam{k}(f)$ respects the set 
+$$   ? $$
+at the same prime.
+
+
+For the circle operations, look for counterexamples OR attack with Newton identities or universal polynomials (when no hat) and with power series or the substitution $t \mapsto t^k$ for the hat case.
+
+
+\end{proof}
+
+\begin{theorem}
+Let $Z$ be a subring of $\C$ which does \emph{not} contain $\Q$.
+\begin{enumerate}
+\item The set $Mult'(Z)$ is stable under the three binary operations $\oplus$, $\otimes$, and $\boxplus$, but not under $\boxtimes$.
+\item The set $Mult'(Z)$ is stable under the Adams operations $\hatadam{k}$, $\hatboxadam{k}$ and $\adam{k}$, but \emph{not} under $\boxadam{k}$ for $k \geq 2$. 
+\item The set $Mult'(Z)$ is \ldots state results for the two scalar actions.
+\item The set $Mult'(Z)$ is \ldots state results here? Same as above?
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Stability of boxplus needs proof (Idea: 1/k distributes coeffs???). Non-stability of boxtimes needs Newton identities together with the existence of a choice such that a certain (...) is not $p$-divisible.
+
+For $\hatboxadam{k}$, this follows from $k$-roots formula together with topology argument. I think we use at some point that for a fixed exponent $n$, the sum of $\omega^n$ over all $k$-th roots of unity is either 0 or $k$, and the latter happens iff $n$ is multiple of $k$. 
+\end{proof}
+
+
+\begin{theorem}
+Let $R$ be a subring of $\mathbb{C}$. Stability (or counterexamples) for $Mult(R)$ under all operations including lambda-operations. This includes stability for compression Adams operations, but excluding compression lambda-operations (unless R is a Q-algebra).
+\end{theorem}
+
+
+
+\begin{theorem}
+Let $R$ be a subring of $\mathbb{C}$. Stability (or counterexamples) for $Mult(R)$ under all operations including lambda-operations.
+\end{theorem}
+\begin{proof}
+Proofs either easy or already done elsewhere by Torstein. For compression structure, Adams stability follow from lambda stability.
+\end{proof}
+
+
+\subsection{Functions of specific origin}
+
+\subsection{Functions with certain types of Bell series}
+
+Define rational, algebraic, holonomic.
+
+\begin{theorem}
+\begin{enumerate}
+\item The set $Mult_{rat}(\C)$ is stable under the four binary operations $\oplus$, $\otimes$, $\boxplus$ and $\boxtimes$.
+\item The set $Mult_{rat}(\C)$ is \ldots find results for all four Adams operations.
+\item The set $Mult_{rat}(\C)$ is \ldots state results for the two scalar actions.
+\item The set $Mult_{rat}(\C)$ is stable under the derivative, but not under the antiderivative.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+For precomposition $P_k$, positive result due to the fact that an evenly spaced subsequence of a linear recurrence sequence is linearly recursive. Check references for this or proof at Math SE.
+\end{proof}
+
+\begin{theorem}
+Stability results for $Mult_{rat}(\mathbb{C})$ under all box operations. True for sum and product. Unclear for left Adams and right Adams and corresponding lambda operations, but it might be mostly untrue (for $k \geq 2$). \emph{Read recurrence book to find precise theorems and counterexamples.}
+\end{theorem}
+
+Question: Can we find conditions on the Bell series which guarantees that left/right Adams and/or lambda ops on them gives rational Bell series? Like "superrational" Bell series? Conjecture: For Ad, this is equivalent to f being in the image of the k'th convolute (at least this is a sufficient condition). 
+
+
+
+
+\begin{theorem}
+Stability results for $Mult_{rat}(\mathbb{C})$ under all circle operations.
+\end{theorem}
+\begin{proof}
+For addition it is obvious, for the rest: maybe use TS?
+\end{proof}
+
+
+
+
+\begin{remark}
+Stability results for $Mult_{rat}(R)$ follow from the two previous ones.
+\end{remark}
+
+
+
+
+\emph{I have a note saying that $\Omega_k$ preserves rational functions. But this is not at all obvious? Check the book on recurrence sequences, or Math StackExchange answer using module theory}.
+\url{http://math.stackexchange.com/questions/1777724/is-regular-selection-from-recurrence-also-recurrence}
+
+
+\subsubsection{Uniformity conditions}
+
+Definitions already made earlier!
+
+Old notes:
+
+
+\begin{definition}
+Prime support of a function.
+\end{definition}
+
+\begin{itemize}
+\item Uniform superdimension
+\item Almost uniform superdimension
+\item Some classes of functions with a "finite number of bad primes" like maybe Schemmel? Also Ramanujan sums and gcd fall into this category.
+\item Consider functions with finite prime support
+\item Also functions with support contained in a fixed set of primes, or which are bad only within a fixed set of primes? Compare $S$-units, ramification away from $S$, etc. 
+\end{itemize}
+Relate this to L-functions also, perhaps via Farmer's definition.
+
+
+
+In part III, we clean up notions that were previously called uniform, almost uniform, polynomially uniform, monomially uniform, uniform in $p$, almost uniform in $p$, independent of $p$. This I believe can be done via the notion of (almost) uniform with respect to $F$, where $F$ is a monoid of functions from the primes to the complex numbers. 
+
+We could also add requirement away from a \emph{fixed} finite set, or inside a fixed finite set. At least in the case of a uniformity condition away from a fixed finite set, we probably get a strong finiteness property of the associated lambda-ring, I have written "finite-dimensional recursion representation" in a note, "just like Dirichlet characters mod m". 
+
+
+\subsection{Functions with restrictions on super-dimension or spectral radius}
+
+
+
+\begin{definition}
+Completely multiplicative.
+%A completely multiplicative function $f$ is a multiplicative function such that $f(mn) = f(m) f(n)$ for all $m$ and $n$, no matter whether they are coprime. Such functions are fully determined by their values at primes.
+\end{definition}
+
+\begin{remark}
+Explain the issue of "degenerate cases".
+\end{remark}
+
+\begin{proposition}
+\begin{enumerate}
+\item The set $CMult(\C)$ is stable under the two multiplication operations $\otimes$ and $\boxtimes$ but not under the addition operations $\oplus$ and $\boxplus$.
+\item The set $CMult(\C)$ is \ldots find results for all four Adams operations.
+\item The set $CMult(\C)$ is \ldots find results for the two scalar actions.
+\item The set $CMult(\C)$ is stable under the derivative and also under the antiderivative.
+\end{enumerate}
+\end{proposition}
+
+Analogous results for the class of totients and the class of specially multiplicative functions belong more naturally under a general discussion of an invariant called the superdimension, which will be introduced later. Such a discussion also relies on the symbolic formulas of section ?? and ??.
+
+
+
+
+\begin{remark}
+Define the class of Dirichlet inverses of completely multiplicative functions, and the class of Dirichlet inverses of specially multiplicative functions. These don't have names but should perhaps be called something.
+\end{remark}
+
+
+
+\begin{definition}
+Specially multiplicative function.
+%A specially multiplicative function is a multiplicative function which is the Dirichlet convolution of two completely multiplicative functions.
+\end{definition}
+
+\begin{definition}
+Totient.
+%A totient is a multiplicative function which is a Dirichlet ``division'' of two completely multiplicative functions, by which we mean Dirichlet product with a Dirichlet inverse.
+\end{definition}
+
+\begin{remark}
+Again explain the issue of "degenerate cases".
+\end{remark}
+
+
+\subsection{Classes of functions derived from other classes}
+
+Formulate theorems for Galois invariant symbols and relate these to Riemann zeta expressions.
+
+
+
+\subsection{Remarks on unary operations}
+
+Say something about Bell derivative and antiderivative.
+
+
+
+\subsection{Consequences}
+
+The number of possible combinations of conditions on a multiplicative functions is mind-staggering, but most stability questions are consequences \ldots
+
+We have attempted a systematic treatment of stability results for \ldots In this section we just want to remark that \ldots
+
+\begin{remark}
+Add consequences for other operations. I have a note saying that the LCM convolution preserves rational functions. Also explain that stability for combined conditions follows from individual stability results. Also automatic corollaries for other symmetric operations because our rings are torsion-free.
+\end{remark}
+
+We now turn to a more detailed (but far from complete) treatment of these classes. 
+
+\emph{Add corollaries at appropriate places stating the existence of lambda-ring structures. Comment at least once on the non-triviality of the Wilkerson congruence for smaller rings.}
+
+
+\begin{example}
+\emph{Clean up.} That $Mult_{rat}(\Z)$ is a lambda-ring means that the Wilkerson congruences are no longer vacuous. As an example of what they mean in practice, we can look at an example where $T = \{   2 \}  /  \{ 1    \}$. We get $\adam{3}(T) = \{   8 \}  /  \{ 1    \}$, and $T^{\otimes 3} = \{   8, 2, 2, 2 \}  /  \{ 1, 4, 4, 4    \}$. Now we can interpret the difference as a multiple of 3, either on the Tannakian symbol, or on the level of point counts in the sense that all point counts of the difference are integers divisible by 3, more precisely we get $6, 54, 168, \ldots$.
+\end{example}
+
+
+
+Question (is this important at all, and where does it belong??): Is $Mult(R)$ (for various $R$) in bijection with $TS(M)$ for some monoid $M$ in some sense? Otherwise, we can speak of the pullback of $Mult(R)$ inside $TS(\C^{times})$ I have written on a note. But maybe this note is nonsense. Somehow it should be possible to speak of the lambda-ring generated by a certain set (for example $Mult(R)$ inside one of our four lambda-ring structures.
+
+
+
+
+
+
+
+
+

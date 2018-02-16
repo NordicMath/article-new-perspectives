@@ -1,0 +1,452 @@
+
+\section{The connection to algebraic geometry}
+
+Write introduction to this section, explaining the word categorification.
+
+\subsection{Categorification of the Euler $\varphi$ function}
+
+Let us return for a moment to the Euler function, and its Bell table.
+
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$ & $e = 6$\\
+\hline
+\hline
+$p = 2$ & $1$ & $2$ & $4$ & $8$ & $16$ & $32$ \\
+\hline
+$p = 3$ & $2$ & $6$ & $18$ & $54$ & $162$ & $486$ \\
+\hline
+$p = 5$ & $4$ & $20$ & $100$ & $500$ & $2500$ & $12500$ \\
+\hline
+$p = 7$ & $6$ & $42$ & $294$ & $2058$ & $14406$ & $100842$ \\
+\hline
+$p = 11$ & $10$ & $110$ & $1210$ & $13310$ & $146410$ & $1610510$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Recall also the Bell table of the \emph{derivative} of the Euler function.
+
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$ & $e = 6$\\
+\hline
+\hline
+$p = 2$ & $1$ & $3$ & $7$ & $15$ & $31$ & $63$ \\
+\hline
+$p = 3$ & $2$ & $8$ & $26$ & $80$ & $242$ & $728$ \\
+\hline
+$p = 5$ & $4$ & $24$ & $124$ & $624$ & $3124$ & $15624$ \\
+\hline
+$p = 7$ & $6$ & $48$ & $342$ & $2400$ & $16806$ & $117648$ \\
+\hline
+$p = 11$ & $10$ & $120$ & $1330$ & $14640$ & $161050$ & $1771560$ \\
+\hline
+\end{tabular}
+\end{center}
+
+There is something very interesting about these two tables. In the first case, the Bell coefficient at the prime power $p^e$ is precisely the number of invertible elements in the ring $\Z / p^e$ (which has $p^e$ elements in total). In the second table, the Bell coefficient at $p^e$ is precisely the number of invertible elements in the finite field $\mathbb{F}_{p^e}$ (which also has $p^e$ elements in total). 
+
+Recall that an element $x$ of a ring $R$ is called \defhl{invertible} if there exists an element $y$ in $R$ such that $xy = 1$. Recall also that there is a functor from commutative rings to sets which sends a ring to its subset of invertible elements. This functor is usually denoted by $\mathbb{G}_m$ and it is an example of what in algebraic geometry is called a \emph{scheme}. If $R$ is any commutative ring, we write $\mathbb{G}_m(R)$ for the set of invertible elements in $R$. Restating the above two observations in equations, we see that
+$$  \varphi(p^e) = \# \mathbb{G}_m(\Z / p^e)  $$
+and 
+$$  \varphi'(p^e) = \# \mathbb{G}_m(\mathbb{F}_{p^e})  $$
+Recall that we use the hashtag symbol $\#$ as shorthand for ``the number of elements in the set \ldots''.
+
+Note that the elements we count here (either in $\Z / p^e$ or in $\mathbb{F}_{p^e}$) are precisely the number of solutions (in the ring under consideration) of the equation $xy = 1$.
+
+%The observations we have collected here show that the Euler $\varphi$ function is connected to the functor $\mathbb{G}_m$ via the family of rings $(\mathbb{F}_{p^e}$, and in addition the Bell derivative of $\varphi$ is connected to the same functor via the family of rings $\Z / p^e$. 
+
+\begin{remark}
+We shall se later that the Tannakian symbol of $\varphi$ is $\frac{ \{ p \} }{ \{ 1 \}  }$, while the Tannakian symbol of $\varphi'$ is ?
+\end{remark}
+
+
+\subsection{Categorification of Pillai's multiplicative function}
+
+Consider now the equation $xy = 0$. Like the previous example, this is an equation in two variables; more precisely each of these equations is a \emph{polynomial equation} with \emph{integer coefficients} in two variables.
+
+
+
+We construct an arithmetical function $f$ by defining $f(n)$ to be the number of solutions to our equation in the set $\Z / n \Z$. More formally, we set
+$$  f(n) = \# \{  (x, y) \in (\Z / n \Z)^2 \  \vert \ \   xy = 0   \}   $$
+Pillai:
+\begin{table}[h]
+\centering
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & 7 & 35 & 155 & 651 & 2667 \\
+\hline
+$p = 3$ & 13 & 130 & 1210 & 11011 & 99463 \\
+\hline
+$p = 5$ & 31 & 806 & 20306 & 508431 & 12714681 \\
+\hline
+$p = 7$ & 57 & 2850 & 140050 & 6865251 & 336416907 \\
+\hline
+$p = 11$ & 133 & 16226 & 1964810 & 237758115 & 28768909071 \\
+\hline
+\end{tabular}
+\end{table}
+
+Derivative of Pillai:
+\begin{table}[h]
+\centering
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & 7 & 21 & 73 & 273 & 1057 \\
+\hline
+$p = 3$ & 13 & 91 & 757 & 6643 & 59293 \\
+\hline
+$p = 5$ & 31 & 651 & 15751 & 391251 & 9768751 \\
+\hline
+$p = 7$ & 57 & 2451 & 117993 & 5767203 & 282492057 \\
+\hline
+$p = 11$ & 133 & 14763 & 1772893 & 214373523 & 25937585653 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\todo{Explain that we get Pillai's multiplicative function, known from classical number theory, and also what happens over finite fields.}
+
+
+\subsection{Micro-schemes}
+
+
+\emph{This entire subsection is still a complete mess.}
+
+The observations made in the previous section are quite intriguing. Beyond the identification og $\mathbb{F}_p$ with $\mathbb{Z} / p \mathbb{Z}$ for $p$ a prime number, there is no direct relation between finite fields and the rings $\Z / n \Z$. Still, as we have seen, the point counts over finite fields can be recovered from the point counts in $\Z / n \Z$, and vice versa, and the conversion procedure is expressed by the Bell derivative and the Bell antiderivative.
+
+However, the relation between the two different kinds of point counting does not generalize to arbitrary equations. In order to talk more systematically about phenomena like the ones we just encountered with the Euler function and Pillai's multiplicative function, we introduce a new construction called a \emph{micro-scheme}. We give an informal definition (which can serve as a high-school teacher's substitute for Grothendieck's notion of a \emph{scheme}), and we also supply a formal mathematical definition after the preliminary discussion.
+
+\begin{definition}
+(Informal) A \defhl{microscheme} is a machine that takes finite commutative rings as input, and gives finite sets as output.
+\end{definition}
+
+\begin{example}
+Euler and Pillai.
+\end{example}
+
+
+%%%%%%%%%%%%OLD%%%%
+
+
+Comment on the blurred distinction between ring and isomorphism class of rings.
+
+\begin{definition}
+Let $\mathbf{FCRing}$ be the category of finite unital commutative rings. (A ring is called ``finite'' it has a finite number of elements, and ``unital'' if it has a multiplicative identity element.)
+\end{definition}
+
+\begin{example}
+For any positive integer $n$, the ring $\Z / n$ of congruence classes mod $n$ is a finite commutative ring.
+\end{example}
+
+\begin{example}
+For any prime power $q = p^e$ (with $e \geq 1$ and $p$ a prime), there is (up to isomorphism) precisely one field $\mathbb{F}_q$ with $q$ elements. In the case where $e=1$, this is precisely the ring $\Z / p$.
+\end{example}
+
+\begin{example}
+There does not exist any commutative ring with zero elements. This is because any commutative ring must have an additive identity.
+\end{example}
+
+\begin{example}
+There exists precisely one commutative ring with one element. This ring is usually called the zero ring.
+\end{example}
+
+
+
+
+\begin{example}
+According to the OEIS (see A037289), there exists (up to isomorphism) eight different commutative rings with 30 elements, and two different commutative rings with 31 elements, but the number of commutative rings with 32 elements is unknown at present. Note that these counts are for not necessarily unital commutative rings, so the counts of commutative unital rings will be lower. \emph{Refer to table in the main body, or delete this example.}
+\end{example}
+
+In general, it is very difficult to classify all commutative rings with $n$ elements, but there are many partial results. A wealth of information can be found in the answer to this MO question:
+\url{http://mathoverflow.net/questions/7133/classification-of-finite-commutative-rings}
+
+
+
+\begin{definition}
+Let $\mathbf{FSet}$ be the set of isomorphism classes of finite sets.
+\end{definition}
+
+\begin{example}
+For each non-negative integer $n$, there exists precisely one set (up to isomorphism) with $n$ elements. There are no other examples of finite sets.
+\end{example}
+
+
+%\begin{definition}
+%A \defhl{tame functor} is a functor $F$ from the category of commutative rings to the category of sets, with the property that if $R$ is a finite (as a set) and semisimple, then $F(R)$ is a finite set.
+%\end{definition}
+
+%\begin{definition}
+%Define a naive scheme over $R$ as a functor from $R$-algebras to sets arising from  a finite set of polynomials with coefficients in $R$.
+%We define a \defhl{naive scheme over $R$ (in $n$ variables)} to be 
+
+%Fix a commutative ring $R$. Let $n$ be a positive integer, and let $L = \{u_1, u_2, \ldots u_m\}$ be a finite subset of the polynomial ring $R[X_1, X_2, \ldots, X_n]$. For any $R$-algebra $S$, we may consider the set 
+%$$ \{  (x_1, x_2, \ldots, x_n) \ \vert x_i \in S, u_j(x_1, x_2, \ldots, x_n) = 0 \ \forall j    \}     $$
+
+
+%If $X$ is a naive scheme over $R$, and $S$ is an $R$-algebra, we write $X(S)$ for the set of solutions in $S$ to the system of equations $u_1 = 0$, $u_2 = 0$, \ldots, $u_m = 0$. 
+%\end{definition}
+
+
+
+\begin{definition}
+We define a \defhl{micro-scheme} to be a function from $\mathbf{FCRing}$ to $\mathbf{FSet}$.
+\end{definition}
+
+\begin{example}
+For any scheme (in the sense of algebraic geometry) of finite type over $\Spec \ \Z$, the associated functor of points defines a micro-scheme. Many of the subsequent examples will be special cases of this.
+\end{example}
+
+\begin{example}
+We can define a skeleton called the multiplicative group, which is defined by sending a ring to its set of invertible elements.
+\end{example}
+
+
+\begin{example}
+We can define a skeleton by sending a ring to its set of idempotents.
+\end{example}
+
+
+
+Define also skeleton over $p$ and over $q$. Define disjoint union, Cartesian product, base change and Weil restriction.
+
+Add the example of root cycles of length $k$ as a baby scheme $root_k$ generalizing the idempotents.
+
+Add affine space and projective space perhaps?
+
+Add skeleton constructed from A037290 (number of self-converse rings with the same number of elements as the given ring). 
+
+Construct skeleton from A235384 (affine involutions of a given ring). 
+
+Can we construct a skeleton from cap sets or similar combinatorial devices? See EUCYS project and recent work of Ellenberg. 
+
+
+\subsection{Three multiplicative functions associated to any micro-scheme}
+
+
+
+Let us now systematically generalize the examples seen above. Let $X$ be any micro-scheme (i.e. a machine which accepts finite commutative rings as input and gives finite sets as output). As an example, $X$ could be a scheme of finite type over $\Spec \ \Z$. To the skeleton $X$, we shall now associate \emph{three} multiplicative functions, denoted by $I_X$, $N_X$ and $H_X$.
+
+Explain choice of notation.
+
+Discuss Baez and Dolan \cite{} here and/or in the Endnotes.
+
+
+\begin{definition}
+We say that a \emph{cyclic ring} is any ring of the form $\Z / n \Z$, where $n$ is a positive integer greater than or equal to $2$. 
+\end{definition}
+
+Explain the role of the Chinese Remainder Theorem here.
+
+\begin{definition}
+Let $X$ be a skeleton. The multiplicative function $I_X$ is defined by the master equation
+$$  I_X(p^e) = \# X( \Z / n \Z  )  $$
+
+\end{definition}
+
+Say something here about finite fields.
+
+\begin{definition}
+Let $X$ be a skeleton. The multiplicative function $N_X$ is defined by the master equation
+$$  N_X(p^e) = \# X( \Fq )  $$
+where $q= p^e$ and $\Fq$ is a finite field with $q$ elements. 
+\end{definition}
+
+\begin{definition}
+Let $X$ be a skeleton. We define the multiplicative function $H_X$ as the Bell antiderivative of the function $N_X$.
+
+\end{definition}
+
+Explain that the Euler function example was exceptional in that two functions $H_X$ and $I_X$ were identical. Are there any other such examples? 
+
+Discuss also the strange exercise 1.21 in McCarthy.
+
+Let us look at a few examples.
+
+\begin{example}
+Give one or two examples using the language of skeletons.
+
+\end{example}
+
+\begin{remark}
+Each of $CMult$, $Mult_{rat}$ and $Mult$ is a functor from the category of rings to the category of sets, but these functors take finite rings to infinite sets, so they are not skeletons.
+\end{remark}
+
+
+\subsection{More examples}
+
+The affine curve $y^3 + y = x^4$. Remarks: It has 27 points over $\mathbb{F}_9$ and 28 if we count the (unique) point at infinity. This is the world record for genus three curves, by the Hasse-Weil bound. 
+
+Affine point counts over finite fields:
+\begin{table}[h]
+\centering
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & 2 & 4 & 8 & 16 & 32 \\
+\hline
+$p = 3$ & 3 & 27 & 27 & 27 & 243 \\
+\hline
+$p = 5$ & 3 & 19 & 147 & 667 & 3043 \\
+\hline
+$p = 7$ & 7 & 91 & 343 & 2107 & 16807 \\
+\hline
+\end{tabular}
+\end{table}
+
+Affine point counts mod $q$:
+\begin{table}[h]
+\centering
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & 2 & 2 & 4 & 8 & 16 \\
+\hline
+$p = 3$ & 3 & 9 & 27 & 81 & 243 \\
+\hline
+$p = 5$ & 3 & 15 & 75 & 375 & 1875 \\
+\hline
+$p = 7$ & 7 & 49 & 343 & 2401 & 16807 \\
+\hline
+\end{tabular}
+\end{table}
+
+Hasse-Weil bound: 
+$$ C(\Fq) \leq q + 1 + 2 g \sqrt{q}  $$
+
+Note that the difference between the two kinds of point counts have lots of zeroes. Can we apply Skolem-Mahler-Lech to say something interesting?
+\begin{example}
+Elliptic curve.
+
+\end{example}
+
+
+\begin{example}
+Genus 2 curve.
+
+\end{example}
+
+
+\begin{example}
+A K3 surface.
+
+\end{example}
+
+
+\begin{example}
+Affine and/or projective space.
+
+\end{example}
+
+
+\begin{example}
+A Grassmannian perhaps? Try to find one related to the group example. 
+
+\end{example}
+
+
+\begin{example}
+Can we take an example of a moduli space from the work of Jonas?
+
+\end{example}
+
+
+Mention that computing these values is an area of very active research, and give references to Harvey, Kedlaya, etc. 
+
+
+
+\subsection{Remarks on schemes and Grothendieck rings}
+
+Mention also that if $X$ is any scheme of finite type over $\Spec \ \Z$, then there exists a finite set of polynomials such that the affine point counts of these polynomials give the same function $N_X$ as the original scheme. Reference: Serre and noetherian induction.
+
+Recall first the two main types of such schemes, namely flat and defined over a finite field (or rather a finite disjoint union of such). Explain why something with support at every other prime is unnatural from the geometric point of view.
+
+
+Now we turn to theorems relating the three multiplicative functions associated to a scheme or skeleton to our two commutative ring structures on $Mult(\C)$. 
+
+The reader who is familiar with Grothendieck rings will note that the moral of these theorems is that the assignments $X \mapsto I_X$ and $X \mapsto N_X$ both induce ring homomorphisms from the Grothendieck ring of schemes to $Mult(\C)$ equipped with the box operations, while the Hasse-Weil assignment $X \mapsto H_X$ gives a similar ring homomorphism but this time to $Mult(\C)$ with the circle operations. Precise statements in the language of Grothendieck rings will not appear in this article, but hopefully in future work. In section ??, we briefly discuss Grothendieck rings of motives, in which case the analogous maps would be not just ring homomorphisms, but lambda-ring homomorphisms.
+
+\begin{theorem}
+Let $X$ and $Y$ be two skeletons (for example, $X$ and $Y$ could come from two schemes of finite type over $\Spec \ \Z$). Let $Z = X \coprod Y$ be the disjoint union of $X$ and $Y$.
+\begin{itemize}
+\item[a)] The functions $I_Z$, $I_X$ and $I_Y$ satisfy the relation
+$$  I_Z = I_X \boxplus I_Y   $$
+\item[b)] The functions $N_Z$, $N_X$ and $N_Y$ satisfy the relation
+$$  N_Z = N_X \boxplus N_Y   $$
+\item[c)] The functions $H_Z$, $H_X$ and $H_Y$ satisfy the relation
+$$  H_Z = H_X \oplus H_Y   $$
+
+\end{itemize}
+\end{theorem}
+
+
+\begin{theorem}
+Let $X$ and $Y$ be two skeletons. Let $Z = X \times Y$ be the product of $X$ and $Y$.
+\begin{itemize}
+\item[a)] The functions $I_Z$, $I_X$ and $I_Y$ satisfy the relation
+$$  I_Z = I_X \boxtimes I_Y   $$
+\item[b)] The functions $N_Z$, $N_X$ and $N_Y$ satisfy the relation
+$$  N_Z = N_X \boxtimes N_Y   $$
+\item[c)] The functions $H_Z$, $H_X$ and $H_Y$ satisfy the relation
+$$  H_Z = H_X \otimes H_Y   $$
+
+\end{itemize}
+\end{theorem}
+
+The next two theorems explain what happens to some of the multiplicative functions when we apply \emph{base change} or \emph{Weil restriction} to a scheme or skeleton over a finite field. But in order to understand the content of these theorems it is helpful to first look at examples.
+
+\begin{definition}
+Define base change on schemes and skeletons.
+\end{definition}
+
+
+\begin{definition}
+Define Weil restriction on schemes and skeletons.
+\end{definition}
+
+\emph{Add some examples here related to finite fields, which makes it clear visually what the Weil restriction and base change does to the various functions.}
+
+\begin{remark}
+Let $X$ be a scheme over $\mathbb{F}_q$ where $q$ is a prime power. As we can guess from the examples, the value $H_X(n)$ of the function $H_X$ is equal to 0 unless $n$ is a ???, while the value $N_X(n)$ is equal to 0 unless $n$ is a power of $q$.
+\end{remark}
+
+\emph{Can we relate base change and Weil restriction to box structure or only to the circle structure?}
+
+\begin{theorem}
+
+Base change effect.
+\end{theorem}
+
+
+\begin{theorem}
+
+Weil restriction.
+\end{theorem}
+
+
+
+In future work, we intend to rephrase the above theorems in the language of Grothendieck rings, and not only Grothendieck rings of schemes, but also the Grothendieck rings of the (partly conjectural) Tannakian categories appearing in the Langlands program (built from automorphic representations, from Galois representations and from motives). All these Grothendieck rings admit (via the various constructions of L-functions) maps to $Mult(\C)$ which should be lambda-ring homomorphisms with respect to the \emph{standard} lambda-ring structure (recall that this is the set $Mult(\C)$ together with the operations $\oplus$, $\otimes$ and $\adam{k}$. We also expect that the inner Hom construction in these Tannakian categories correspond essentially to the multiplicative function underlying the Rankin-Selberg product of L-functions. However, there are some technical details to verify here (related to weights and to bad primes) which are the reason for us not stating precise theorems in the present paper. 
+
+Let us also emphasize that nothing we have said here is new to experts, but it will be a reformulation which could make the theory of Grothendieck rings and L-functions more accessible to a wider audience of mathematicians and students of mathematics. 
+
+
+
+\begin{remark}
+The multiplicative functions $I_X$ and $N_X$ associated to a scheme $X$ appear naturally because we have two very natural families of finite rings in commutative algebra, both families being indexed by the set of prime powers. But are there any other such families of rings? We are not aware of any such family in the classical setting of finite commutative rings, but a natural family of \emph{ring spectra} in natural bijection with the prime powers is given by the collection of Morava K-theory spectra. Can we construct any interesting multiplicative functions from this family, for example by plugging in a space (or spectrum) in the Morava K-theory functors, and then counting elements in some homotopy groups? 
+\end{remark}
+

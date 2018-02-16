@@ -1,0 +1,239 @@
+
+\section{Complementary results on the Adams algebra operations}  \label{sec:Complementary}
+
+Introduce this section. Say perhaps that the results are not exhaustive.
+
+\subsection{Operations from the number theory literature}
+
+In this section, we want to catalogue operations on $Mult(\C)$ of a classical number-theoretic nature that are not already in the list of our Adams algebra operations, and explain how each of them can be expressed by a combination of the eight fundamental operations introduced above. 
+
+\begin{theorem}
+Let $f$ be a multiplicative function, and let $f'$ be its Bell derivative. Then we have
+$$   f' = (f \boxtimes \tau) \ominus  f  $$  
+where $\tau$ is the sum-of-divisors function of Def. ??.
+\end{theorem}
+
+\begin{proof}
+First, this is equivalent to $f' \oplus f = f \boxtimes \tau$. We only need to prove this locally for all primes. What remains to prove is $(f' \oplus f)(p^e) = f(p^e) \tau(p^e)$. We see that $\tau(p^e) = e + 1$, and by the definition of Dirichlet convolution we get 
+$$\sum_{i = 0}^e f'(p^i) \cdot f(p^{e - i}) = (e + i)f(p^e)$$
+which is equivalent to the modified \todo{} Newton identities.
+\end{proof}
+
+%\begin{corollary}
+%If we can say something about the Bell antiderivative, say it here. Otherwise delete this corollary.
+%Let $g$ be the multiplicative function with master equation 
+%$$g(p^e) = \frac{1}{e+1}$$
+%Let $f$ be any multiplicative function and let $F$ be its Bell antiderivative. Then we have
+%$$  F =  $$   
+%\end{corollary}
+%\begin{proof}
+%\end{proof}
+
+
+\begin{propdef}
+Let $f$ be a multiplicative function, and let $g$ be the M{\"o}bius transform of $f$. By definition, this means that
+$$  g(n) = \sum_{d \vert n} f(d)  $$
+Then $g$ is also multiplicative, and we have
+$$  g = f \oplus \one   $$
+\end{propdef}
+\begin{proof}
+Immediate from the definition of Dirichlet convolution.
+\end{proof}
+
+\begin{propdef}
+Let $f$ be a multiplicative function, and let $g$ be the inverse M{\"o}bius transform of $f$. By definition, this means that
+$$  g(n) = \sum_{d \vert n} \mu(d) f(\frac{n}{d})  $$
+Then $g$ is also multiplicative, and we have
+$$  g = f \ominus \one   $$
+\end{propdef}
+\begin{proof}
+The function $\one$ has Tannakian symbol $\frac{ \{  1 \} }{ \varnothing }$. The M{\"o}bius $\mu$ function has Tannakian symbol $\frac{ \varnothing }{ \{  1 \} }$. Applying the unary operator $\ominus$ to a rational multiplicative function has the effect of interchanging the upstairs elements and the downstairs elements of its Tannakian symbol, and hence we have $\ominus \one = \mu$.
+\end{proof}
+
+\begin{propdef}
+Let $f$ and $g$ be two multiplicative functions. Define the \defhl{LCM convolution} of $f$ and $g$ as the function $h$ defined by
+$$ h(n) = \sum_{[a,b] = n} f(a) g(b)   $$
+(The sum here is taken over all ordered pairs of positive integers whose least common multiple is $n$.) Then $h$ is a multiplicative function. Furthermore, $f$, $g$ and $h$ satisfy the relation
+
+$$  h = (f \oplus \one) \boxtimes (g \oplus \one) \ominus \one   $$
+
+\end{propdef}
+
+\begin{proof}
+It is well known that $h$ is multiplicative for any multiplicative $f$ and $g$. Any multiplicative function is fully determined by its values on prime powers. We can see that
+$$h(p^e) = \sum_{[a, b] = p^e} f(a)g(b)$$
+It is clear that both $a, b$ must divide $p^e$, and are thus (respectively) of the form $p^{e_1}$ and $p^{e_2}$. Furthermore, it is clear that $[p^{e_1}, p^{e_2}] = p^{\max(e_1, e_2)}$. We can split this up into three cases: $e_1 = e_2 = e$, $e_1 = e$ and $e_1 < e$, and finally $e_2 = e$ with $e_1 < e$
+\end{proof}
+
+
+\begin{propdef}
+Let $f$ and $g$ be two multiplicative functions, and let $k$ be a positive integer. Define the $k$-twisted convolution $f \ktwist{k} g$  of $f$ and $g$ by the formula.
+$$  (f \ktwist{k} g) (n) = \sum_{d^k \vert n} f(d) g(\frac{n}{d^k})   $$
+The sum here runs over all positive integers $d$ such that $d^k$ is a divisor of $n$. Then $f \ktwist{k} g$ is multiplicative, and 
+$$  f \ktwist{k} g =  \hatboxadam{k}(f) \oplus g  $$
+\end{propdef}
+\begin{proof}
+Rewrite as 
+$$  \sum_{d \vert n} \varepsilon_k(d) \Omega_k f(d) g(n/d)  $$
+\end{proof}
+\todo{Double-check statement and add proof above}
+
+\begin{propdef}
+Let $f$ be a multiplicative function, and define the Schemmel transform of $f$ by
+$$ g(n) = \prod_{p \vert n} (1-f(p))   $$
+The product is over all prime numbers that divide $n$ (one factor for each distinct prime number, even if that prime occurs several times in $n$). Then $g$ is multiplicative, and 
+$$  g = \mu \boxtimes f \oplus \mathbf{1}    $$
+where $\mu = \ominus \mathbf{1}$ is the M{\"o}bius function.
+\end{propdef}
+\begin{proof}
+\emph{Question: How prove this? And can we replace the last sum by boxplus?}
+\end{proof}
+
+\emph{Connect Schemmel to exercises 1.21 and 1.23 perhaps, or produce examples from them?}
+
+\begin{propdef}
+Let $f$ be a multiplicative function. The \defhl{GCD transform} of $f$ is the function $g$ defined by
+$$ g(n) = \sum_{r=1}^n f(gcd(n, r))   $$
+This function is multiplicative, and we have
+$$ g = f \oplus \varphi    $$
+where $\varphi$ is the Euler $\varphi$ function.
+\end{propdef}
+\begin{proof}
+This is also an exercise in McCarthy chapter 1. But we should find a short proof.
+\end{proof}
+%In order to give the definition of the norm operator, we need an auxiliary function (which is not multiplicative, but additive, i.e. it satisfies $\Omega(mn) = \Omega(m) + \Omega(n)$). 
+%\begin{definition}
+
+%Let $\Omega(n)$ be the number of prime factors of $n$, counted with multiplicity. In other words, if the prime factorization of $n$ is
+%$$  n = \prod_{i=1}^k p_i^{e_i}  $$
+%then we have
+%$$  \Omega(n) = \sum_{i=1}^k e_i  $$
+%\end{definition}
+
+Recall that we defined the Liouville function by
+$$  \lambda(n) = (-1)^{\Omega(n)} $$
+where $\Omega(n)$ is the number of prime factors of $n$, counted with multiplicity. 
+\begin{propdef}
+Norm operator.
+\end{propdef}
+
+
+\begin{propdef}
+Higher norm operator. 
+\end{propdef}
+
+
+\begin{theorem}
+The norm operators are precisely the 2nd, the 4th, the 8th etc Adams operations. Make this precise.
+\end{theorem}
+
+
+\begin{theorem}
+Our $Ad^2$ equals $N$.
+\end{theorem}
+
+\begin{proof}
+We sketch the proof, which proceeds in several steps. The idea is to first prove that the two operations agree on the subset $Mult_{rat}(\C)$, and then prove that the operations are continuous with respect to a topology on $Mult(\C)$ in which the set $Mult_{rat}(\C)$ is dense. 
+
+
+\begin{enumerate}
+\item First we prove that $N(f)$ is multiplicative whenever $f$ is multiplicative. This is obvious once we spell out what the expressions for $N(f)(m)$, $N(f)(n)$ and $N(f)(mn)$ look like - multiplying the first two gives the third by multiplicativity of $f$ and additivity of the function $\Omega$.
+\item Next we prove the statement for completely multiplicative functions. This is done by a brief and direct computation.
+\item The third step is to show that $N(f \oplus g) = N(f) \oplus N(g)$.
+\item To be continued... clear up the proof on paper first.
+
+
+\end{enumerate}
+
+\end{proof}
+
+
+\subsection{Explicit formulas for function values}
+
+\begin{theorem}
+Add here Torstein's theorem about explicit evaluation of generalized norms of functions. Uses "flerleddet Dirichlet convolution", maybe we need intermediate lemmas for this.
+\end{theorem}
+
+Are there other explicit formulas we could present?
+
+\subsection{Characterizations of completely multiplicative functions}
+
+
+\begin{proposition}
+Restate and prove Bell derivative fixed point theorem.
+\end{proposition}
+
+\begin{proposition}
+Let $f$ be a multiplicative function. The following are equivalent:
+\begin{enumerate}
+\item The function $f$ is completely multiplicative.
+\item The relation $f \boxtimes g = f \otimes g$ holds for all multiplicative functions $g$. 
+\end{enumerate}
+\end{proposition}
+
+
+
+\begin{proposition}
+\emph{This statement is just a wild guess. Is it even remotely true? Verify and reformulate if needed.}
+Let $f$ be a multiplicative function. The following three properties of $f$ are equivalent:
+\begin{itemize}
+\item[a)] For all $k$, $\adam{k}(f) = \boxadam{k}(f)$
+\item[b)] For all $k$, $\hatadam{k}(f) = \hatboxadam{k}(f)$
+\item[c)] $f$ is completely multiplicative.
+\end{itemize}
+\todo{Prove that completely multiplicative funcs. are the only fixed points of Bell derivation, which is clearly equiv. with b, cause expansion contains all the information, and finally a) is just imo likely wrong, but add $= f^k$ and it's trivial. So maybe...}
+\end{proposition}
+\begin{proof}
+This is probably wrong for expansion, since it does not preserve completely multiplicative functions. For compression, should be ok, at least in the first direction.
+\end{proof}
+
+
+\subsection{Distributivity relations between box and circle operations}
+
+Add here all results on binary operations.
+
+We know by the Adams algebra axioms that $\otimes$ is distributive over $\oplus$ and that $\boxtimes$ is distributive over $\boxplus$, but are there any other distributivity relations? 
+
+Explain why the answer is no.
+
+(Remove this paragraph?) The full picture of how the box operations and the circle operations are related is not yet understood. There are many operations involved on both sides (and even more if we also include the lambda operations, gamma operations and symmetric power operations of section ??). For any pair of operations, one may as if there is a relation, and it would be interesting to do this in a systematic way. Just as an example of what one could look for, here is a conjecture that says that $\oplus$ is almost distributive over $\boxplus$.
+
+\begin{conjecture}
+Let $f$, $g$ and $h$ be multiplicative functions. Then
+$$ f \oplus (g \boxplus h) = (f \oplus g) \boxplus (f \oplus h) \boxminus f     $$
+\end{conjecture}
+\todo{I have a simple proof. Let's bet that I don't die :) (If I actually die then look in the notebook by my bed)}
+
+
+\subsection{Some additional results on Adams operations}
+
+The lambda-algebra axioms tell us that each of the Adams operations $\boxadam{k}$ and $\hatboxadam{k}$ are ring homomorphisms with respect to the operations $\boxplus$ and $\boxtimes$, so that for example
+$$  \boxadam{k}(f \boxtimes g) = \boxadam{k}(f) \boxtimes \boxadam{k}(g) $$
+In the same way, each of the operations $\adam{k}$ and $\hatadam{k}$ respects each of the operations $\oplus$ and $\otimes$. But are there any such relations ``across the pond", i.e. do some of the Adams operations also respect the binary operations from the other Adams algebra structure? The answer is no (and it is easy to find counter-examples by experimenting in SAGE) in all cases except the one in the next proposition.
+
+\begin{proposition}
+The Adams operation $\hatboxadam{k}$ (i.e. the $k$'th convolute) respects Dirichlet convolution.
+\end{proposition}
+\begin{proof}
+This is true for rational multiplicative functions by the explicit formula in terms of Tannakian symbols, and is true on all of $Mult(\C)$ by continuity with respect to the Bell topology.
+\end{proof}
+
+
+One could also investigate more systematically the effect of \emph{Bell conjugation} on a binary or unary operation. What we mean is given a unary operation (call it $Op$), one might look for formulas or characterizations of the operations
+$$ D \circ Op \circ D^{-1}  \quad \quad \textrm{and}  \quad \quad D^{-1} \circ Op \circ D $$
+An analogous question can be asked for binary operations. As a starting point for an investigation in this direction, we offer a second conjecture, based on some experimental evidence.
+\begin{conjecture}
+Let $f$ be a multiplicative function. Then 
+$$ D \circ \hatboxadam{k} \circ D^{-1} ( f ) = k \boxdot \hatboxadam{k} (f)  $$
+\end{conjecture}
+
+\emph{Double-check both conjectures with some experiments in SAGE. Also think about if the final one becomes simpler if we replace box by circle. }
+
+
+\begin{proposition}
+Two weird relations between different Adams operations.
+\end{proposition}
+
+%%% Beyond this line: Obsolete material
+%\emph{Note: The aim of this section is to illustrate how Tannakian symbols work in actual proofs, as motivation for the upcoming material. We rely on definitions and statements developed in section \ref{sec:BellTopology} and section \ref{sec:TannakianSymbols}, and any reader who suffers from severe cyclosyllogismophobia\footnote{Cyclosyllogismophobia: An irrational fear of circular reasoning} should feel free to move all of section \ref{sec:Complementary} to the end of section \ref{sec:TannakianSymbols}.}
+

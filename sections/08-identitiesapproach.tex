@@ -1,0 +1,59 @@
+
+\section{A new approach to identities between multiplicative functions}
+
+Aim of section: Demonstrate that all known identities (except the modular forms-related ones) and many (!) new ones are easy corollaries of the theory developed. 
+
+
+\subsection{A second meta-mathematical claim}
+
+Make a second claim:
+\begin{quote}
+\textbf{All identities between multiplicative functions can be given very short proofs using the formalism of Tannakian symbols.}
+\end{quote}
+
+Plan here: many examples. Later, give criticism involving sigma function identities and identities with infinitely many terms. Note also that we believe all identities can be enumerated, their complexity measured, and any given identity can be automatically proved using our framework.
+
+
+
+\subsection{Identities involving circle operations}
+
+
+\subsection{Identities involving box operations}
+
+
+
+
+\subsection{``Mixed'' identities}
+
+Proposition: lcm convolution corresponds to $h = (f \oplus 1) \boxtimes (g \oplus 1) \oplus \mu $.
+
+
+
+
+
+\begin{example}
+$core = \vert \mu \vert \boxtimes \varphi \oplus \mathbf{1}$ 
+\end{example}
+
+\subsection{Proving identities where none of our formulas apply}
+
+Explain the strategy of proving complicated identities (where no formula applies) by bounding the upstairs and downstairs dimensions, and then verifying that enough Bell coefficients agree.
+
+Mention the sanity check of applying supertrace. Maybe prove that supertrace really respects all operations as expected, note that supertrace is precisely $f(p$. Sometimes useful for catching misprints or reconstructing an identity from a vague memory. Illustrate with reconstruction of totient boxtimes totient.
+
+
+\subsection{Overview of different types of sums}
+
+
+
+\subsection{Fixed points of the norm operator}
+
+Return to the general problem from the prelude. Can we find all fixed points of any Adams operation? When we did this for the norm operator we saw that 
+$$ \frac{A}{B} = N(\frac{A}{B})   $$
+implies $A^2 = A$ and $B^2 = B$\todo{does this work with cancellation?}, by cross-multiplication and the disjointness of $A$ and $B$. Solving such an equation we get that the multiset $A$ (and also $B$ of course) must be a disjoint units of root cycles, so we get the description of $L$ as in the prelude. Add explicit formula for the rank of $L_k$, with proof. Proof could use recursion which would probably look something like this. Set $r_k = rank(L_k)$. Then we get
+$$ k \cdot r_k = (2^k-1) - \sum d \cdot r_d    $$
+the sum taken over all divisors of $k$ which are smaller than $k$, and to get to this formula we have used that $d$ divides $k$ if and only if $2^d-1$ divides $2^k-1$.
+
+
+We could attempt a general solution to the eigenvector equation for each of the four types of Adams operations, but then there is little connection to explicit identities. And this would also take some time...
+

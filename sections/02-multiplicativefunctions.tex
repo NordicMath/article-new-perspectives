@@ -1,0 +1,834 @@
+
+\section{Multiplicative functions and the Bell derivative}
+
+In this section we give basic definitions and some examples of multiplicative functions. Two key definitions (which we believe are new) are (1) the definition of the \emph{Bell derivative} $f'$ of a multiplicative function $f$, and (2) the definition of  a \emph{rational} multiplicative function.
+
+\subsection{Multiplicative functions}
+
+Recall that $\N$ in this paper denotes the set of \emph{strictly positive} integers.
+
+\begin{definition}
+A function from $\N$ to $\C$ is called an \defhl{arithmetical function}.
+\end{definition}
+
+\begin{definition} \label{def:multiplicative}
+A arithmetical function $f: \mathbb{N} \to \mathbb{C}$ is called a \defhl{multiplicative function} if it satisfies the two conditions
+\begin{itemize}
+\item[(i)] $f(1) = 1$
+\item[(ii)] $f(mn) = f(m) f(n)$ for all $m, n$ which are coprime.
+\end{itemize}
+A multiplicative function is \defhl{completely multiplicative} if the second condition holds for \emph{all} $m, n$ in $\N$. 
+
+\end{definition}
+
+%\begin{definition}
+%\emph{Define Dirichlet convolution and Dirichlet inverse here? Also define totient and specially multiplicative, and add comments about these notions when appropriate throughout this section?}
+%\end{definition}
+
+%\begin{definition}
+%(Copied from a later section) Let $f$ and $g$ be two multiplicative functions. We define the \defhl{Dirichlet convolution} of $f$ and $g$ (denoted here by $f \oplus g$ instead of the more traditional $f * g$) by the formula
+%$$ (f \oplus g)(n) =  \sum_{d \vert n} f(d) g(n/d)  $$
+%Here the sum on the right hand side is taken over all positive divisors $d$ of $n$. The reason for introducing non-standard notation is that we want to think of Dirichlet convolution as an additive rather than as a multiplicative operation.
+%\end{definition}
+
+\begin{example}
+In the Prelude, we encountered the Euler totient function $\varphi$, as well as the $\tau$ function (the latter may be denoted by $d$ or $\sigma_0$ in some sources). Recall that $\varphi(n)$ is the number of positive integers smaller than or equal to $n$ which are coprime to $n$, and that $\tau(n)$ is the number of positive divisors of $n$. Both the Euler function and the $\tau$ function are multiplicative functions but \emph{not} completely multiplicative.
+\end{example}
+
+\begin{definition}
+We give only two examples of functions which are arithmetical but not multiplicative. We define $\omega(n)$ to be the number of distinct prime factors of $n$, and we define $\Omega(n)$ to be the number of prime factors \emph{counted with multiplicity}. In other words, if
+$$ n = p_1 ^{e_1} p_2^{e_2} \cdots p_m^{e_m}  $$
+is the unique prime factorization of the number $n$, then
+$$ \omega(n) = m    $$
+and
+$$  \Omega(n) = \sum_{i=1}^m  e_i $$
+\end{definition}
+
+\begin{example}
+The Liouville function $\lambda$ is defined by the formula
+$$ \lambda(n) = (-1)^{\Omega(n)}  $$
+It is a completely multiplicative function.
+\end{example}
+
+\begin{definition}
+A number $d$ is \defhl{square-free} if no square number except $1$ is a divisor of $d$.
+\end{definition}
+
+\begin{example}
+We define $\Theta(n)$ to be the number of square-free divisors of $n$. The function $\Theta$ is multiplicative but not completely multiplicative. One can show that the relation
+$$ \Theta(n) = 2^{\omega(n)}   $$
+holds.
+\end{example}
+
+We remind the reader that Appendix ?? contains an overview of all multiplicative functions appearing in this paper.
+
+\begin{definition}
+We define $Mult(\mathbb{C})$ to be \defhl{the set of all multiplicative functions}. We define $CMult(\mathbb{C})$ to be \defhl{the set of all completely multiplicative functions}.
+\end{definition}
+
+
+Any multiplicative function $f$ is determined by its values on the set $\PP$ of prime powers. The reason is that if $n$ is a positive integer, we can factor $n$ as $p_1^{e_1} p_2^{e_2} \cdots p_m^{e_m}$, and because $f$ is multiplicative, we have
+$$ f(n) = f(p_1^{e_1}) f( p_2^{e_2}) \cdots f(p_m^{e_m})   $$
+On the other hand, we can construct a multiplicative function by assigning an arbitrary function value to each prime power, and then extend the function to all positive integers by the above formula. 
+
+Similarly, a completely multiplicative function is determined by its values on the set $\bbP$ of prime numbers, since for such a function we always have
+$$  f(n) = f(p_1)^{e_1} f( p_2)^{e_2} \cdots f(p_m)^{e_m}  $$
+
+We reformulate and record these two elementary and well-known observations in a lemma, for later use. Recall that $Y^X$ denotes the set of all functions from the set $X$ to the set $Y$.
+
+
+\begin{lemma} \label{AffineSpaceLemma}
+\begin{itemize}
+\item[i)] Consider the composition
+$$ Mult(\C) \rightarrow \C^{\N} \rightarrow \C^{\PP}   $$
+where the first arrow is the obvious inclusion, and the second arrow is given by restriction from the set $\N$ to its subset $\PP$. This composition is a bijection.
+\item[ii)] Consider the composition
+$$ CMult(\C) \rightarrow \C^{\N} \rightarrow \C^{\bbP}   $$
+where the first arrow is the obvious inclusion, and the second arrow is given by restriction from the set $\N$ to its subset $\bbP$. This composition is also a bijection.
+\end{itemize}
+\end{lemma}
+
+\begin{definition}
+The map from $Mult(\C)$ to $\C^{\PP}$ described in the Lemma will be referred to as \defhl{the canonical bijection} between these two sets.
+\end{definition}
+
+\begin{definition}
+(Informal) Let $f$ be a multiplicative function. A \defhl{master equation} for $f$ is a formula for the function value $f(p^e)$, valid for all primes $p$ and all positive integers $e$.
+\end{definition}
+
+\begin{example}
+The Euler function has master equation 
+$$ \varphi(p^e) = p^e - p^{e-1}   $$
+while the $\tau$ function has master equation given by 
+$$ \tau(p^e) = e+1  $$
+\end{example}
+
+\begin{example}
+The Liouville function has the master equation
+$$ \lambda(p^e) = (-1)^e  $$
+and the function $\Theta$ has master equation
+$$ \Theta(p^e) = 2   $$
+\end{example}
+
+We now collect a few definitions related to various generating series constructed from multiplicative functions. They will play a central role in many of our constructions and proofs.
+
+\begin{definition}
+Let $f$ be a multiplicative function, and let $p$ be a prime. The \defhl{Bell series of $f$ at $p$} is the formal power series
+$$ 1 + f(p) \ t + f(p^2) \ t^2 + f(p^3) \ t^3 + \ldots    $$ 
+Here $t$ is a formal variable, and the series is an element of the formal power series ring $\mathbb{C}[[t]]$.
+\end{definition}
+
+\begin{remark}
+By Lemma \ref{AffineSpaceLemma}, a multiplicative function is fully determined by its Bell series at all primes (taken together).
+\end{remark}
+
+\begin{definition}
+The number $f(p^e)$ is called the \defhl{Bell coefficient} at the prime power $p^e$.
+\end{definition}
+
+The values $f(n)$ may be tabulated in the usual ``linear'' way, as we did for the Euler totient function once already:
+
+\vspace{6pt}
+\begin{tabular}{  | c || c | c | c | c | c | c | c | c | c | c | c | c | c | c |  }
+  \hline			
+  $n$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & \ldots & 20  \\
+  \hline
+  $\varphi(n) $ & 1 & 1 & 2 & 2 & 4 & 2 & 6 & 4 & 6 & 4 & 10 & 4 & \ldots & 8  \\
+  \hline  
+\end{tabular}
+\vspace{6pt}
+
+However, this display hides many of the patterns in the function values, and it is often better to tabulate only the function values $f(p^e)$ in a two-dimensional array indexed by the prime $p$ and the exponent $e$. Here is what happens for the Euler function:
+
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$ & $e = 6$ \\
+\hline
+\hline
+$p = 2$ & 1 & 2 & 4 & 8 & 16 & 32 \\
+\hline
+$p = 3$ & 2 & 6 & 18 & 54 & 162 & 486 \\
+\hline
+$p = 5$ & 4 & 20 & 100 & 500 & 2500 & 12500 \\
+\hline
+$p = 7$ & 6 & 42 & 294 & 2058 & 14406 & 100842 \\
+\hline
+\end{tabular}
+\end{center}
+
+In this particular case, we easily see that the rows form geometric sequences, and it is easy to read off the pattern both in the initial terms and in the successive quotients of these sequences. 
+
+\begin{definition}
+(Informal) If $f$ is any multiplicative function, we use the word \defhl{Bell table} for a two-dimensional table of the function values $f(p^e)$, indexed by $p$ and $e$, as above.
+\end{definition}
+
+\begin{example}
+The Bell table of the Liouville function:
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & -1 & 1 & -1 & 1 & -1 \\
+\hline
+$p = 3$ & -1 & 1 & -1 & 1 & -1 \\
+\hline
+$p = 5$ & -1 & 1 & -1 & 1 & -1 \\
+\hline
+$p = 7$ & -1 & 1 & -1 & 1 & -1 \\
+\hline
+\end{tabular}
+\end{center}
+\end{example}
+
+\begin{example}
+The Bell table of the $\Theta$ function:
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & 2 & 2 & 2 & 2 & 2 \\
+\hline
+$p = 3$ & 2 & 2 & 2 & 2 & 2 \\
+\hline
+$p = 5$ & 2 & 2 & 2 & 2 & 2 \\
+\hline
+$p = 7$ & 2 & 2 & 2 & 2 & 2 \\
+\hline
+\end{tabular}
+\end{center}
+\end{example}
+
+\begin{example}
+The Bell table of the $\tau$ function:
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & 2 & 3 & 4 & 5 & 6 \\
+\hline
+$p = 3$ & 2 & 3 & 4 & 5 & 6 \\
+\hline
+$p = 5$ & 2 & 3 & 4 & 5 & 6 \\
+\hline
+$p = 7$ & 2 & 3 & 4 & 5 & 6 \\
+\hline
+$p = 11$ & 2 & 3 & 4 & 5 & 6 \\
+\hline
+\end{tabular}
+\end{center}
+\end{example}
+
+
+\begin{example}
+Let $\tau_k(n)$ be the number of ordered factorizations of $n$ into $k$ factors. Then $\tau_k$ is a multiplicative function. For $k=2$ we recover the $\tau$ function from earlier.
+
+Here is the Bell table for $\tau_4$:
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & 4 & 10 & 20 & 35 & 56 \\
+\hline
+$p = 3$ & 4 & 10 & 20 & 35 & 56 \\
+\hline
+$p = 5$ & 4 & 10 & 20 & 35 & 56 \\
+\hline
+$p = 7$ & 4 & 10 & 20 & 35 & 56 \\
+\hline
+$p = 11$ & 4 & 10 & 20 & 35 & 56 \\
+\hline
+\end{tabular}
+\end{center}
+We recognize the numbers here from the 4'th diagonal of Pascal's triangle, and indeed the general master equation is
+$$ \tau_k(p^e) =  \binom{k-1+e}{e}  $$
+where the right hand side is a binomial coefficient.
+\end{example}
+
+
+\begin{definition}
+Let $f$ be any function from $\N$ to $\C$. The \defhl{Dirichlet series} associated to $f$ is the formal series
+$$  D_f(s) = \sum_{n=1}^{\infty} f(n) n^{-s}   $$
+
+If $f$ is multiplicative, then the Dirichlet series of $f$ can be rewritten as a (formal) product over all prime numbers:
+$$  D_f(s) = \prod_p f_p(p^{-s})   $$
+where $f_p$ is the Bell series of $f$ at $p$. Any formal product of this form (with $f_p$ a formal power series with complex coefficients) is called an \defhl{Euler product}, and the expression $f_p(p^{-s})$ is called the \defhl{Euler factor} at the prime $p$. 
+
+Conversely, let $D(s) = \sum a_n n^{-s} = $ be a Dirichlet series admitting an Euler product. The function  $f(n) = a_n$ is then multiplicative, and we refer to it as the \defhl{underlying multiplicative function} of $D(s)$.
+\end{definition}
+
+\begin{example}
+The constant multiplicative function (all of whose function values are equal to $1$) will be denoted by $\one$. Its Dirichlet series is the Riemann zeta function $\zeta(s)$. 
+\end{example}
+
+\begin{example}
+The multiplicative function defined by the master equation $f(p^e) = 0$ will be denoted by $\zero$. Its Dirichlet series is equal to 1. Note that $\zero(1) = 1$, while $\zero(n) = 0$ for all $n \geq 2$.
+\end{example}
+
+\begin{example}
+Here are the Dirichlet series for the other functions encountered so far:
+\begin{itemize}
+\item $D_{\Theta}(s) = \frac{\zeta(s)^2}{\zeta(2s)}$
+\item $D_{\tau}(s) = \zeta(s)^2$
+\item $D_{\lambda}(s) = \frac{1}{\zeta(s)}$
+\item $D_{\varphi}(s) = \frac{\zeta(s - 1)}{\zeta(s)}$
+\end{itemize}
+The function $\tau_k$ has Dirichlet series $\zeta(s)^k$.
+\end{example}
+
+
+
+\begin{example}
+In many real-life examples of Dirichlet series admitting an Euler product, each Euler factor is of the form ${1} / {L_p(p^{-s})}$ with $L_p$ a polynomial, and this degree of this polynomial is often the same for all but a finite number of primes $p$. In this situation, the primes in the finite set of exceptions are referred to as \emph{bad primes}. For example, any \emph{automorphic L-function} is of this form, and the same is true for any L-function associated to a Galois representation, or to a motive (assuming the motive is pure of some specific weight). In general the existence of these L-functions means that we can speak of \emph{the multiplicative function associated to} an automorphic representation, a Galois representation or a motive.
+\end{example}
+
+\begin{example}
+To take a specific example of automorphic nature, we consider the famous modular form $\Delta$, whose coefficients are given by the Ramanujan $\tau$ function (not to be confused with the $\tau$ function above). Its Bell table looks like this:
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ \\
+\hline
+\hline
+$p = 2$ & -24 & -1472 & 84480 & 987136 \\
+\hline
+$p = 3$ & 252 & -113643 & -73279080 & 1665188361 \\
+\hline
+$p = 5$ & 4830 & -25499225 & -359001100500 & -488895969711875 \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+\end{example}
+
+
+
+\begin{example}
+Let $G$ be a $\mathcal{T}$-group, meaning a finitely generated, torsion-free and nilpotent group. Let $a_n$ be the number of subgroups of $G$ of index $n$, and define a function $f_G$ by the formula $f_G(n) = a_n$. Then $f_G$ is multiplicative. A concrete example is the abelian group $\mathbb{Z}^3$. The associated multiplicative function famously has Dirichlet series $\zeta(s) \zeta(s-1) \zeta(s-2)$, and Bell table:
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& e = 1 & e = 2 & e = 3 & e = 4 & e = 5\\
+\hline
+\hline
+p = 2 & 7 & 35 & 155 & 651 & 2667 \\
+\hline
+p = 3 & 13 & 130 & 1210 & 11011 & 99463 \\
+\hline
+p = 5 & 31 & 806 & 20306 & 508431 & 12714681 \\
+\hline
+p = 7 & 57 & 2850 & 140050 & 6865251 & 336416907 \\
+\hline
+p = 11 & 133 & 16226 & 1964810 & 237758115 & 28768909071 \\
+\hline
+\end{tabular}
+\end{center}
+A more interesting example is the so-called discrete Heisenberg group of $3 \times 3$-upper-unitriangular matrices over the integers, i.e. the multiplicative group of all matrices of the form
+$$
+\begin{bmatrix}
+    1       & a & b  \\
+    0       & 1 & c  \\
+     0      & 0 & 1  
+\end{bmatrix}
+$$
+with $a, b, c \in \mathbb{Z}$. The associated multiplicative function has Dirichlet series
+$$ \frac{\zeta(s) \zeta(s-1) \zeta(2s-3) \zeta(2s-2) }{\zeta(3s-3)} $$
+and Bell table 
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & $3$ & $19$ & $43$ & $203$ & $427$ \\
+\hline
+$p = 3$ & $4$ & $49$ & $157$ & $1534$ & $4693$ \\
+\hline
+$p = 5$ & $6$ & $181$ & $931$ & $24056$ & $120931$ \\
+\hline
+$p = 7$ & $8$ & $449$ & $3193$ & $159258$ & $1117257$ \\
+\hline
+$p = 11$ & $12$ & $1585$ & $17557$ & $2140502$ & $23560285$ \\
+\hline
+\end{tabular}
+\end{center}
+We have borrowed these examples from Voll \cite{VollIntro}. See also du Sautoy's ICM presentation \cite{duSautoyICM} for an introduction to these ideas and related definitions for certain classes of rings.
+\end{example}
+
+In later sections, we shall discuss numerous examples of multiplicative functions of a more elementary nature, but also several different types of multiplicative functions coming from algebraic geometry, including the multiplicative function underlying the Hasse-Weil zeta function of a scheme.
+
+\subsection{Rational multiplicative functions}
+
+Almost all examples of multiplicative functions appearing in number theory and algebraic geometry satisfy a property which we want to call \emph{rationality}. 
+
+We shall see later that there is a natural topology on $Mult(\C)$ with the property that the rational multiplicative functions form a dense subset. This observation will lead to very short proofs of many purely algebraic statements.
+
+\begin{definition}
+We say that a multiplicative function $f$ is \defhl{rational} if the Bell series $f_p(t)$ is a rational power series for all primes $p$.
+\end{definition}
+
+\begin{remark}
+A multiplicative function is rational if and only if for every prime number $p$, the sequence
+$$ f(p), f(p^2), f(p^3), \ldots  $$
+is linearly recursive (these are the sequences occurring as rows in a Bell table for $f$). 
+\end{remark}
+
+\begin{definition}
+We write $Mult_{rat}(\C)$ for the set of all rational multiplicative functions.
+\end{definition}
+
+\begin{example}
+All the multiplicative functions we have seen so far are rational, including the modular form example, the two examples coming from finitely generated groups, each of the $\tau_k$ functions, the constant function $\one$, the zero function $\zero$ the Euler $\varphi$ function, the Liouville function, and the $\Theta$ function.
+\end{example}
+
+Finding example of non-rational multiplicative functions is quite hard, but there will be examples appearing in later sections, including some multiplicative functions underlying zeta functions of \emph{algebraic stacks}. For now we simply give give two examples, first a function which may or may not be rational, and then another function that is provably non-rational.
+
+\begin{example}
+Let $f(n)$ be the number of commutative but not necessarily unital rings with $n$ elements. Then $f$ is a multiplicative function, but it is very hard to compute $f(n)$ for large values of $n$. The Bell table looks like this - here question marks indicate that the value of $f(p^e)$ is unknown, and a symbol like $>876$ indicates that the value is unknown but larger than (in this case) 876. The values appearing in the table are taken from OEIS (sequence A037289), and we have not checked the details of the original sources. (It would probably be wise to double-check that none of the numbers 34 and 36 appearing here are misprints in OEIS.)
+
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$ & $e = 6$ & $e=7$ \\
+\hline
+\hline
+$p = 2$ & 2 & 9 & 34 & 162 & $>876$ & $>12696$  & ? \\
+\hline
+$p = 3$ & 2 & 9 & 36 & ? & ? & ? & ? \\
+\hline
+$p = 5$ & 2 & 9 & ? & ? & ? & ?  & ?\\
+\hline
+$p = 7$ & 2 & 9 & ? & ? & ? & ?  & ?\\
+\hline
+$p = 11$ & 2 & ? & ? & ? & ? & ?  & ?\\
+\hline
+$p = 13$ & 2 & ? & ? & ? & ? & ?  & ?\\
+\hline
+$p = 17$ & 2 & ? & ? & ? & ? & ?  & ?\\
+
+\hline
+\end{tabular}
+\end{center}
+\end{example}
+
+
+\begin{example}
+An \defhl{exponential divisor} of a natural number 
+$$n = p_1^{e_1} \cdot p_2^{e_2} \cdots p_m^{e_m}$$
+is an integer of the form
+$$ d = p_1^{c_1} \cdot p_2^{c_2} \cdots p_m^{c_m}   $$
+where $c_i$ divides $e_i$ for all $i$. Let $f(n)$ be the number of exponential divisors of $n$. Then $f$ is a multiplicative function, with master equation
+$$f(p^e) = \tau(e)$$
+and OEIS label A049419. To prove that this function is not rational, we argue as follows. Assume that the sequence 
+$$ f(p), f(p^2), f(p^3), \ldots   $$
+is linearly recursive. Subtracting the number 2 from each number in the sequence gives another sequence which also is linearly recursive, whose $k$'th term is 
+$$  a_k = \tau(k) - 2.  $$
+Let $S$ be the set of zeroes of this sequence, i.e. the set 
+$$ \{ k \in \mathbb{N}  \ \vert \ a_k = 0  \}  $$
+The Skolem-Mahler-Lech theorem (Ref. Theorem 2.1, page 25, in Everest et al) says that set of zeroes of any linearly recursive sequence (at least over a field of characteristic zero) is a union of a finite set and a finite number of arithmetic progressions. On the other hand, we see from the definition of the $\tau$ function that the set $S$ is precisely the set of prime numbers. This is a contradiction, and hence the original sequence cannot be linearly recursive.
+\end{example}
+
+
+\subsection{Multiplicative functions with values in other rings}
+
+In the above definitions, we could have replaced $\C$ throughout with any commutative ring $R$. In this way, we obtain the notion of an $R$-valued multiplicative function, and we can form the set $Mult(R)$, the set $CMult(R)$ and the set $Mult_{rat}(R)$. Note that we have inclusions
+$$ CMult(R) \hookrightarrow Mult_{rat}(R) \hookrightarrow Mult(R)   $$
+
+As explained in the introduction, this article only considers rings $R$ which are subrings of $\C$. In future work we hope to treat general commutative rings, in particular the rings of dual numbers (and higher analogues) which appear in Tao's approach to derived multiplicative functions.
+\begin{definition}
+For any function $f$ in $Mult(\C)$, there exists a smallest subring $R$ of $\C$ with the property that $f$ lies in $Mult(R)$. This ring is called the \defhl{coefficient ring} associated to $f$. 
+\end{definition}
+
+\begin{example}
+Any function which \emph{counts} something obviously has coefficient ring $\mathbb{Z}$.
+\end{example}
+
+
+\begin{example}
+The $5$-adic absolute value is a multiplicative function. It is defined by the equation
+$$   \vert n \vert_5 = 5^{-v_5(n)}  $$
+where $v_5(n)$ is the number of copies of $5$ in the prime factorization of $n$. For example, the prime factorization of 650 is $2 \cdot 5 \cdot 5 \cdot  13$, so $v_5(650) = 2$, and the $5$-adic absolute value of 650 is equal to $\frac{1}{25}$.
+The Bell table of the $5$-adic absolute value looks like this:
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & 1 & 1 & 1 & 1 & 1 \\
+\hline
+$p = 3$ & 1 & 1 & 1 & 1 & 1 \\
+\hline
+$p = 5$ & 1/5 & 1/25 & 1/125 & 1/625 & 1/3125 \\
+\hline
+$p = 7$ & 1 & 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+The coefficient ring of this function is $\Z[\frac{1}{5}]$, i.e. the set of all rational numbers which can be written on the form $\frac{a}{b}$, where $b$ is a power of $5$ (with non-negative integer exponent, so $b =1$ is allowed).  
+\end{example}
+
+\begin{example}
+We're not entirely sure about the technical details here, but multiplicative functions coming from automorphic L-functions are either algebraic (in which case we think the coefficient ring is contained in some number field), or non-algebraic, in which case many (all???) of the coefficients in the Bell table are non-algebraic numbers. Some of the simplest non-algebraic examples are given by so-called Maass forms. Here is the Bell table of the Maass form on $\Gamma_0(5)$ with spectral parameter $R \approx 3.02837629307$, with data copied from the LMFDB database. The coefficients here are all rounded to 9 or 10 correct decimals. 
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ \\
+\hline
+\hline
+$p = 2$ & -0.593266803 & -0.6480345004 & 0.9777241593 & 0.0679832141 \\
+\hline
+$p = 3$ & 1.113764923 & 0.2404723031 & -0.8459353058 & -1.1826453656 \\
+\hline
+$p = 5$ & 0.4472135955 & 0.2 & 0.0894428085 &  \\
+\hline
+\end{tabular}
+\end{center}
+The missing digit (for the prime power $5^4$) was not in the LMFDB (they only display the values $a_n$ for $n \leq 500$). We do not know if the number $0.2$ in the table is exactly equal to $\frac{1}{5}$ or if it just happens to be very close; maybe some expert on Maass forms could tell.
+\end{example}
+
+\begin{example}
+Any Dirichlet character is a multiplicative function, whose coefficient ring is the ring of integers in some cyclotomic number field.
+\end{example}
+
+\begin{example}
+Let $z$ be a fixed complex number. We write $id_z(n)$ for $n^z$. Then $id_z$ is a completely multiplicative function. We make a few observations, but recall first that when $b$ is a positive real number (for example a positive integer), then the expression $b^z$ is unambiguously defined, and if furthermore $e$ is an integer, we always have $(b^z)^e = b^{ez}$. For more general $b$ and $e$, these statements may not be true.
+\begin{itemize}
+\item Whenever $z$ is a natural number, the function $id_z$ lies in $Mult(\Z)$. 
+\item Whenever $z$ is a negative integer, the function $id_z$ lies in $Mult(\Q)$.
+\item Whenever $z$ is a rational number, the function $id_z$ lies in $Mult(\overline{\Q})$. The coefficient ring of $id_z$ is some subring of $\overline{\Q}$.
+\item Whenever $z$ is not a rational number (for example when $z = i$ or when $z = \sqrt{2}$, the function $id_z$ does \emph{not} lie in $Mult(\overline{\Q})$, because it contains some transcendental numbers (by the Gelfond-Schneider theorem).
+\item For every non-zero complex number $C$, there exists some complex number $z$ such that $C$ is in the image of $id_z$, and hence every complex number appears in the coefficient ring of some function $id_z$. This follows from Picard's Little Theorem.
+\end{itemize}
+
+\end{example}
+
+\begin{remark}
+Multiplicative function are functions from $\mathbb{N}$ to $\mathbb{C}$ satisfying two axioms. Generalizing to other target rings than $\C$ is interesting, but we could just as well try to replace the domain $\mathbb{N}$ with some other commutative monoid. For this to make sense, the requirement on the monoid is that it has a notion of coprime elements. An example would be Beurling integers (cite Rikard Olofsson). We will not pursue this line of ideas in the current paper, but perhaps one could investigate if some of our results carry over to other such domains.
+\end{remark}
+
+
+\subsection{The Bell derivative}
+
+\begin{definition}
+Let $f$ be a multiplicative function. We define a new multiplicative function $f'$ called the \defhl{Bell derivative} of $f$ as the unique multiplicative function satisfying the condition that for every prime $p$, the Bell series of $f'$ at $p$ is given by the expression
+$$   1 + t \cdot \frac{\mathrm{d}}{\mathrm{d}t} \log  f_p(t)      $$  
+where $f_p(t)$ is the Bell series of $f$ at $p$. 
+\end{definition}
+
+\begin{remark}
+Note that the Bell derivative is unrelated to the notion of derivative of an arithmetical function found for example in Apostol's book (give reference and page number). Apostol defines the derivative of a function $n \mapsto a_n$ to be the function $n \mapsto -a_n log(n)$ (\emph{double-check the minus sign}), which is a reasonable definition since it corresponds to formal differentiation of the associated Dirichlet series. With this definition however (unlike with ours), the derivative of a multiplicative function need not be multiplicative.
+
+%There are other ideas in the literature on what one could mean by the derivative of an arithmetical function.
+
+%First of all, for an arithmetical function $f$, we may take the derivative (with respect to the formal variable $s$) of the Dirichlet series $D_f(s)$. If we write
+%$$ D_f(s) = \sum \frac{a_n}{n^s}   $$
+%and differentiate the right hand side with respect to $s$, we get the series
+%$$ - \sum \frac{a_n \log(n)}{n^s}   $$
+%It is possible to define the derivative of $f$ as the function sending $n$ to $-a_n \log(n)$. This is the notion of derivative which appears in Apostol's book (give ref), and it can be used to prove various identities between arithmetical function, but with this definition, the derivative of a multiplicative function is typically not multiplicative. 
+
+%It is also possible to consider the logarithmic derivative of the Dirichlet series; such logarithmic derivatives appears in many analytic number theory formulas. 
+
+%Finally, there is also Tao's recent framework of derived and higher derived (or $k$-derived) multiplicative functions. 
+
+%We want to emphasize that \emph{none of these operations} is directly related to our definition of the Bell derivative. A key feature of our definition is that the Bell derivative of a multiplicative function is again multiplicative. 
+\end{remark}
+
+%$\begin{definition}
+%Logarithmic Bell series of a multiplicative function at a prime.
+%The logarithmic Bell series of a multiplicative function $f$ at a prime $p$ is the logarithmic derivative of the Bell series at $p$ multiplied by the variable and added $1$. If $f_p(t)$ is the Bell series of $f$, then the logarithmic derivative will be given by
+%$$1 + t\frac{f_p'(t)}{f_p(t)}$$
+%The logarithmic Bell coefficients are the coefficients of this series. 
+%\end{definition}
+
+%\begin{definition}
+%The logarithmic Bell coefficient at the prime power $q$.
+%The Bell coefficients are the coefficients of the Bell series.
+%\end{definition}
+
+%It is not obvious that this construction deserves to be called the \emph{derivative}, but we believe that the applications and the analogies appearing later in this paper will justify the terminology. One could argue that we should call this operation something like the \emph{local logarithmic derivative} or something similar, but it would be much more cumbersome to use.
+
+\begin{example}
+Consider the Euler function $\varphi$, with master equation $\varphi(p^e) = p^e - p^{e-1}$. We compute the Bell series of $\varphi$ at a prime $p$, by splitting it into two geometric series:
+\begin{equation} \label{EulerBellSeries}
+\begin{split}
+\varphi_p(t) & = 1 + (p-1)t + (p^2-p ) t^2 + (p^3-p^2)t^3 + \ldots \\
+ & = (1+pt+p^2t^2 + p^3 t^3 + \ldots) - (t + pt^2 + p^2 t^3 + \ldots) \\
+ & = \frac{1}{1-pt} - \frac{t}{1-pt} = \frac{1-t}{1-pt} 
+\end{split}
+\end{equation} 
+The Bell series of the Bell derivative at $p$ can be computed as
+\begin{equation} \label{EulerDerivativeBellSeries}
+\begin{split}
+\varphi'_p(t) & = 1 + t \cdot \frac{\mathrm{d}}{\mathrm{d}t} \log \frac{1-t}{1-pt} \\
+ & = 1 + t \cdot \frac{\mathrm{d}}{\mathrm{d}t} \log (1-t) -  t \cdot \frac{\mathrm{d}}{\mathrm{d}t} \log (1-pt)  \\
+ & = 1 - \frac{t}{1-t} + \frac{pt}{1-pt} \\
+ & = \frac{(1-t)(1-pt)}{(1-t)(1-pt)} - \frac{t(1-pt)}{(1-t)(1-pt)}  + \frac{pt (1-t)}{(1-t)(1-pt)}  \\
+ & = \frac{1-2t+pt^2}{(1-t)(1-pt)} 
+\end{split}
+\end{equation} 
+using nothing but standard rules of calculus. In subsequent examples we will skip the details of these calculations, unless they involve some particular difficulty.
+
+The Bell table of the function $\varphi'$ looks like this:
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & $1$ & $3$ & $7$ & $15$ & $31$ \\
+\hline
+$p = 3$ & $2$ & $8$ & $26$ & $80$ & $242$ \\
+\hline
+$p = 5$ & $4$ & $24$ & $124$ & $624$ & $3124$ \\
+\hline
+$p = 7$ & $6$ & $48$ & $342$ & $2400$ & $16806$ \\
+\hline
+$p = 11$ & $10$ & $120$ & $1330$ & $14640$ & $161050$ \\
+\hline
+\end{tabular}
+\end{center}
+Inspecting the numbers, the master equation is easy to guess, and it is indeed
+$$ \varphi'(p^e) = p^e -1   $$
+\end{example}
+
+
+\begin{example}
+Consider the ``differential equation''
+$$ f' = f   $$
+Which multiplicative functions satisfy this equation? An exercise (translating the problem to a recurrence relation \emph{or} to a separable ordinary differential equation in formal power series) shows that the answer is precisely \emph{the set of all completely multiplicative functions}.
+\end{example}
+
+In order to use the derivative in later definitions of various binary and unary operations, we need the following lemma.
+
+\begin{lemma}
+The operation from $Mult(\C)$ to $Mult(\C)$ which sends a multiplicative function to its Bell derivative is a bijection.
+\end{lemma}
+
+\begin{proof}
+This follows from the well-known fact that the operators $\exp$ and $\log$ form a pair of mutually inverse bijections between the set of all formal power series with complex coefficients and the set of all such power series with constant term 1. Alternatively, a more explicit proof can be given using the modified Newton relations presented below.
+\end{proof}
+
+\begin{definition}
+If $f$ is a multiplicative function, we define the \defhl{Bell antiderivative} of $f$ to be the unique multiplicative function $F$ with the property that $F' = f$.
+\end{definition}
+
+\begin{remark}
+The function $\varphi'$ has a name in the number theory literature; it is called the \emph{unitary analogue} of the Euler $\varphi$ function. Similarly, various articles speak of the unitary analogue of the M{\"o}bius function, the unitary analogue of Pillai's multiplicative function and its higher analogues, the unitary analogue of the $\tau$ function, and the unitary analogue of the $k$'th Jordan function. See for example the article of Toth \cite{Toth}, where many of these functions are defined and used. In every single one of these examples, the "unitary analogue" is the same thing as our Bell derivative. Hence one could perhaps say that our definition of the Bell derivative gives a reasonable unitary analogue of every multiplicative function. 
+\end{remark}
+
+
+\begin{example}
+One more example: The M{\"o}bius $\mu$ function. \emph{Add tables etc here, and modify the overview of examples.}
+\end{example}
+
+\subsection{Four ways of computing with the Bell derivative}
+
+We often find ourselves in a situation where we want to translate information about the Bell coefficients of $f$ to information about the Bell coefficients of $f'$, or vice versa, or just compute one set of coefficients from the other. There are at least four ways of making this translation:
+
+\begin{enumerate}
+\item Use the definition directly, together with elementary techniques from calculus
+\item Use the modified Newton relations in linear form
+\item Use modified Newton relations in polynomial form
+%\item Make a numerical computation followed by some curve-fitting/regression
+\item In many cases, we can use Tannakian symbols (explained later)
+\end{enumerate}
+
+In the next two propositions, we explain what we mean by the ``modified Newton relations". These relations are almost the same as the so-called Newton relations, can be found in many books on zeta functions and/or symmetric polynomials, for example in Yau \cite{}, in Serre \cite{}, or in the Wikipedia article named \emph{Newton's identities}.
+
+\begin{proposition}
+Let $f$ be a multiplicative function and let $p$ be a prime number. Let the Bell series of $f$ at $p$ be
+$$  f_p(t) = 1 + A_1 t + A_2 t^2 + \ldots  $$
+and let the Bell series of $f'$ at $p$ be
+$$ f'_p(t) = 1 + D_1 t + D_2 t^2 + \ldots    $$
+so that the coefficients $D_i$ represent the \emph{D}erivative, and the coefficeints $A_i$ represent the \emph{A}ntiderivative. Then for each $n$, the following relation holds:
+$$ n \cdot A_n - D_n = \sum_{i=1}^{n-1} A_i D_{n-i} $$
+The first few relations here are:
+\begin{align*} 
+A_1 - D_1 &=  0 \\ 
+2 A_2 - D_2 &=  A_1 D_1 \\
+3 A_3 - D_3 &= A_1 D_2 + A_2 D_1 \\
+4 A_4 - D_4 &= A_1 D_3 + A_2 D_2 + A_3 D_1
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+For convenience we define $A_0 = D_0 = 1$. By definition, we have 
+$$f'_p(t) = 1 + t \cdot \frac{\mathrm{d}}{\mathrm{d}t} \log  f_p(t)$$
+Since $(\log f)' = f'/f$, this is just 
+$$f'_p(t) = 1 + t \frac{(f_p(t))'}{f_p(t)}$$
+Putting in $A_n$ and $D_n$, we get
+$$\sum_{i = 0}^\infty D_i t^i = 1 + t \frac{\left(\sum_{i = 0}^\infty A_i t^i\right)'}{\sum_{i = 0}^\infty A_i t^i}$$
+$$\sum_{i = 0}^\infty D_i t^i = 1 + t \frac{\sum_{i = 0}^\infty i A_i t^{i - 1}}{\sum_{i = 0}^\infty A_i t^i}$$
+$$\sum_{i = 0}^\infty D_i t^i = 1 + \frac{\sum_{i = 0}^\infty i A_i t^{i}}{\sum_{i = 0}^\infty A_i t^i}$$
+$$\left(\sum_{i = 0}^\infty D_i t^i\right) \left(\sum_{i = 0}^\infty A_i t^i\right) = \sum_{i = 0}^\infty A_i t^i + \sum_{i = 0}^\infty i A_i t^{i}$$
+$$\sum_{i = 0}^\infty \left(\sum_{j = 0}^i D_j A_{i - j}\right) t^i = \sum_{i = 0}^\infty A_i t^i + \sum_{i = 0}^\infty i A_i t^{i}$$
+The coefficient of each $t^e$ must be equal, so we get
+$$\sum_{j = 0}^i D_j A_{i - j} = A_i + iA_i$$
+$$D_0 A_i + \sum_{j = 1}^i D_j A_{i - j} = A_i + iA_i$$
+$$\sum_{j = 1}^i D_j A_{i - j} = iA_i$$
+\qedhere
+\end{proof}
+
+\begin{proposition}
+Let $A_i$ and $D_i$ be as in the previous proposition. Then we have
+$$A_1 = D_1$$
+$$A_2 = \frac{1}{2}(D_1^2 + D_2)$$
+$$A_3 = \frac{1}{6}(D_1^3 + 3D_1D_2 + 2D_3)$$
+$$A_4 = \frac{1}{24}(D_1^4 + 6D_1^2D_2 + 3D_2^2 + 8D_1D_3 + 6D_4)$$
+Additionally, 
+$$D_1 = A_1$$
+$$D_2 = 2A_2 - A_1^2$$
+$$D_3 = 3A_3 - 3A_1A_2 + A_1^3$$
+$$D_4 = 4A_4 - 4A_1A_3 + 4A_1^2A_2 - 2A_2^2 - A_1^4$$
+\end{proposition}
+There are similar polynomials for every $i$, which can be obtained by recursively applying the relations of the previous proposition.
+
+\begin{example}
+Let $z$ be a fixed complex number. Define $\Theta_z$ to be the function with master equation 
+$$\Theta_z(p^e) = z$$
+For general values of $n$ (not necessarily prime powers), we then have the formula
+$$ \Theta_z(n) = z^{\omega(n)}  $$ 
+Special cases here include the function $\mathbf{0}$ (which equals $\Theta_0$), the function $\mathbf{1}$ (which equals $\Theta_1$), and the function $\Theta$ (which equals $\Theta_2$).
+
+We want to compute the derivative of $\Theta_z$, and also the antiderivative. A computation shows that the antiderivative, which we will call $\tau_z$, has master equation
+$$ \tau_z(p^e) = \binom{e+z-1}{e}     $$
+where the binomial coefficient is defined in the usual way for complex arguments (\emph{explain better}).
+
+The derivative has master equation
+$$ \Theta'_{z} (p^e) = 1- (1-z)^e  $$
+In order to see some actual numbers, we consider the case where $z=i$ (the imaginary unit). 
+
+Here is the Bell table for $\Theta_i$
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & $i$ & $i$ & $i$ & $i$ & $i$ \\
+\hline
+$p = 3$ & $i$ & $i$ & $i$ & $i$ & $i$ \\
+\hline
+$p = 5$ & $i$ & $i$ & $i$ & $i$ & $i$ \\
+\hline
+$p = 7$ & $i$ & $i$ & $i$ & $i$ & $i$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Here is the Bell table for the antiderivative, $\tau_i$:
+\vskip10pt
+\begin{center}
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & $i$ & $\frac{1}{2} i - \frac{1}{2}$ & $\frac{1}{6} i - \frac{1}{2}$ & $-\frac{5}{12}$ & $-\frac{1}{12} i - \frac{1}{3}$ \\
+\hline
+$p = 3$ & $i$ & $\frac{1}{2} i - \frac{1}{2}$ & $\frac{1}{6} i - \frac{1}{2}$ & $-\frac{5}{12}$ & $-\frac{1}{12} i - \frac{1}{3}$ \\
+\hline
+$p = 5$ & $i$ & $\frac{1}{2} i - \frac{1}{2}$ & $\frac{1}{6} i - \frac{1}{2}$ & $-\frac{5}{12}$ & $-\frac{1}{12} i - \frac{1}{3}$ \\
+\hline
+$p = 7$ & $i$ & $\frac{1}{2} i - \frac{1}{2}$ & $\frac{1}{6} i - \frac{1}{2}$ & $-\frac{5}{12}$ & $-\frac{1}{12} i - \frac{1}{3}$ \\
+\hline
+\end{tabular}
+\end{center}
+\vskip10pt
+Here is the Bell table for the derivative, $\Theta'_i$:
+\vskip10pt
+\begin{center}
+
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & $i$ & $2 i + 1$ & $2 i + 3$ & $5$ & $-4 i + 5$ \\
+\hline
+$p = 3$ & $i$ & $2 i + 1$ & $2 i + 3$ & $5$ & $-4 i + 5$ \\
+\hline
+$p = 5$ & $i$ & $2 i + 1$ & $2 i + 3$ & $5$ & $-4 i + 5$ \\
+\hline
+$p = 7$ & $i$ & $2 i + 1$ & $2 i + 3$ & $5$ & $-4 i + 5$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{example}
+
+\begin{exercise}
+For what complex values $z$ is $\tau_z$ rational?
+\end{exercise}
+
+\begin{example}
+The Bell antiderivative of a function is often more complicated than the function itself. Here is the Bell table for the Bell antiderivative of the Euler function. We do not know of an explicit formula for these function values that does not involve the universal polynomials appearing in the Newton relations.
+\vskip10pt
+\begin{center}
+
+\begin{tabular}{| l | | c | c | c | c | c |}
+\hline
+& $e = 1$ & $e = 2$ & $e = 3$ & $e = 4$ & $e = 5$\\
+\hline
+\hline
+$p = 2$ & $1$ & $\frac{3}{2}$ & $\frac{5}{2}$ & $\frac{35}{8}$ & $\frac{63}{8}$ \\
+\hline
+$p = 3$ & $2$ & $5$ & $\frac{40}{3}$ & $\frac{110}{3}$ & $\frac{308}{3}$ \\
+\hline
+$p = 5$ & $4$ & $18$ & $84$ & $399$ & $\frac{9576}{5}$ \\
+\hline
+$p = 7$ & $6$ & $39$ & $260$ & $1755$ & $11934$ \\
+\hline
+$p = 11$ & $10$ & $105$ & $1120$ & $12040$ & $130032$ \\
+\hline
+$p = 13$ & $12$ & $150$ & $1900$ & $24225$ & $310080$ \\
+\hline
+$p = 17$ & $16$ & $264$ & $4400$ & $73700$ & $1238160$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{example}
+
+\begin{exercise}
+Compute small Bell tables for the Bell derivative and the Bell antiderivative of the Liouville function.
+\end{exercise}
+
+
+%\begin{remark}
+%Comment on our forced introduction of 1 at the start of the Bell series of the derivative. An alternative would be to turn the recursion relation backwards (in the case of linearly recursive sequence at least). Find reference to Serre and his definition of $N_0$, and point out that we force a different convention, already in the Euler function example I believe.
+%\end{remark}
+
+\begin{remark}
+We saw in a previous example that the set of completely multiplicative functions is precisely the set of multiplicative functions satisfying the relation
+$$ f' = f $$
+We have not (yet) attempted a systematic approach to Bell differential equations. For example, we do not know what the solutions are to 
+$$ f'' = f   $$
+or whether there are differential equations which characterize some previously studied classes of functions other than the completely multiplicative ones. For example, is there a differential equation that characterizes functions which are specially multiplicative (in the sense of Definition ?? below)?
+\end{remark}
+
+
+\subsection{A few more examples}
+
+Add the Mobius function and the $\varepsilon_k$ function, with some nice Bell tables perhaps, and say that these functions will appear in certain formulas of the next section. Refer also to example sections later and to Appendix A.

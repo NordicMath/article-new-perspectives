@@ -1,0 +1,95 @@
+
+\section{More examples}
+
+\emph{Temporary solution: Gather all examples in this section.}
+
+\subsection{Examples of multiplicative functions}
+
+
+\emph{Add here many of the classical examples from the report to Unge Forskere.}
+
+
+
+\begin{example}
+Add A061350: Maximal size of Aut(G) for G a finite abelian group of order $n$. 
+$$  f(p^e) = (p^e-1)(p^e-p)(p^e-p^2)\cdots (p^e-p^{e-1})   $$
+Relate this to Grassmannians?
+\end{example}
+
+\begin{example}
+
+\emph{Add general def of Ramanujan sum from McCarthy.}
+
+
+Fix a positive integer $k$, and let the function $r_k$ be defined by
+$$r_k(n) = \mu \big(   \frac{n}{gcd(n, k)}    \big) \cdot \frac{ \varphi(n)   }{  \varphi(\frac{n}{gcd(n, k)})  }  $$  
+This is an example of a \emph{Ramanujan sum}, (and our $r_k(n)$ is usually denoted $c_n(k)$). The function $r_k$ is multiplicative, and the Tannakian symbol of $r_k$ at a prime $p$ depends on the order $ord_p(k)$, by which we mean the maximal exponent $e$ such that $p^e$ divides $k$. Fix a prime $p$, and set
+$$  E:= 1+ ord_p(k) $$
+A direct computation using the above definition leads to the master equation
+$$  r_k(p^e) =  \threepartdef { p^e-p^{e-1} } { e < E } {-p^{e-1}} { e = E  } {0}  { \textrm{if } e > E} $$
+and based on this, a Bell series computation shows that the Tannakian symbol at the prime $p$ has an empty set upstairs and $E$ elements downstairs, and is given by the formula:
+$$  \frac{  \varnothing }{  \{ 1, p \omega, p \omega^2, p \omega^3, \ldots p \omega^{E-1}  \} }   $$
+where $\omega$ is a primitive $E$'th root of unity. Note that for all but a finite number of primes $p$, we have $E=1$, and in when this happens the Tannakian symbol is just
+$$   \frac{  \varnothing }{ \{ 1\} }    $$
+which is also the Tannakian symbol for the M{\"o}bius $\mu$ function at all primes. For primes where $E$ equals $2$ (meaning $p$ divides $k$ but $p^2$ does not), we get the Tannakian symbol
+$$   \frac{  \varnothing }{  \{ 1, -p \} }    $$
+and so on.
+\end{example}
+
+
+\begin{example}
+Add A019555: Smallest $m$ such that $n$ divides $m^2$. Master equation $f(p^e) = p^{ceiling(e/2)}$.
+
+\end{example}
+
+\begin{example}
+Number of $t$-full divisors. $a(p^e) = max(1, e-t+2)$. Case $t=2$ corresponds (if we make definition so that 1 is included) to Dirichlet series $\zeta(s) \zeta(2s) \zeta(3s) / \zeta(6s)$. I have a note saying that MAYBE $d$ is $t$-full iff $\xi_t(d) = 0$. Wikipedia says that powerful is a synonym for square-full, and these numbers are precisely the products of a square and a cube. Another equivalent def: For every prime dividing $m$, the prime squared also divides $m$. 
+\end{example}
+
+
+Add three examples of almost uniform functions: the $gcd_k$ function, the function $\delta_k$ of McC Exercise 1.20, and the Schemmel function defined in 1.21/1.23 . Based on a single example I guess that gcd has symbol with 1 upstairs and $1-p$ downstairs at primes which have order 1 in $k$. 
+
+
+\subsubsection{Characteristic functions}
+
+\begin{definition}
+Let $S$ be a subset of $\N$. The function
+$$  \chi_S(n) =  \twopartdef { 1 } { n \in S } {0}  { \textrm{otherwise}} $$
+is called the \defhl{characteristic function} of $S$.
+\end{definition}
+
+\begin{example}
+Let $\chi_S$ be the characteristic function of the set of square numbers. Then $\chi_S$ is multiplicative and its Tannakian symbol is \ldots
+\end{example}
+
+
+Possible examples (double-check that all these are correct):
+\begin{itemize}
+\item $\xi_k$ corresponds to $\zeta(s)/ \zeta(ks)$
+\item Sum of all divisors which are k-th powers, corresponds to $\zeta(s) / \zeta(ks-k)$
+\end{itemize}
+
+\subsubsection{More examples of multiplicative functions}
+
+Ramanujan sums.
+
+Dirichlet characters.
+
+Generalizing from families indexed by a natural number to families indexed by supernatural numbers. For example the Ramanujan sum and the gcd functions.
+
+Functions arising from \emph{species}. \url{https://ncatlab.org/johnbaez/show/Zeta+functions}, see also Combinatorial species on Wikipedia, and references on nLab and Wikipedia, like Aguiar (???) and Joyal. 
+
+Mention the big book of Sivaramakrishnan.
+
+Characteristic function of $r$-smooth numbers (numbers whose prime factors are at most $r$). Char fn of $r$-rough numbers (numbers whose prime factors are all greater than $r$).
+
+The function $r(n)$ counting the number of reps of $n$ as sum of two squares.
+
+There are more examples of functions in this article of Toth: \url{http://ttk.pte.hu/matek/ltoth/Toth_Pillai2_1996.pdf}
+
+The number of non-isomorphic abelian groups of order $n$, written $a(n)$ usually.
+
+Search for keyword mult at OEIS.
+
+\subsection{More examples of identities}
+

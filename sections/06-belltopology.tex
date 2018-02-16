@@ -1,0 +1,152 @@
+
+\section{The Bell topology}  \label{sec:BellTopology}
+
+The calculus of Tannakian symbols is a powerful tool for proving many results about multiplicative functions which are \emph{rational} in the sense of Definition ??. In this section, we introduce a topology on the set of all multiplicative functions, with two key properties:
+\begin{enumerate}
+\item The set $Mult_{rat}(\C)$ of rational multiplicative functions is \emph{dense} in $Mult(\C)$.
+\item The Bell derivative, the Bell antiderivative, and all our eight Adams algebra operations are \emph{continuous} operations on $Mult(\C)$. 
+
+\end{enumerate}
+
+These two properties taken together allow for the formulation of a general proof strategy for statements involving algebraic operations on $Mult(\C)$.
+\begin{enumerate}
+\item Prove the statement first for rational multiplicative functions, using the calculus of Tannakian symbols.
+\item Extend the proof to all multiplicative functions by a continuity argument.
+\end{enumerate} 
+
+\subsection{Definition of the Bell topology}
+
+%There are several equivalent ways of defining the Bell topology. The approach we take here 
+
+\begin{definition}
+Let $f$ be a multiplicative function. We define the \defhl{Bell valuation} $v(f)$ of $f$ to be the number of zeroes-only columns at the beginning of the Bell table of $f$. More formally, we set 
+$$  v(f) = \min \{ \ e \in \N \ \vert \ \exists p \in \mathbb{P}:  f(p^e) \neq 0 \} \ \ - \ 1   $$
+We define the \defhl{Bell absolute value} $\vert  f \vert$ of $f$ by the formula
+$$  \vert f \vert = 2^{-v(f)}  $$
+We define the \defhl{Bell distance} between two multiplicative functions $f$ and $g$ by
+$d(f, g) = \vert   f \boxminus g \vert$
+\end{definition}
+
+\begin{lemma}
+\begin{itemize}
+\item[a)] The Bell distance satisfies $d(f, g) = \vert f \ominus g \vert$.
+\item[b)] The Bell distance defines a metric on the set $Mult(\C)$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+Part (a): The number $v( f \boxminus g)$ is the number of initial columns that are identical in the Bell table of $f$ and in the Bell table of $g$. The number $v( f \ominus g)$ on the other hand, is the number of initial columns that are identical in the Bell tables of $f'$ and $g'$. It follows from the modified Newton relations that these two numbers are equal, and hence $\vert f \ominus g \vert$ is also equal to $\vert f \boxminus g \vert$.
+
+Part (b): It is clear that $d(f, g) \geq 0$ with equality if and only if $f=g$. We need to prove the triangle inequality
+$$  d(f, h)  \leq d(f, g) + d(g, h)   $$
+for all multiplicative functions $f$, $g$, and $h$. But if the Bell tables of $f$ and $g$ agree on say their first $k$ columns, and the Bell tables of $g$ and $h$ agree on say their first $m$ columns, then clearly the Bell tables of $f$ and $h$ agree on their first $n$ columns, where $n = \min(k, m)$. Using that the function $x \mapsto 2^{-x}$ is decreasing, we get the so-called ultra-metric inequality
+$$   d(f, h)  \leq \max (d(f, g) , d(g, h)  )    $$
+which implies the triangle inequality.
+\end{proof}
+
+\begin{definition}
+We have shown that the Bell distance satisfies the axioms for a metric, and we define the \defhl{Bell topology} on the set $Mult(\C)$ as the topology induced by this metric. 
+\end{definition}
+
+\begin{remark}
+We defined the Bell absolute value by $\vert f \vert = 2^{-v(f)}$. In this definition, the number $2$ could have been replaced by any choice of a real number $a > 1$, and any such choice would give an equivalent topology.
+\end{remark}
+
+
+
+
+%\begin{definition}
+%We say that a multiplicative function $f$ is a \defhl{prime-killer} if $f(p) = 0$ for every prime number $p$.
+%\end{definition}
+
+%\begin{proposition}
+%Let $I$ be the set of all prime-killer multiplicative functions. Then $I$ is an ideal in the box ring (and also in the circle ring).
+%\end{proposition}
+
+%Recall that if $R$ is any ring and $I$ is any ideal in $R$, then $I$ defines a topology on $R$ by \ldots
+
+%\begin{definition}
+%We define the \defhl{Bell topology} on $Mult(\C)$ to be the topology defined by the prime-killing ideal with respect to the ring structure given by $\boxplus$ and $\boxtimes$.
+%\end{definition}
+
+\begin{proposition}
+Let $R$ be any subring of $\C$. In the Bell topology, the set $Mult(R)$ is a closed subset of $Mult(\C)$.
+\end{proposition}
+\begin{proof}
+Let $f_1, f_2, f_3, \ldots$ be a convergent sequence of elements of $Mult(R)$, and let $f$ be the limit. That $f$ is the limit implies that for every positive integer $k$, there exists a positive integer $N$ such that the Bell table of $f_N$ agrees with the Bell table of $f$ at least on the first $k$ columns. Since $f_N$ always has coefficients in $R$, this proves that $f$ has all of its Bell coefficients in $R$. 
+\end{proof}
+
+
+\begin{proposition}
+Let $R$ be any subring of $\C$. Consider the set of multiplicative functions having the property that for every prime $p$, the Bell series at $p$ is a polynomial with coefficients in $R$. This set is a dense subset of $Mult(R)$. 
+\end{proposition}
+
+\todo{Rewrite this page using the notation $Mult_{odd}(R)$ and $Mult_{even}(R)$}
+
+\begin{proof}
+Let $f$ be a multiplicative function in $Mult(R)$, and let $\varepsilon$ be a positive real number. Choose a positive integer $N$ such that $2^{-N} < \varepsilon$. Define a multiplicative function $g$ by the formula
+$$ g(p^e) = \twopartdef { f(p^e) } {e  \leq N  } {0} {\textrm{otherwise}}$$
+Now each Bell series of $g$ is a polynomial with coefficients in $R$, and it is clear that $d(f, g) < \varepsilon$.
+\end{proof}
+
+\begin{corollary}
+Let $R$ be any subring of $\C$. Then the set of multiplicative functions whose Tannakian symbols are of purely even dimension is a dense subset of $Mult(R)$. 
+\end{corollary}
+
+\begin{proof}
+The map sending $f$ to $\ominus f$ is a continuous involution of $Mult(R)$, and it restricts to a bijection between the subset appearing in the previous proposition and the subset of the corollary. (Any continuous involution maps a dense subset to a dense subset.
+\end{proof}
+
+\begin{corollary}
+Let $R$ be any subring of $\C$. Then $Mult_{rat}(R)$ is a dense subset of $Mult(R)$. 
+\end{corollary}
+
+\begin{proof}
+If a Bell series is a polynomial, then it is clearly also a rational expression.
+\end{proof}
+
+\begin{lemma}
+The set $Mult(\C)$ equipped with the Bell topology is a Hausdorff topological space.
+\end{lemma}
+\begin{proof}
+Any metric space is Hausdorff.
+\end{proof}
+
+\subsection{Continuity}
+
+
+\begin{theorem} \label{AdamsAlgebraContinuity}
+All of our eight Adams algebra operations (i.e. the four binary operations $\oplus$, $\otimes$, $\boxplus$ and $\boxtimes$, and the four Adams operations $\adam{k}$, $\hatadam{k}$, $\boxadam{k}$ and $\hatboxadam{k}$) are continuous with respect to the Bell topology.
+\end{theorem}
+\begin{proof}
+This is straightforward from the observation that for each of the eight operations, there exists a ``Lipschitz constant" $c$ such that computing the first $n$ Bell columns of the output function only uses information from at most the first $m$ columns of the input function (or functions), where $m$ is the largest integer less than or equal to $c \cdot n$. 
+
+In fact, for each of the four binary operations, we may take $c=1$. For the Adams operations with hats ($\hatadam{k}$ and $\hatboxadam{k}$) we may take $c= 1/k$, while for the two other Adams operations ($\adam{k}$ and $\boxadam{k}$), we may take $c=k$.
+\end{proof}
+
+
+
+\begin{theorem} \label{BellDerivativeContinuity}
+The Bell derivative and the Bell antiderivative are both continuous with respect to the Bell topology.
+\end{theorem}
+\begin{proof}
+Same argument as in the previous proof. Both for the Bell derivative and the Bell antiderivative, we may take $c=1$. 
+\end{proof}
+
+Finally, let us recall without proof the following well-known fact from the theory of metric spaces, saying that ``two functions agreeing on a dense subset agree everywhere". (In fact, this statement holds for general topological spaces as long as the target space in Hausdorff.)
+
+\begin{proposition}
+Let $X$ and $Y$ be metric spaces, and let $u$ and $v$ be two continuous functions from $X$ to $Y$. If $u(x) = v(x)$ for all $x$ in some dense subset of $X$, then $u(x) = v(x)$ for all $x$ in $X$.  
+\end{proposition}
+
+\begin{remark}
+The Bell topology may look a bit weird - for example is the subset $Mult(\Q)$ in $Mult(\mathbb{R})$ closed but not dense, even though the inclusion of $\Q$ in $\mathbb{R}$ is dense and not closed (with respect to the usual topology on $\mathbb{R}$). We have introduced the Bell topology as an ad hoc tool only because many of our theorems can be given very short proofs if we combine the Bell topology with the calculus of Tannakian symbols. However, the Bell topology is far from the only topology one can put on $Mult(\C)$, and we might attempt a more systematic study of topological structures on multiplicative functions in future work. 
+\end{remark}
+
+
+
+
+
+
+
+

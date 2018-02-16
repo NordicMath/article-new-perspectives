@@ -1,0 +1,763 @@
+
+\section{Rational multiplicative functions and their Tannakian symbols} \label{sec:TannakianSymbols}
+
+In this section, we focus on the set $Mult_{rat}(\C)$ of rational multiplicative functions. This set is dense in $Mult(\C)$ (with respect to the Bell topology introduced in the next section) and as we shall see later, it is stable under all the Adams algebra operations. As we have already mentioned, almost all multiplicative functions appearing in the literature are rational. 
+
+Together, these facts and observations imply that it is interesting to study the set $Mult_{rat}(\C)$ itself in more detail, and in order to do so, we have invented a new symbolic language which we refer to as \emph{the language of Tannakian symbols}. A rational multiplicative function has one Tannakian symbol for each prime number, and these Tannakian symbols reveal many important properties of the function. They also constitute a powerful tool for making explicit computations in the Adams algebra structures on $Mult_{rat}(\C)$. 
+
+From a didactical point of view, we think of the relation between Tannakian symbols and the theory of lambda-rings is analogous to the relation between matrices and the theory of associative algebras, or the relation between polynomials and the theory of commutative rings.
+
+%We now turn to the definition and the basic properties of Tannakian symbols. In later sections, we shall give a number of applications to the theory of multiplicative functions. 
+
+%Among the most important points are the many examples in Section ??, and the explicit formulas in section ?? and ??. Together, these will be key to justifying the claim that ``all'' identities between multiplicative functions can be easily proven using Tannakian symbols.
+
+
+\subsection{The notion of a Tannakian symbol}
+
+We begin by introducing $\TS$, the set of Tannakian symbols, and the set $\TSP$ of functions from the prime numbers to the set of Tannakian symbols. The latter set will be in bijection with the set $Mult_{rat}(\C)$. Later, in section ??? we develop a more abstract theory of Tannakian symbols with values in a commutative monoid. 
+
+\begin{definition}
+Let $X$ be a set and let $G$ be any set with a zero element. We say that a function $m: X \to G$ \defhl{has finite support} if there is only a finite number of elements $x \in X$ such that $m(x) \neq 0$. 
+\end{definition}
+
+In the next definition, we write $\N_0$ for the set $\{  0, 1, 2, \ldots  \}$ of non-negative integers.
+
+\begin{definition}
+Let $X$ be a set. A \defhl{multiset with elements from $X$} is a pair $(X, m)$ where $X$ is a set and $m$ is a function from $X$ to $\N_0$. A \defhl{finite multiset} is a multiset $(X, m)$ in which $m$ has finite support. The \defhl{number of elements} in a finite multiset $(X, m)$ is the sum $\sum_{x \in X} m(x)$.
+\end{definition}
+
+\begin{example}
+We think of a finite multiset as a finite set in which we allow for repeated elements. For example, $\{ -1, 4, 4, 4, 9, 9,   \}$ is a finite multiset with 6 elements. When using this notation, the set $X$ it not clearly specified (it might be $\Z$ or $\Q$ or $\C$, or any other set containing the elements $-1$, $4$ and $9$). The function $m$ here satisfies $m(-1) = 1$ and $m(4) = 3$.
+\end{example}
+
+\begin{example}
+Any set $X$ can be interpreted as the multiset $(X, m)$ where $m(x) = 1$ for all $x \in X$. In particular, the empty set $\varnothing$ can also be viewed as a multiset, and we refer to this as \defhl{the empty multiset}.
+\end{example}
+
+\begin{definition}
+Two multisets $(X_1, m_1)$ and $(X_2, m_2)$ are \defhl{disjoint} if there does not exist any element $x \in X_1 \cap X_2$ such that both $m_1(x)$ and $m_2(x)$ are nonzero.
+\end{definition}
+
+\begin{definition}
+A \defhl{Tannakian symbol} is an ordered pair $(A, B)$ of disjoint finite multisets with elements from the set of \underline{nonzero complex numbers}. If $A$ and $B$ are such multisets, we shall use the notation $A/B$ or $\frac{A}{B}$ for the Tannakian symbol $(A, B)$.
+\end{definition}
+
+
+\begin{example}
+Some examples of Tannakian symbols are 
+$$    \frac{   \{  1,1, 1, 1  \}   }{  \{  2, \sqrt{2}, 6  \}   } \quad \textrm{and} \quad   \frac{   \varnothing   }{  \{  2, 2, i, i  \}   }   \quad \textrm{and} \quad  \frac{  \varnothing  }{     \varnothing }    $$
+Here $i$ is a square root of $-1$, and $\varnothing$ is the empty multiset.
+\end{example}
+
+\begin{example}
+Note that the symbols 
+$$    \frac{   \{  1, 1  \}   }{  \{  1, 2, 2  \}   } \quad \textrm{and} \quad   \frac{   \varnothing   }{  \{  0, 2, 2  \}   }      $$
+are \underline{not} Tannakian symbols. The first one violates the rule that the multisets be disjoint, while the second one contains the element $0$, which is not allowed.
+\end{example}
+
+\begin{definition}
+To any Tannakian symbol $X = A/B$, we may associate a function $c_X : \C \to \Z$ (called \defhl{the characteristic function of $X$})  by the rule
+
+$$  c_X(z) = \threepartdef { m } {z \textrm{ occurs in $A$ with multiplicity $m$} } {  -m }  { z \textrm{ occurs in $B$ with multiplicity $m$  } }  {0} {\textrm{otherwise}}   $$
+\end{definition}
+\begin{remark}
+
+This defines a bijection between the set of Tannakian symbols and the set of functions with finite support from $\C$ to $\Z$, and we may pass freely between the multiset point of view and the characteristic function point of view. The multiset point of view is more convenient for computations by hand, while the function point of view is more convenient in certain proofs. 
+\end{remark}
+
+\begin{definition}
+We write $\TS$ for the set of Tannakian symbols.
+\end{definition}
+
+\begin{definition}
+Let $U$ be a set. An element of $\TS^U$ (i.e. a function from $U$ to $\TS$) will be called a \defhl{$U$-indexed Tannakian symbol}. In particular, we have the set $\TS^{\mathbb{P}}$ of $\mathbb{P}$-indexed Tannakian symbols. (Recall that $\mathbb{P}$ is the set of prime numbers).
+\end{definition}
+
+\begin{example}
+Some examples of $\mathbb{P}$-indexed Tannakian symbols are
+$$ p \mapsto \frac{   \{  1,1, 1, p^2  \}   }{  \{  p, \sqrt{p}  \}   } \quad \textrm{and} \quad p \mapsto \frac{   \varnothing   }{  \{  p, p, i, i  \}   }   \quad \textrm{and} \quad p \mapsto \frac{  \{ -1  \}   }{     \varnothing }    $$
+In the last of these examples, the Tannakian symbol is independent of the variable $p$. 
+\end{example}
+
+We will often write simply
+$$  \frac{   \{  1,1, 1, p^2  \}   }{  \{  p, \sqrt{p}  \}   }$$
+as shorthand for the function
+$$ p \mapsto \frac{   \{  1,1, 1, p^2  \}   }{  \{  p, \sqrt{p}  \}   } $$
+and these kinds of expressions will appear throughout the rest of the paper.
+
+\subsection{The connection to rational multiplicative function}
+
+\begin{definition}
+Let $u(t)$ be a polynomial with complex coefficients and with constant term $c \neq 0$. Then $u$ may be factored (uniquely up to ordering of the factors) as 
+$$  u(t) =  c \times \prod(1 - \alpha_i t)  $$
+where each $\alpha_i$ is a nonzero complex number. The numbers $\alpha_i$ are called the \defhl{reciprocal roots} of $u$.
+\end{definition}
+
+\begin{lemma}
+Let $u(t)$ be a polynomial with complex coefficients and constant term $1$. Then the numbers $\alpha_i$ of the previous definition form a finite multiset of nonzero complex numbers, and $u$ is uniquely determined by this multiset.
+\end{lemma}
+\begin{proof}
+Clear.
+\end{proof}
+
+\paragraph{Construction I.} Let $f$ be a rational multiplicative function. We construct a $\mathbb{P}$-indexed Tannakian symbol from $f$ as follows.
+
+For each prime number $p$, we may (in a unique way) write the Bell series $f_p(t)$ of $f$ at $p$ as a quotient
+$$ f_p(t) = \frac{v(t)}{u(t) }   $$
+where $u$ and $v$ are polynomials with constant term 1. We define the Tannakian symbol of $f$ at $p$ as $A/B$, where $A$ is the multiset of reciprocal roots of $u$, and $B$ is the multiset of reciprocal roots of $v$. This gives a $\mathbb{P}$-indexed Tannakian symbol.
+
+\paragraph{Construction II.} Let $T$ be a $\mathbb{P}$-indexed Tannakian symbol. We construct a rational multiplicative function out of $T$ as follows.
+
+It is enough to specify the Bell series of $f$ at every prime $p$. For a given prime $p$, we may write the associated Tannakian symbol as $A/B$, where 
+$$ A = \{ \alpha_1, \alpha_2, \ldots, \alpha_m \} \quad \mathrm{and} \quad B =  \{ \beta_1, \beta_2, \ldots, \beta_n \}$$
+are two multisets of nonzero complex numbers. Define polynomials $u$ and $v$ by 
+$$ u(t) = \prod_{i=1}^a (1-{\alpha_i}t) \quad \mathrm{and} \quad v(t) = \prod_{j=1}^b (1-{\beta_j}t)$$
+and define the Bell series of $f$ at the prime $p$ to be precisely $v(t) / u(t)$. 
+
+Clearly this defines a rational multiplicative function.
+
+
+\begin{theorem}
+Construction I and Construction II are mutually inverse, and hence they define a bijection between the sets
+$$   Mult_{rat}(\C) \quad \textrm{and}  \quad  \TS^{\mathbb{P}} $$
+\end{theorem}
+\begin{proof}
+This follows immediately from the definitions.
+\end{proof}
+
+\subsection{First examples}
+
+Let us begin by reviewing the examples of multiplicative functions that we have seen earlier.
+
+\begin{example}
+Euler etc, see hand-written examples overview for everything that has appeared in previous sections.
+\end{example}
+
+From now on, we present examples without the tedious calculation of the Bell series. All these calculations are straightforward and similar to the examples above.
+
+\begin{example}
+Characteristic function of $k$'th powers.
+\end{example}
+
+
+\emph{TODO: Gather first all examples in More examples (later) and/or in handwritten overview and/or in table. Then move relevant examples here and elsewhere in article.}
+
+Add also some examples related to schemes and skeletons, and explain the Weil conjectures briefly. Compare projective and non-projective, and find also some example with singularities?
+
+Add also something about Satake parameters.
+
+
+\subsection{Invariants of Tannakian symbols}
+
+
+
+
+
+\subsection{Adams algebra operations on rational multiplicative functions}
+
+Recall the eight Adams algebra operations defined on the set $Mult_{rat}(C)$. In this section, we prove that all of these operations \emph{with the exception of $\hatadam{k}$} preserves the class of rational multiplicative functions. We also show that the Bell derivative sends rational multiplicative functions to rational ones, but that the Bell antiderivative in general does not.
+
+\begin{lemma}
+Let $a_1$, $a_2$, $a_3$, \ldots and $b_1$, $b_2$, $b_3$, \ldots be two linearly recursive sequences of complex numbers. Then the Hadamard product of these two sequences (i.e. the sequence $a_1 b_1$, $a_2 b_2$, $a_3 b_3$, \ldots) is also linearly recursive.
+\end{lemma}
+\begin{proof}
+Give reference.
+\end{proof}
+
+\begin{example}
+The Fibonacci sequence and some other sequence, just to illustrate the previous lemma. 
+\end{example}
+
+\begin{lemma}
+Let $m$ and $n$ be two non-negative integers. (State expression for tensor product on the level of Bell series).
+\end{lemma}
+
+\begin{theorem}
+
+Let $f$ and $g$ be rational multiplicative functions. Then the four multiplicative functions $f \oplus g$, $f \otimes g$, $f \boxplus g$ and $f \boxtimes g$ are all rational.
+\end{theorem}
+
+
+\begin{proof}
+Pick a prime $p$, and let $f_p(t)$ and $g_p(t)$ be the two Bell series at $p$. Four each of the four functions, we have to prove that the Bell series at $p$ is a rational power series, or equivalently that the sequence of Bell coefficients is a linearly recursive sequence.
+\begin{itemize}
+\item The Bell series of $f \oplus g$ at $p$ is $f_p(t) g_p(t)$ which is clearly a rational power series.
+\item The Bell series of $f \otimes g$ at $p$ is rational by Lemma ?.
+\item The Bell series of $f \boxplus g$ at $p$ is given by 
+$$  -1 + f_p(t) + g_p(t)    $$
+which is clearly a rational power series.
+\item The Bell series of $f \boxtimes g$ at $p$ is given by the Hadamard product of the Bell coefficients of $f$ with the Bell coefficients of $g$. It is rational by Lemma ??.
+\end{itemize}
+\end{proof}
+
+\begin{lemma}
+The Adams operation $\adam{k}$: Explain explicit effect on Bell series via $k$-th powers of symbol elements.
+\end{lemma}
+
+\begin{lemma}
+State that a regularly spaces subsequence of a linearly recursive sequence is also linearly recursive. Does this follow from Hadamard product with a characteristic sequence? Can this be used to bound the degree of the recursion?
+\end{lemma}
+
+\begin{theorem}
+Let $f$ be a rational multiplicative function, and let $k$ be a positive integer. Then the three multiplicative functions $\adam{k}(f)$, $\boxadam{k}(f)$ and $\hatboxadam{k}(f)$ are all rational. However, the function $\hatadam{k}(f)$ is not always rational.
+\end{theorem}
+
+\begin{proof}
+\begin{itemize}
+\item The operation $\adam{k}$ preserves rationality by Lemma ?.
+\item The operation $\boxadam{k}(f)$ acts on the Bell coefficients by picking out a regularly spaced subsequence, and hence it preserves rationality by Lemma ?. 
+\item The Bell series at $p$ of the function $\hatboxadam{k}(f)$ is $f_p(t^k)$, which is clearly a rational power series. 
+\item TODO: Give two examples showing that for rational $f$, the function $\hatadam{k}(f)$ may or may not be rational. First example: $\hatadam{k}(\tau_k) = \varepsilon_k$. Second example: Need something not divisible by $k$ in some sense???
+\end{itemize}
+\end{proof}
+
+
+
+\subsection{Adams algebra operations via Tannakian symbols}
+
+We have constructed a bijection between rational multiplicative functions and $\mathbb{P}$-indexed Tannakian symbols. From now on, we shall identify these two sets under this bijection, in order to develop an efficient calculus of Tannakian symbols for computations in $Mult_{rat}(\mathbb{C})$.
+
+In order to describe explicit formulas for the Adams algebra operations, we introduce a few pieces of notation. Let $A$ and $B$ be multisets of complex numbers, and let $k$ be a positive integer.
+
+\begin{itemize}
+\item We write $A \cdot B$ for the multiset of all products $a \cdot b$ (listed with repetition) for $a \in A$ and $b \in B$.
+\item We write $A \uplus B $ for the disjoint union of $A$ and $B$.
+\item We write $\roots{k}(A/B)$ for the symbol obtained by replacing each element in $A$ and in $B$ by all of its $k$'th roots.
+\item We write $\powers{k}(A/B)$ for the symbol obtained by replacing each element in $A$ and in $B$ by its $k$'th power, and then cancelling any elements appearing both upstairs and downstairs.
+\item We write $W_k$ for the set of all $k$'th roots of unity.
+\item For any multiset $A$, we write $\vert A \vert$ for the set of elements in $A$, counted with multiplicity.
+\end{itemize}
+
+\begin{example}
+Illustrate notation.
+\end{example}
+
+\begin{theorem}
+The following formulas hold for Tannakian symbols $\frac{A}{B}$ and $\frac{C}{D}$.
+\begin{enumerate}
+\item $$\frac{A}{B} \oplus \frac{C}{D} = \frac{A \uplus C}{B \uplus D}$$
+\item $$\frac{A}{B} \otimes \frac{C}{D} = \frac{ A \cdot C \uplus B \cdot D }{ A \cdot D \uplus B \cdot C }$$
+\item $$\adam{k} \left(\frac{A}{B} \right) = \powers{k} \left(\frac{A}{B} \right)$$
+\item Assume that the $\frac{A}{B}$ can be written on the form $k \odot \frac{C}{D}$. (Concretely, this means that each element in the symbol $\frac{A}{B}$ has a multiplicity divisible by $k$.) Then we have
+$$ \hatadam{k}\left(\frac{A}{B}\right) = \roots{k} \left( \frac{C}{D} \right)  $$
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+Cardinality bounds for output in the previous theorem.
+\end{corollary}
+
+\begin{theorem}
+Tannakian symbols satisfy the following relations with respect to the box operations.
+\begin{itemize}
+\item[1.] Let $$\frac{X}{Y} = \frac{A}{B} \boxplus \frac{C}{D}$$
+Then $X$ is always a sub-multiset of $A \uplus C$, and the cardinality of $Y$ is bounded by
+$$ \vert Y \vert \leq \max ( \vert A \vert + \vert C \vert,  \vert A \vert + \vert D \vert,  \vert B \vert + \vert C \vert  )   $$
+Furthermore, the following formulas hold:
+\item[1a.] $$\frac{\{ a \} }{\varnothing} \boxplus \frac{ \{ b \} }{\varnothing} = \frac{ \{ a, b \}  }{ \{ \sqrt{ab} , -\sqrt{ab} \} }$$
+
+\item[1b.] $$\frac{\{ a \} }{\varnothing} \boxplus \frac{\varnothing}{ \{ b \} } = \frac{ \{ a \}  }{ \{ r , s \} }$$
+where
+$$r = \frac{b + \sqrt{b^2 - 4ab}}{2} \qquad \text{\ and\ } \qquad s = \frac{b - \sqrt{b^2 - 4ab}}{2}$$
+
+\item[1c.] $$\frac{\varnothing}{\{ a \} } \boxplus \frac{\varnothing}{ \{ b \} } = \frac{ \varnothing  }{ \{ a+b \} }$$
+
+\item[1d.] $$ \frac{ \{ a \} }{ \{ b \}  }  \boxplus \frac{ \{ c \} }{ \varnothing  }   = \frac{\{ a, c  \}}{ \{ r, s \} }    $$
+where
+$$r = \frac{b + \sqrt{b^2+4c(a-b)}}{2} \qquad \text{\ and\ } \qquad s = \frac{b - \sqrt{b^2+4c(a-b)}}{2}$$
+
+\item[1e.] $$ \frac{ \{ a \} }{ \{ b \}  }  \boxplus \frac{ \varnothing  }{ \{ c \} }  = \frac{\{ a  \}}{ \{ r, s \} }    $$
+where
+$$r = \frac{b+c + \sqrt{(b+c)^2 - 4ac}}{2} \qquad \text{\ and\ } \qquad s = \frac{b+c - \sqrt{(b+c)^2 - 4ac}}{2}$$
+
+\item[1f.] $$\frac{\varnothing}{\{ a , b \} } \boxplus \frac{\varnothing}{ \{ c \} } = \frac{ \varnothing  }{ \{ ?? \} }$$
+
+
+
+\item[1g.] $$\frac{\varnothing}{\{ a , b \} } \boxplus \frac{\varnothing}{ \{ c , d \} } = \frac{ \varnothing  }{ \{ ?? \} }$$
+
+
+\item[1h.] $$\frac{ \{a \}  }{\{ b,c \} } \boxplus \frac{\varnothing}{ \{  d \} } = \frac{ \varnothing  }{ \{ ?? \} }$$
+
+
+\item[2.] Let $$\frac{X}{Y} = \frac{A}{B} \boxtimes \frac{C}{D}$$
+Then we have the cardinality bounds
+$$ \vert X \vert \leq \vert A \vert \cdot \vert C \vert   $$ 
+and 
+$$  \vert Y \vert \leq ???  $$
+Furthermore, the following formulas hold:
+
+\item[2a.] $$\frac{ A }{ B } \boxtimes \frac{\{ c \}}{ \varnothing }=\frac{A }{ B } \otimes \frac{\{ c \}}{ \varnothing }$$
+
+\item[2b.] $$\frac{A }{ B } \boxtimes \frac{ \varnothing }{\{ c \}} = \frac{\varnothing}{\{c \cdot r\}}$$
+where $r = tr(A/B)$. (IS THIS THE RIGHT NOTATION FOR TRACE?)
+
+\item[2c.] $$\frac{\{a\}}{\{b\}} \boxtimes \frac{\{c\}}{\{d\}} = \frac{\{ac\}}{\{-bd+bc+ad\}}$$
+
+\item[2d.] $$\frac{\{a,b\}}{\varnothing} \boxtimes \frac{\{c,d\}}{\varnothing} = \frac{\{ac,ad,bc,bd\}}{\{\sqrt{abcd}, -\sqrt{abcd}\}}$$
+
+
+\item[2e.] $$\frac{\{a\}}{\{b\}} \boxtimes \frac{\{c,d\}}{\varnothing} = \frac{\{ac,ad\}}{\{r, s\}}$$
+where 
+$$r = \frac{b(c+d) + \sqrt{b^2 (c+d)^2 - 4abcd}}{2} \text{\ and\ } s = \frac{b(c+d) - \sqrt{b^2 (c+d)^2 - 4abcd}}{2}$$
+
+
+\item[2f.] $$\frac{\varnothing}{\{a, b\}} \boxtimes \frac{\varnothing}{\{c,d\}} = \frac{\varnothing}{\{r, s\}}$$
+where 
+$$r = \frac{(a+b)(c+d) + \sqrt{(a+b)^2 (c+d)^2 - 4abcd}}{2} \text{\ and\ } s = \frac{(a+b)(c+d) - \sqrt{(a+b)^2 (c+d)^2 - 4abcd}}{2}$$
+
+\item[2g.] The previous formula is a special case of the following.
+$$\frac{A}{B} \boxtimes \frac{\varnothing}{\{c,d\}} = \frac{\varnothing}{\{r, s\}}$$
+where $r$ and $s$ are the roots of the quadratic polynomial
+$$ X^2 + UX + V   $$   
+where
+$$ U = -(c+d) \cdot \tr \left( \frac{A}{B}  \right)   $$
+and
+$$ V = \frac{1}{2}\cdot cd \cdot \left (  \left( \tr \left( \frac{A}{B}  \right) \right)^2    + \tr \left(   \powers{2} \left(  \frac{A}{B}  \right)   \right)   \right) $$
+(Note that for any specified multisets $A$ and $B$, this formula really is completely explicit.)
+
+\item[3.] 
+
+
+
+\item[4.] 
+
+\end{itemize}
+
+
+
+\end{theorem}
+
+
+
+\subsection{OLD: Direct sum and tensor product of Tannakian symbols}
+
+Recall that we may view a Tannakian symbol either as an ordered pair of multisets (always finite multisets, which are disjoint) \emph{or} as a function from $\C$ to $\Z$ (with finite support). We now want to define operations on Tannakian symbols making the set $\TS$ into a lambda-ring. 
+
+Consider two Tannakian symbols $A/B$ and $C/D$, corresponding to the functions $m_1$ and $m_2$ respectively.
+
+\begin{definition} 
+The \defhl{direct sum} 
+$$ \frac{A}{B}  \oplus \frac{C}{D}   $$
+of $A/B$ and $C/D$ is defined as the pointwise sum of the two multiplicity functions. Explicitly, we define the multiplicity function by
+$$ m(z) = m_1(z) + m_2(z)  $$
+for all $z \in \C$. 
+\end{definition}
+
+\begin{definition} 
+The \defhl{tensor product} 
+$$ \frac{A}{B}  \otimes \frac{C}{D}   $$
+of $A/B$ and $C/D$ is defined as the multiplicative convolution of the two multiplicity functions, i.e. by the multiplicity function
+$$ m(z) = \sum_{xy = z} m_1(x) \cdot m_2(y)  $$
+where the sum is taken over all ordered pairs $(x, y)$ of complex numbers such that $xy=z$ (only finitely many pairs contribute to the sum). 
+\end{definition}
+
+It is often convenient to perform calculations by hand using the multiset notation. When doing so, the direct sum is \ldots
+
+Consider multisets $A = \{a_1, a_2, \ldots\}$, $B = \{b_1, b_2, \ldots\}$, $C = \{c_1, c_2, \ldots\}$ and $D = \{ d_1, d_2, \ldots \}$ where all the elements are taken from the same monoid $M$. We define operations on Tannakian symbols by the following formulas:
+$$ \textrm{Addition:} \qquad \qquad \frac{A}{B} \oplus \frac{C}{D} = \frac{A \uplus C}{B \uplus D}  $$
+(Here $\uplus$ denotes disjoint union of multisets.)
+%$$ \textrm{Multiplication:} \qquad \frac{A}{B} \otimes \frac{C}{D} = \frac{ \{ a_i c_j \} \uplus \{ b_i d_j \} }{ \{ a_i d_j \} \uplus \{ b_i c_j \} }  $$
+$$ \textrm{Multiplication:} \qquad \frac{A}{B} \otimes \frac{C}{D} = \frac{ A \cdot C \uplus B \cdot D }{ A \cdot D \uplus B \cdot C }  $$
+(Here $A \cdot C$ denotes the monoid product of $A$ and $C$, i.e. the multiset of all possible products $a \cdot c$ with $a \in A$ and $c \in C$, listed with repetition.)
+$$  \textrm{Adams operations:} \qquad \psi^n \Big( \frac{A}{B} \Big) = \frac{\{a^n \ \vert \ a \in A \}}{\{b^n \ \vert \ b \in B \}}    $$ 
+(Here, if the element $a$ is repeated several times in $A$, the element $a^n$ is also repeated the same number of times on the right hand side.)
+In each of these operations, it is understood that if the operation results in a symbol in which the upstairs and the downstairs multisets are not disjoint, then we remove pairs of identical elements until the multisets are disjoint. A few examples will illustrate what this means.
+\begin{example} Computations in $\mathbf{TS}(\mathbb{Z})$:
+$$\frac{ \{ 5\} }{ \{ 1, -1 \} } \oplus \frac{  \{ 1, 1, 1 \}  }{  \{ -1 \}  } = \frac{  \{ 5, \cancel{1}, 1, 1 \}   }{  \{ \cancel{1}, -1, -1 \} } = \frac{  \{ 5, 1, 1 \}   }{  \{  -1, -1 \} } $$
+$$\frac{ \{ 5\} }{ \{ 1, -1 \} } \otimes \frac{ \{ 10 \} }{  \{ 3, 7 \}  } = \frac{  \{ 50, 3, 7, -3, -7 \}   }{  \{ 15, 35, 10, -10 \} }  $$
+$$ \psi^2 \Big( \frac{ \{  -1, -1, 2, 5 \} }{ \{  1, -2, 7\} } \Big) =  \frac{ \{  \cancel{(-1)^2}, (-1)^2, \cancel{2^2}, 5^2 \} }{ \{  \cancel{1^2}, \cancel{(-2)^2}, 7^2 \} } = \frac{ \{  1, 25 \} }{ \{  49 \} } $$
+\end{example}
+
+
+\begin{theorem}
+Let 
+\end{theorem}
+
+
+
+\subsection{Invariants of Tannakian symbols}
+
+\begin{definition}
+%Define $\edim$, $\odim$, $\vdim$, $\tdim$ and perhaps also $\sdim$ (but can drop this and refer only to $\edim$ and $\odim$ also).
+The \defhl{even dimension} and \defhl{odd dimension} of a tannakian symbol $A/B$ are given respectively by the number of elements in $A$ and in $B$. The \defhl{superdimension} is an ordered pair consisting of both the even and odd dimension.
+\end{definition}%\todo{what's cdim, tdim?}
+
+\begin{definition}
+The \defhl{augmentation} (or virtual dimension) of a Tannakian symbol $A/B$ , written $\aug(A/B)$, is the difference between the even dimension and the odd dimension. The sum we call the \defhl{total dimension}.
+\end{definition}
+
+\begin{example}
+The symbol $$\frac{\{1,2\}}{\{3,4,5\}}$$ has even dimension $2$, odd dimension $3$, superdimension $(2, 3)$, augmentation $2 - 3 = -1$ and total dimension $2 + 3 = 5$.
+\end{example}
+
+\begin{proposition}
+The augmentation is a homomorphism from the ring of Tannakian symbols to the integers.
+\end{proposition}
+
+\begin{proof}
+By calculation, we have $\aug(\{1\}/\varnothing) = 1$. Let X and Y be Tannakian symbols, and let $c_Z$ denote the characteristic function of any symbol $Z$. We can see that 
+$$\aug(Z) = \sum_{z \in \C} c_Z(z)$$
+for all $Z$, and that 
+$$c_{X \oplus Y}(z) = c_X(z) + c_Y(z)$$
+From this, we get
+$$\aug(X \oplus Y) = \sum_{z \in \C} c_{X \oplus Y}(z) = \sum_{z \in \C} (c_X(z) + c_Y(z)) $$
+$$ = \sum_{z \in \C} c_X(z) + \sum_{z \in \C} c_Y(z) = \aug(X) + \aug(Y)$$
+Also, we have 
+$$c_{X \otimes Y}(z) = \sum_{x \cdot y=z} c_X(x) \cdot c_Y(y)$$
+From this, we get
+$$\aug(X \otimes Y) = \sum_{z \in \C} \sum_{x \cdot y=z}c_X(x) \cdot c_Y(y) = \sum_{x, y \in \C} c_X(x) \cdot c_Y(y) $$
+$$=\left(\sum_{x \in \C} c_X(x)\right)\left(\sum_{y \in \C} c_Y(y)\right) = \aug(X)\aug(Y)$$
+For a more formal categorical proof (whose components will be explained later), we can see that $TS(\{1\}) \cong \Z$, and $\aug = TS(0)$, where $0$ is the zero morphism from $\C \to \{1\}$.
+\end{proof}
+
+\begin{proposition}\label{compmultstructure}
+A multiplicative function is completely multiplicative if and only if the Tannakian symbol (at all primes) has superdimension $\le (1, 0)$.
+\end{proposition}
+
+\begin{proof}
+Suppose $f$ is completely multiplicative. Then we have $f(p^e) = f(p)^e$. This means that all Bell series must be geometric (i.e. of the form $1 + \alpha t + \alpha^2 t^2 + \alpha^3 t^3 + \ldots$). The associated formal power series are then $1/(1 - \alpha t)$. In the special case $\alpha=0$, we get $1/1$, which corresponds to $\varnothing/\varnothing$. Otherwise, we get $\alpha$ as a reciprocal root, and we get the symbol $\{\alpha\}/\varnothing$. From this we can see clearly that any choice of $\alpha$ will work, so the symbol can and must be of the form $\varnothing/\varnothing$ or $\{\alpha\}/\varnothing$. This is clearly equivalent to having superdimension $\le (1, 0)$.
+\end{proof}
+
+\begin{proposition}
+Recall that a specially multiplicative function is a Dirichlet convolution of two completely multiplicative functions. A multiplicative function is specially multiplicative if and only if it has superdimension $\le (2, 0)$.
+\end{proposition}
+
+\begin{proof}
+Trivial from \ref{compmultstructure} and the way Dirichlet convolution (direct sum) interacts with superdimension.
+\end{proof}
+
+\begin{proposition}
+Recall that a totient multiplicative function is a Dirichlet convolution of a completely multiplicative function with the Dirichlet inverse of a completely multiplicative function. A multiplicative function is a totient if and only if it has superdimension $\le (1, 1)$.
+\end{proposition}
+
+\begin{proof}
+Trivial from \ref{compmultstructure} and the way Dirichlet convolution (direct sum) interacts with superdimension.
+\end{proof}
+
+
+\begin{definition}
+%Define trace and determinant, use $\tr$ and $\det$.
+The trace of a Tannakian symbol, $\tr(X)$, is the sum of all its upstairs components, minus the sum of all its downstairs components.
+\end{definition}
+
+\begin{proposition}
+$\tr$ is a ring homomorphism from Tannakian symbols to $\C$.
+\end{proposition}
+
+\begin{proof}
+By calculation, we have $\tr(\{1\}/\varnothing) = 1$. Let X and Y be Tannakian symbols, and let $c_Z$ denote the characteristic function of any symbol $Z$. We can see that 
+$$\tr(Z) = \sum_{z \in \C} z c_Z(z)$$
+for all $Z$, and that 
+$$c_{X \oplus Y}(z) = c_X(z) + c_Y(z)$$
+From this, we get
+$$\tr(X \oplus Y) = \sum_{z \in \C} z c_{X \oplus Y}(z) = \sum_{z \in \C} z (c_X(z) + c_Y(z)) $$
+$$ = \sum_{z \in \C} z c_X(z) + \sum_{z \in \C} z c_Y(z) = \tr(X) + \tr(Y)$$
+Also, we have 
+$$c_{X \otimes Y}(z) = \sum_{x \cdot y=z} c_X(x) \cdot c_Y(y)$$
+From this, we get
+$$\tr(X \otimes Y) = \sum_{z \in \C} z \sum_{x \cdot y=z}c_X(x) \cdot c_Y(y) = \sum_{x, y \in \C} x c_X(x) \cdot y c_Y(y) $$
+$$=\left(\sum_{x \in \C} x c_X(x)\right)\left(\sum_{y \in \C} y c_Y(y)\right) = \tr(X)\tr(Y)$$
+\end{proof}
+
+\begin{theorem}
+Given that $f$ has Tannakian symbol $X$ at the prime $p$, the k-th coefficient of the Bell series of $f$ at $p$ is
+$$\tr\left(\lambda^{k}\left(X \otimes \frac{\varnothing}{\{-1\}}\right)\right)$$
+\end{theorem}
+
+\begin{proof}
+We begin by defining $\tr_t : \C[[t]] \to \C[[t]]$ as the canonical extension of $\tr$ given by setting $\tr_t(t) = t$. This lets us reformulate the theorem as the entire Bell series being equal to \ref{definelambdat}
+$$\tr_t\left(\lambda_t\left(X \otimes \frac{\varnothing}{\{-1\}}\right)\right)$$ 
+Note that X can be written as a sum of components $C_i$, where each component is either of superdimension $(1, 0)$ or $(0, 1)$. We have $X = \bigoplus_i C_i$, which gives us
+$$=\tr_t\left(\lambda_t\left(\left(\bigoplus_i C_i\right) \otimes \frac{\varnothing}{\{-1\}}\right)\right)$$ 
+$$=\tr_t\left(\lambda_t\left(\bigoplus_i \left(C_i \otimes \frac{\varnothing}{\{-1\}}\right)\right)\right)$$ 
+Because $\lambda_t(a + b) = \lambda_t(a)\lambda_t(b)$, we can do
+$$=\tr_t\left(\prod_i\lambda_t\left(C_i \otimes \frac{\varnothing}{\{-1\}}\right)\right)$$ 
+and finally, because trace is a homomorphism \ref{}
+$$=\prod_i\tr_t\left(\lambda_t\left(C_i \otimes \frac{\varnothing}{\{-1\}}\right)\right)$$ 
+We can set $X = A/B$, and split up $C_i$ into these, giving us 
+$$=\prod_{a \in A}\tr_t\left(\lambda_t\left(\frac{\{a\}}{\varnothing} \otimes \frac{\varnothing}{\{-1\}}\right)\right) \cdot \prod_{b \in B}\tr_t\left(\lambda_t\left(\frac{\varnothing}{\{b\}} \otimes \frac{\varnothing}{\{-1\}}\right)\right)$$
+$$=\prod_{a \in A}\tr_t\left(\lambda_t\left(\frac{\varnothing}{\{-a\}}\right)\right) \cdot \prod_{b \in B}\tr_t\left(\lambda_t\left(\frac{\{-b\}}{\varnothing}\right)\right)$$
+By explicit computation, we get \todo{We need to do this more properly}
+$$=\prod_{a \in A}\tr_t\left(\left(\frac{\{1\}}{\varnothing} \oplus \frac{\{-a\}}{\varnothing}t\right)^{-1}\right) \cdot \prod_{b \in B}\tr_t\left(\frac{\{1\}}{\varnothing} \oplus \frac{\{-b\}}{\varnothing}t\right)$$
+$$=\prod_{a \in A}\left(1 - at\right)^{-1} \cdot \prod_{b \in B}\left(1 - bt\right)$$
+Which is the formula for the Bell series.
+\end{proof}
+
+\begin{theorem}
+Given that $f$ has Tannakian symbol $X$ at the prime $p$, the $k$-th coefficient of the Bell series of $f'$ at $p$ is
+$$\tr\left(\psi^k\left(X\right)\right)$$
+where $k > 0$
+\end{theorem}
+
+\begin{proof}
+We can set $X = A/B$. We then know that the Bell series is
+$$\prod_{b \in B}\left(1 - bt\right)\prod_{a \in A}\left(1 - at\right)^{-1}$$
+The Bell series of $f'$ then is the shifted log-derivative of the Bell series of $f$ (both at a fixed prime). In other words, the Bell series of $f'$ is
+$$1 + \left(\log\left(\prod_{b \in B}\left(1 - bt\right)\prod_{a \in A}\left(1 - at\right)^{-1}\right)\right)'t$$
+$$1 + \left(\log\left(\prod_{b \in B}\left(1 - bt\right)\right) + \log\left(\prod_{a \in A}\left(1 - at\right)^{-1}\right)\right)'t$$
+$$1 + \left(\sum_{b \in B}\log\left(1 - bt\right) - \sum_{a \in A}\log\left(1 - at\right)\right)'t$$
+$$1 + \sum_{b \in B}\left(1 - bt\right)t - \sum_{a \in A}\left(1 - at\right)t$$
+$$1 + \sum_{b \in B}\frac{(1 - bt)'}{1 - bt}t - \sum_{a \in A}\frac{(1 - at)'}{1 - at} t$$
+$$1 + \sum_{b \in B}\frac{ -b}{1 - bt}t - \sum_{a \in A}\frac{ -a }{1 - at} t$$
+$$1 + \sum_{a \in A}a\frac{ 1 }{1 - at} t - \sum_{b \in B}b\frac{ 1}{1 - bt}t$$
+$$1 + \sum_{a \in A}\sum_{i=1}^\infty a^it^i- \sum_{b \in B}\sum_{j=1}^\infty b^jt^j$$
+If we look at the coefficient of $t^k$, where $k > 0$, we get
+$$\sum_{a \in A} a^k - \sum_{b \in B} b^k$$
+We can clearly see that this is equal to $\tr(\psi^k(A/B))$
+\end{proof}
+
+\begin{corollary}
+The trace of the Tannakian symbol of $f$ at $p$ is the coefficient of $t$ in the Bell series of $f$ at the prime $p$. Furthermore, it is also the coefficient of $t$ in the Bell series at $p$ of the Bell derivative of $f$.
+\end{corollary}
+
+\begin{proof}
+Set $k = 1$ in both instances. $\lambda^1 = \psi^1 = id$.
+\end{proof}
+
+\begin{proposition}
+Let $f, g$ be two multiplicative functions, with Tannakian symbol resp. $X, Y$. Then the trace of the Tannakian symbols of $f \boxplus g$ and $f \boxtimes g$ are resp. $\tr(X) + \tr(Y)$ and $\tr(X) \cdot \tr(Y)$
+\end{proposition}
+
+\begin{proof}
+See \ref{corollaryabouttrace}, and this follows from the definitions of the operations.
+\end{proof}
+
+\begin{definition}
+We define the the \defhl{determinant} of a Tannakian symbol $X$, written $\det(X)$, as the product of all the elements upstairs divided by all the elements downstairs.
+\end{definition}
+
+\begin{example}
+$$\det\left(\frac{\{1, 2, i\}}{\{1 + i, 1 - i\}}\right) = \frac{1 \cdot 2 \cdot i}{(i + 1)(i - 1)} = i$$
+\end{example}
+
+\begin{proposition}
+\ \\ \begin{enumerate}
+\item The determinant maps both the additive and multiplicative unit to 1.
+$$\det\left(\frac{\varnothing}{\varnothing}\right) = \det\left(\frac{\{1\}}{\varnothing}\right) = 1$$
+\item The determinant maps direct sum to product.
+$$\det(X \oplus Y) = \det(X) \cdot \det(Y)$$
+\item The determinant maps the adams operations to power operations.
+$$\det(\psi^k(X)) = \det(X)^k$$
+\item The determinant maps tensor product to augmentation-weighted-product.
+$$\det(X \otimes Y) = \det(X)^{\aug(Y)} \cdot \det(Y)^{\aug(X)}$$
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item 1 follows from straightforward computation. For items 2, 3 and 4, let X and Y be Tannakian symbols, and let $c_Z$ denote the characteristic function of any Tannakian symbol $Z$. We can see that 
+$$\det(Z) = \prod_{z \in \C} z^{c_Z(z)}$$
+for all $Z$. For item 2, we have 
+$$c_{X \oplus Y}(z) = c_X(z) + c_Y(z)$$
+which gives us
+$$\det(X \oplus Y) = \prod_{z \in \C} z^{c_X(z) + c_Y(z)} = \prod_{z \in \C} z^{c_X(z)} \cdot \prod_{z \in \C} z^{c_Y(z)} = \det(X) \cdot \det(Y)$$
+For item 3, we can see
+$$c_{\psi^k(X)}(z) = \sum_{a^k = z} c_{X}(a)$$
+which gives us
+$$\det(\psi^k(X)) = \prod_{z \in \C} z^{\sum\limits_{a^k = z} c_{X}(a)} = \prod_{z \in \C} \prod_{a^k = z} z^{c_{X}(a)} = \prod_{\substack{z \in \C \\ a^k = z}} z^{c_{X}(a)} = \prod_{\substack{a \in \C \\ z = a^k}} z^{c_{X}(a)}$$
+\todo{Is this step really OK????!?!}
+$$= \prod_{\substack{a \in \C}} {a^k}^{c_{X}(a)} = \left(\prod_{\substack{a \in \C}} a^{c_{X}(a)}\right)^k = \det(X)^k$$
+For the final step, we use that 
+$$c_{X \otimes Y}(z) = \sum_{x \cdot y=z} c_X(x) \cdot c_Y(y)$$
+which gives us
+$$\det(X \otimes Y) = \prod_{z \in \C} z^{\sum\limits_{x \cdot y=z} c_X(x) \cdot c_Y(y)} = \prod_{z \in \C} \prod_{x \cdot y=z} z^{ c_X(x) \cdot c_Y(y)} = \prod_{\substack{z \in \C \\ x \cdot y=z}}  z^{ c_X(x) \cdot c_Y(y)}$$
+$$ = \prod_{\substack{x, y \in \C}} (xy)^{ c_X(x) \cdot c_Y(y)} = \prod_{\substack{x, y \in \C}} x^{ c_X(x) \cdot c_Y(y)} \cdot \prod_{\substack{x, y \in \C}} y^{ c_Y(y) \cdot c_X(x) }$$
+$$= \prod_{\substack{x \in \C}} \prod_{\substack{y \in \C}}x^{ c_X(x) \cdot c_Y(y)} \cdot \prod_{\substack{y \in \C}} \prod_{\substack{x \in \C}} y^{ c_Y(y) \cdot c_X(x)}$$
+$$= \prod_{x \in \C} x^{ c_X(x) \cdot \sum\limits_{y \in \C} c_Y(y)} \cdot \prod_{y \in \C} y^{ c_Y(y) \cdot \sum\limits_{x \in \C} c_X(x)}= \prod_{x \in \C} x^{ c_X(x) \cdot \aug(Y)} \cdot \prod_{y \in \C} y^{ c_Y(y) \cdot \aug(X)}$$
+$$= \left(\prod_{x \in \C} x^{ c_X(x)} \right)^{\aug(Y)} \cdot \left(\prod_{y \in \C} y^{ c_Y(y)} \right)^{\aug(X)} = \det(X)^{\aug(Y)} \cdot \det(Y)^{\aug(X)}$$
+
+\end{proof}
+
+%\begin{proposition}
+%Trace respects all binary operations. \todo{needs to be clearer. Maybe also say that it's a homomorphism}
+%\end{proposition}
+\emph{Are there other similar properties we should state here?} %\todo{how about properties of det?}
+
+
+%\todo{what about my trace of adams/lambda thing?}
+
+Add spectral radius and $p$-adic spectral radius. There might be a difference here between genuine $p$-adic absolute value and $p$-normalized valuation in the sense of the Weil conjectures.
+
+\subsection{Symbolic formulas for binary operations}
+
+We have already seen how to use Tannakian symbols for explicit computations involving Dirichlet convolution and tensor product of multiplicative functions. This workds regardless of superdimension, but for box operations bla bla\ldots
+
+
+\subsubsection{Unitary convolution}
+
+
+\emph{Move the formulas from the other Overleaf document.}
+
+
+\subsubsection{Natural product}
+
+
+
+\begin{proposition}
+Note: The statement of this proposition has been copied higher up to new section. The proof has not been moved anywhere.
+$$\frac{\{a\}}{\{b\}} \boxtimes \frac{\{c,d\}}{\varnothing} = \frac{\{ac,ad\}}{\{m, n\}}$$
+where 
+$$m = \frac{b(c+d) + \sqrt{b^2 (c+d)^2 - 4abcd}}{2} \text{\ and\ } n = \frac{b(c+d) - \sqrt{b^2 (c+d)^2 - 4abcd}}{2}$$
+\end{proposition}
+
+\begin{proof}
+%More details in archived hand calculations.
+The Bell series of $\{  a \} / \{ b \}$ is 
+$$(1-bt) (1+at+a^2 t^2 + a^3 t^3 + \ldots)$$
+with Bell coefficient $(a-b) a^{e-1}$ at $t^e$. 
+
+The Bell series of $\{  c,d \} / \varnothing$ is 
+$$   (1+ct+c^2 t^2 + c^3 t^3 + \ldots) (1+dt+d^2 t^2 + d^3 t^3 + \ldots)  $$
+with Bell coefficent $\sum_{i=0}^e c^i d^{e-i}$ at $t^e$.
+
+Hence the $e$'th Bell coefficient of the left hand side is
+$$   (a-b) a^{e-1} \cdot \sum_{i=0}^e c^i d^{e-i}  $$
+
+The right hand side has Bell series
+b$$  \frac{(1-mt)(1-nt)}{(1-act) ( 1-adt)}  $$
+To show that the Bell series on the right hand side equals that on left hand side, we first multiplicy both sides by $(1-act) ( 1-adt)$. By computing $m+n$ and $mn$, we see that what remains on the right hand side is 
+$$  1 - b(c+d) t + abcd t^2 $$
+To see that this equals the left hand side, we make an explicit computation of each coefficient of the left hand side. The details are omitted here, but the coefficients for $e=1$ and $e=2$ agree with those on the right, while the coefficients from $e=3$ and onwards vanish because in any such coefficient, we can factor out the expression
+$$   \sum_{i=0}^e c^i d^{e-i} - (c+d) \cdot \sum_{i=0}^{e-1} c^i d^{e-1-i} + cd \cdot \sum_{i=0}^{e-2} c^i d^{e-2-i}  $$
+which is always equal to zero.
+\end{proof}
+
+
+
+Question: can we say anything general about the box product of $A/B$ with itself, or repeated such products?
+
+Add remark about other binary operations, such as LCM convolution and k-twisted product
+
+
+
+\subsection{Symbolic formulas for Adams operations}
+
+We introduce (or have introduced?) the two operations
+$$ \roots{k}(A/B)   \ \ \text{and} \ \ \powers{k}(A/B)$$
+
+The first means replacing each element by all its $k$'th roots, which increases the size of both multisets by a factor $k$.
+
+The second means replacing each element by its $k$'th power, and then cancelling.
+
+\begin{example}
+Add elementary example illustrating these two operations.
+\end{example}
+
+\begin{theorem}
+Let $p$ be a prime and let $f$ be a rational multiplicative function. Let $\frac{A}{B}$ be the Tannakian symbol of $f$ at the prime $p$. 
+\begin{itemize}
+\item At the prime $p$, the function $\adam{k}(f)$ has the Tannakian symbol 
+$$\powers{k}(\frac{A}{B})$$
+
+\item At the prime $p$ the function $\boxadam{k}(f)$ has symbol 
+$$\frac{1}{k} \odot \powers{k}(\frac{A}{B} \boxtimes \frac{W_k}{\varnothing})$$
+(Recall that $W_k$ is the set of $k$'th roots of unity.) 
+\item At the prime $p$, the function $\hatadam{k}(f)$ has the Tannakian symbol
+$$\left(\frac{1}{k} \odot\frac{W_k}{\varnothing}\right) \otimes \roots{k}\left(\frac{1}{k} \odot \frac{A}{B}\right)
+$$
+(Recall that $W_k$ is the set of $k$'th roots of unity.) 
+\item At the prime $p$, the function $\hatboxadam{k}(f)$ has the Tannakian symbol 
+$$\roots{k}(\frac{A}{B})$$
+\end{itemize}
+\end{theorem}
+
+\begin{remark}
+Perhaps it is possible to find formulas for the Tannakian symbol of $\hatadam{k}(f)$ in some special cases where this function is rational. 
+\end{remark}
+
+
+
+Of the three Adams operations which do preserve the class of rational multiplicative functions, the case of $\boxadam{k}(f)$ (i.e. precomposition with a power function) is the only one whose formula is not explicit on the level of multiset elements. However, we can derive more explicit formulas when $f$ has small superdimension and/or when $k$ is not too large. We present only a few examples. The cases where $k=1$ or $f= \mathbf{0}$ are trivial. The main point of this (rather complicated) corollary is that whenever $f$ is such that at each prime, we have one of the following cases:
+\begin{itemize}
+\item A symbol of the form $A/ \varnothing$ where $A$ has at most 3 elements
+\item A totient
+\item A symbol of the form $\varnothing / B$ where $B$ has at most 5 elements
+\end{itemize}
+then there are explicit formulas for the Tannakian symbol of $\boxadam{k}(f)$ which can be found using no more advanced machinery than the quadratic formula.
+
+\begin{corollary}
+Let $f$ and $p$ be as in the previous theorem. Let $\frac{A}{B}$ be the Tannakian symbol of $f$ at $p$, and let $\frac{C}{D}$ be the Tannakian symbol of $\boxadam{k}(f)$ at $p$.
+\begin{itemize}
+\item The completely multiplicative case: If $A = \{a \}$ and $B = \varnothing$, then $C =  \{a^k \}$, $D = \varnothing$. 
+\item The specially multiplicative case: Assume that $A = \{ a_1, a_2 \}$ and $B = \varnothing$. If $k=2$, then $C = \{ a_1^2, a_2^2  \}$ and $D = \{ -a_1 a_2 \}$. If $k=3$, then $C = \{ a_1^3, a_2^3  \}$ and $D = \{ -(a_1^2 a_2 + a_1 a_2^2) \}$. If $k = 4$, then $C = \{ a_1^4, a_2^4  \}$ and $D = \{ -(a_1^3 a_2 + a_1^2 a_2^2 + a_1 a_2^3) \}$. The pattern continues in the obvious way. Note that the trace of $C/D$ must be $(x+y)^k$.
+\item The totient case. If $A = \{a \}$ and $B = \{b \}$, then $C =  \{a^k \}$, $D = \{   a^{k-1} b \}$. 
+
+\item The purely even-dimensional case. Assume that $A = \{ a_1, a_2, \ldots, a_n \}$ and $B = \varnothing$. For any positive integer $d$, let $E_d$ be the coefficient of $t^d$ in the product
+$$ \prod_{i=1}^n ( 1+a_i t + a_i^2 t^2 + \ldots a_i^{k-1} t^{k-1} )    $$
+Clearly $E_d$ is zero for $d > nk-n$. Set $m = \lfloor n- \frac{n}{k} \rfloor$. Now form the degree $m$ polynomial
+$$ \sum_{j = 0}^m E_{jk} t^j   $$
+and factor it as 
+$$ \prod_{i=1}^m (1-z_i t)  $$
+Then $C = \{ a_1^k, a_2^k, \ldots, a_n^k \}$ and $D = \{ z_1, z_2, \ldots z_m \}$.
+Note that in this case the problem is worse than quadratic only if $k \geq n / (n-3)$. In particular, whenever $A$ has at most 3 elements, we get at most quadratic calculations.
+
+\item Dirichlet inverse of a completely multiplicative function. Assume that $A = \varnothing$ and $B = \{ b \}$. Then for any $k \geq 2$, we have $C = D = \varnothing$.
+
+\item The purely odd-dimensional case. Assume that $A = \varnothing$ and $B = \{ b_1, b_2, \ldots, b_n \}$. For $i = 1, 2, \ldots n$, let $\sigma_i$ be the value of the degree $i$ elementary symmetric polynomial applied to the multiset $B$. Set $m = \lfloor n/k \rfloor$. Form the degree $m$ polynomial 
+$$ 1+ \sum_{j=1}^{m} (-1)^{jk} \sigma_{jk} t^j   $$ 
+Factor this polynomial as 
+$$ \prod_{i=1}^m (1-z_i t)  $$
+Then $C = \varnothing$ and $D = \{ z_1, z_2, \ldots z_m  \}$.
+Note: In this case, the problem is worse than quadratic if and only if the double inequality
+$$ 6 \leq 3k \leq n   $$
+holds. In particular, whenever $B$ has at most 5 elements, we get at most quadratic calculations. \todo{I don't understand...}
+\end{itemize}
+\end{corollary}
+\begin{remark}
+It might be possible to make a more detailed analysis of some other cases, for example the case of super-dimension $(1, 2)$ or $(2, 1)$ . It might also be possible to prove more general results when the superdimension is large but the elements have some special property, see for example the Ramanujan sum. However, for most practical purposes, the formulas we have are more than powerful enough.
+\end{remark}
+
+
+\begin{proof}
+For the purely even-dimensional case: (1) Show that the recursion in the Bell series of $\frac{A}{B} \boxtimes \frac{W_k}{\varnothing}$ is given by the reverse characteristic polynomial $\prod (1-x_i^k t^k)$. (2) Show that the numerator of the Bell series is given by the big product above where each factor ends with $\ldots x_i^{k-1} t^{k-1}$. (3) 
+\end{proof}
+
+
+
+\subsection{Symbolic formulas for the Bell derivative}
+
+\begin{theorem}
+Find symbolic formulas for the derivative AND the antiderivative. Could these formulas subsume various other formulas, or are they more of a complement???
+
+NOTE: Finding formulas for the derivative is equivalent to finding formulas for repeated box sum of line elements and antiline elements. Formulate corollaries of formulas for box sum.
+ 
+Almost certainly, there are no general formulas here (wouldn't they lead to simple formulas for box product in all cases? But it is easy (just calculus) to write down an expression for the local zeta function, using just the quotient rule and the rule for taking derivative of a log. In this expression the denominator becomes the product of the original numerator and the original denominator. In other words, the elements upstairs in the new symbol are given by the union of the old upstairs and downstairs. The elements downstairs are in general complicated. See the Euler function for an example.
+
+I think the best we can do here is to give the general expression for the local zeta function, and then write down the general formula for the derivative of a totient, a specially multiplicative function and possible some more cases of small superdimension.
+
+Conclusion: All this is easy to work out, just do it and write it here.
+\end{theorem}
+
+Note that from the formula for the shifted log derivative, it looks like starting from a Tannakian symbol $A/B$, we get (after applying the derivative) a new Tannakian symbol with the property that the upstairs part (from the zeta denominator) might be the union of the underlying \emph{sets} of $A$ and $B$, and the downstairs something complicated not related to $A$ and $B$ via any explicit formulas. 
+
+
+Hidden note here!
+%Note also that it might be possible to characterize the image. Iterasjon over alle faktorer er jo bare iterasjon over delmultimengder til et Tannakisk symbol! Så dette blir veldig eksplisitt, vi kan bare lage en liste over alt vi kan lage på ene siden, og sammenligne det med det vi får på andre siden. Se for øvrig "En ting som er veldig viktig" epost med bakgrunn og diskusjon.
+
+
+
+
+
+\subsection{Concluding remarks on Tannakian symbols?}
+
+Do we need this section? Recap what we have done?
+
+Things which may not be included: Explain both involutions on Tannakian symbols. What is the relation to multiplicative functions, and what is the relation to the four standard lambda-ring structures on rational Witt vectors.
+
+Have we systematically studied additive and multiplicative inverses in all four cases?
+
+Should we mention formulas for lambda operations etc? Yes, but later after introducing symmetric operations.
+
+
+\subsection{Some remaining open problems}
+
+The behaviour of super-dimension under various operations, and recognition problem for Bell derivative.
+
+What we have not done is a complete analysis of stability of classes of the form ``all functions of superdimension less than $(r, s)$''. This is closely related to the question of bounding the recursion degree and the total recursion degree of the results of various operations. Example: $Mult(\C)_{\leq (0, 1)}$ is stable under $\boxplus$.
+
+Many of the problems we have not yet solved fit into the following general problem: 
+
+Given a Tannakian symbol of superdimension $(m,n)$ and a unary operation, what superdimensions are possible for the new symbol. Here we include the action of a fixed complex number via $\boxdot$ or $\odot$.
+
+Given two Tannakian symbols of known superdimensions, etc. 
+
