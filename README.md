@@ -2,4 +2,4 @@
 Repository for development of article on multiplicative functions
 
 ## Copyright
-Copyright (C) 2018, Ane Espeseth, Andreas Holmstrøm, Torstein Vik.
+Copyright (C) 2018, Ane Espeseth, Andreas Holmstrom, Torstein Vik.
