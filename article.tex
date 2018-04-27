@@ -34,7 +34,13 @@
 \include{sections/15-moreexamples}
 \include{sections/16-WIP}
 
+% Remove this, use bibtex
 % references
 \include{references}
+
+% references
+\nocite{*} % This is needed so bibtex doesn't complain about no citations
+\bibliography{references}{}
+\bibliographystyle{amsplain} % or amsalpha
 
 \end{document}
