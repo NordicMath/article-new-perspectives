@@ -1,0 +1,75 @@
+
+\section{Lambda-rings}
+
+We review the notion of a lambda-ring (originally called \emph{special lambda-ring} by Grothendieck. We also define what it means for a lambda-ring to \emph{admit $\Phi$-operations}, a notion not previously considered in the literature. Finally, we give several key examples, most of them needed in later sections.
+
+
+\subsection{Review of definitions}
+
+Let $R$ be a unital commutative ring. We want to explain what is meant by a \emph{lambda-ring structure} on $R$. There are two ways of doing this. The first definition is valid for any $R$, but is rather complicated. The second definition, which is much simpler, is valid only when $R$ is torsion-free.
+
+Since all rings in this paper will be torsion-free, we give only the second definition here, and refer the reader to the book of Yau \cite{Yau} or the Encyclopedia of Mathematics for the more general one.
+
+\begin{definition}
+A ring is called \defhl{torsion-free} if for every positive integer $n$ and every element $x \in R$, the relation $nx=0$ implies $x=0$.
+\end{definition}
+
+\begin{definition}
+Let $R$ be a unital commutative ring. A \defhl{lambda-ring structure} on $R$ is a sequence $\Psi^1$, $\Psi^2$, $\Psi^3$, ... of ring homomorphisms from $R$ to $R$, satisfying the axioms:
+\begin{enumerate}
+\item
+\item
+\end{enumerate}
+
+\end{definition}
+
+\begin{definition}
+A \defhl{lambda-ring} is a commutative ring $R$ together with a lambda-ring structure on $R$.
+\end{definition}
+
+The operations $\Psi^k$ (for $k \in \mathbb{N}$) are called Adams operations. From the Adams operations, one may define other sequences of operations, namely:
+\begin{itemize}
+\item Lambda-operations: $\Lambda^1$, $\Lambda^2$, $\Lambda^3$, \ldots
+\item Symmetric power operations: $Sym^1$, $Sym^2$, $Sym^3$, \ldots
+\item Gamma operations: $\Gamma^1$, $\Gamma^2$, $\Gamma^3$, \ldots
+\end{itemize}
+Each of these is a function from $R$ to $R$ \emph{but} unlike the Adams operations, they are not ring homomorphisms except in degenerate cases. The definitions are omitted for now, but can be found in the references given above.
+
+\begin{definition}
+Let $R$ be a lambda-ring with Adams operations $\Psi^k$. A \defhl{family of $\Phi$-operations} on $R$ is a sequence $\Phi^k$ ($k = 1, 2, 3, \ldots$) of functions from $R$ to $R$, satisfying these axioms:
+\begin{enumerate}
+\item $\Phi^k$ is a section of $\Psi^k$, i.e. $\Psi^k(\Phi^k(x)) = x$ for all $x \in R$.
+\item $\Phi^k$ is a not-necessarily-unital ring homomorphism, i.e. for all $x, y \in R$, we have
+$$ \Phi^k(x+y) = \Phi^k(x) + \Phi^k(y) \quad \textrm{and} \quad \Phi^k(x\cdot y) = \Phi^k(x)\cdot \Phi^k(y) $$
+\item For all $k$ and $m$, we have $\Phi^k \circ \Phi^m = \Phi^{km}$
+\end{enumerate}
+If such a family exists, we say that the lambda-ring $R$ \defhl{admits $\Phi$-operations}.
+\end{definition}
+
+
+\subsection{Examples of lambda-rings}
+
+
+
+
+\begin{example}
+Let $G$ be a finite group, and let $R(G)$ be the complex representation ring of $G$.
+
+Take a specific example of a group and explain character table and power maps. Relate this to Bell tables.
+\end{example}
+
+\begin{example}
+Topological K-theory.
+\end{example}
+
+\begin{example}
+Algebraic K-theory and motivic cohomology.
+\end{example}
+
+\begin{example}
+Grothendieck ring of a symmetric monoidal abelian category (in particular a Tannakian category).
+\end{example}
+
+\begin{example}
+I think there are more examples in Yau and/or elsewhere. Witt vectors? Polynomial rings? Symmetric operations?
+\end{example}
